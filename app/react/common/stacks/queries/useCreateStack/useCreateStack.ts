@@ -28,7 +28,7 @@ import { createKubernetesStackFromFileContent } from './createKubernetesStackFro
 export function useCreateStack() {
   const queryClient = useQueryClient();
   return useMutation(createStack, {
-    ...withGlobalError('Failed to create stack'),
+    ...withGlobalError('创建堆栈失败'),
     ...withInvalidate(queryClient, [queryKeys.base()]),
   });
 }
@@ -152,7 +152,7 @@ async function createStack(payload: CreateStackPayload) {
     // Portainer will always return a resource control, but since types mark it as optional, we need to check it.
     // Ignoring the missing value will result with bugs, hence it's better to throw an error
     if (!resourceControl) {
-      throw new PortainerError('resource control expected after creation');
+      throw new PortainerError('创建后未获取到资源权限配置');
     }
 
     await applyResourceControl(
@@ -171,7 +171,7 @@ function createActualStack(payload: CreateStackPayload) {
     case 'kubernetes':
       return createKubernetesStack(payload);
     default:
-      throw new Error('Invalid type');
+      throw new Error('无效的类型');
   }
 }
 
@@ -223,7 +223,7 @@ function createSwarmStack({ method, payload }: SwarmCreatePayload) {
         registries: payload.registries,
       });
     default:
-      throw new Error('Invalid method');
+      throw new Error('无效的方法');
   }
 }
 
@@ -272,7 +272,7 @@ function createStandaloneStack({ method, payload }: StandaloneCreatePayload) {
         registries: payload.registries,
       });
     default:
-      throw new Error('Invalid method');
+      throw new Error('无效的方法');
   }
 }
 
@@ -318,6 +318,6 @@ function createKubernetesStack({ method, payload }: KubernetesCreatePayload) {
         namespace: payload.namespace,
       });
     default:
-      throw new Error('Invalid method');
+      throw new Error('无效的方法');
   }
 }

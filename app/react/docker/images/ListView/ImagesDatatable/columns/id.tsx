@@ -56,7 +56,7 @@ function FilterByUsage<TData extends { Used: boolean }>({
       filterKey={id}
       value={valueAsArray}
       onChange={setFilterValue}
-      menuTitle="Filter by usage"
+      menuTitle="按使用情况筛选"
     />
   );
 }

@@ -17,7 +17,7 @@ import { columnHelper } from './helper';
 
 export const name = columnHelper.accessor('Name', {
   id: 'name',
-  header: 'Name',
+  header: '名称',
   cell: Cell,
   enableColumnFilter: true,
   filterFn: (
@@ -49,7 +49,7 @@ function FilterByUsage<TData extends { Used: boolean }>({
 }: {
   column: Column<TData>;
 }) {
-  const options = ['Used', 'Unused'];
+  const options = ['已使用', '未使用'];
 
   const value = getFilterValue();
 
@@ -61,7 +61,7 @@ function FilterByUsage<TData extends { Used: boolean }>({
       filterKey={id}
       value={valueAsArray}
       onChange={setFilterValue}
-      menuTitle="Filter by usage"
+      menuTitle="按使用情况筛选"
     />
   );
 }
@@ -106,7 +106,7 @@ function Cell({
             }}
             data-cy={`volume-browse-button-${name}`}
           >
-            Browse
+            浏览
           </Button>
         </Authorized>
       )}

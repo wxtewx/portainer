@@ -20,9 +20,7 @@ export function CreateImageForm({
       <div className="form-group">
         <div className="col-sm-12">
           <span className="small text-muted">
-            You can create an image from this container, this allows you to
-            backup important data or save helpful configurations. You&apos;ll be
-            able to spin up another container based on this image afterward.
+            你可以通过此容器创建镜像，用于备份重要数据或保存常用配置。之后你可以基于该镜像启动另一个容器。
           </span>
         </div>
       </div>
@@ -41,8 +39,8 @@ export function CreateImageForm({
       <div className="form-group">
         <div className="col-sm-12">
           <span className="small text-muted">
-            Note: if you don&apos;t specify the tag in the image name,{' '}
-            <span className="label label-default">latest</span> will be used.
+            注意：若未在镜像名称中指定标签，将默认使用{' '}
+            <span className="label label-default">latest</span> 标签。
           </span>
         </div>
       </div>
@@ -50,10 +48,10 @@ export function CreateImageForm({
       <LoadingButton
         isLoading={isLoading}
         disabled={!isValid}
-        loadingText="Creating image..."
+        loadingText="正在创建镜像..."
         data-cy="create-image-button"
       >
-        Create
+        创建
       </LoadingButton>
     </Form>
   );

@@ -28,7 +28,7 @@ export function TagSelector() {
   async function handleCreate(newTag: string) {
     const tag = await createMutation.mutateAsync(newTag);
 
-    notifySuccess('Tag created', `Tag ${tag.Name} created`);
+    notifySuccess('标签创建成功', `标签 ${tag.Name} 已创建`);
 
     return tag.ID;
   }

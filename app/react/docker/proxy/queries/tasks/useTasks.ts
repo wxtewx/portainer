@@ -54,6 +54,6 @@ export async function getTasks(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve tasks');
+    throw parseAxiosError(err, '无法获取任务列表');
   }
 }

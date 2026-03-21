@@ -26,7 +26,7 @@ export function useDeleteStackByNameMutation() {
       // Invalidate all stacks queries
       queryClient.invalidateQueries(queryKeys.base());
     },
-    ...withGlobalError('Unable to delete stack'),
+    ...withGlobalError('删除堆栈失败'),
   });
 }
 
@@ -45,6 +45,6 @@ async function deleteStackByName({
       },
     });
   } catch (error) {
-    throw parseAxiosError(error, 'Unable to delete stack');
+    throw parseAxiosError(error, '删除堆栈失败');
   }
 }

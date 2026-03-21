@@ -17,17 +17,17 @@ angular.module('portainer.docker').controller('ConfigController', [
     };
 
     $scope.removeConfig = async function removeConfig(configId) {
-      if (!(await confirmDelete('Are you sure you want to delete this config?'))) {
+      if (!(await confirmDelete('您确定要删除此配置项吗？'))) {
         return;
       }
 
       ConfigService.remove({ environmentId: endpoint.Id, configId })
         .then(function success() {
-          Notifications.success('Success', 'Configuration successfully removed');
+          Notifications.success('成功', '配置项删除成功');
           $state.go('docker.configs', {});
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove config');
+          Notifications.error('失败', err, '无法删除配置项');
         });
     };
 
@@ -37,7 +37,7 @@ angular.module('portainer.docker').controller('ConfigController', [
           $scope.config = data;
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to retrieve config details');
+          Notifications.error('失败', err, '无法获取配置项详情');
         });
     }
 

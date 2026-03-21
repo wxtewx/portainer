@@ -53,7 +53,7 @@ export async function exportImage({
       .trim();
     saveAs(data, filename);
   } catch (err) {
-    throw parseAxiosError(err as Error, 'Unable to export image');
+    throw parseAxiosError(err as Error, '无法导出镜像');
   }
 }
 

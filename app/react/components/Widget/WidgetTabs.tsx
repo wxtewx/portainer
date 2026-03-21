@@ -23,14 +23,14 @@ export function WidgetTabs({
   currentTabIndex,
   tabs,
   useContainer = true,
-  ariaLabel = 'Section navigation',
+  ariaLabel = '区域导航',
 }: Props) {
   // ensure that the selectedTab param is always valid
   const invalidQueryParamValue = tabs.some(
     (tab) => encodeURIComponent(tab.selectedTabParam) !== tab.selectedTabParam
   );
   if (invalidQueryParamValue) {
-    throw new Error('Invalid query param value for tab');
+    throw new Error('标签参数值无效');
   }
 
   const tabsComponent = (

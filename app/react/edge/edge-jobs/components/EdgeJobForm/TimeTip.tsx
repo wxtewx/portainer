@@ -3,7 +3,7 @@ import { TextTip } from '@@/Tip/TextTip';
 export function TimeTip() {
   return (
     <TextTip color="blue">
-      Time should be set according to the chosen environments&apos; timezone.
+      时间应根据所选环境的时区进行设置。
     </TextTip>
   );
 }

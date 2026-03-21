@@ -42,19 +42,19 @@ function basicItems() {
       <MenuButtonLink data-cy="test" key="create" to="create">
         <div className="flex items-center gap-2">
           <Plus />
-          Create new
+          新建
         </div>
       </MenuButtonLink>
       <MenuButtonLink data-cy="test" key="edit" to="edit">
         <div className="flex items-center gap-2">
           <Edit />
-          Edit existing
+          编辑
         </div>
       </MenuButtonLink>
       <MenuButtonLink data-cy="test" key="download" to="download">
         <div className="flex items-center gap-2">
           <Download />
-          Download
+          下载
         </div>
       </MenuButtonLink>
     </>,
@@ -66,7 +66,7 @@ type Story = StoryObj<PropsWithChildren<MenuButtonProps>>;
 export const Primary: Story = {
   args: {
     items: basicItems(),
-    children: 'Actions',
+    children: '操作',
     color: 'primary',
     size: 'small',
   },
@@ -75,7 +75,7 @@ export const Primary: Story = {
 export const WithIcon: Story = {
   args: {
     items: basicItems(),
-    children: 'Settings',
+    children: '设置',
     color: 'primary',
     icon: Settings,
     'data-cy': 'menu-button-with-icon',
@@ -85,7 +85,7 @@ export const WithIcon: Story = {
 export const Large: Story = {
   args: {
     items: basicItems(),
-    children: 'Large Menu Button',
+    children: '大菜单按钮',
     color: 'primary',
     size: 'large',
     icon: Settings,
@@ -96,7 +96,7 @@ export const Large: Story = {
 export const Small: Story = {
   args: {
     items: basicItems(),
-    children: 'Small',
+    children: '小',
     color: 'primary',
     size: 'small',
     'data-cy': 'menu-button-small',
@@ -106,7 +106,7 @@ export const Small: Story = {
 export const XSmall: Story = {
   args: {
     items: basicItems(),
-    children: 'XS',
+    children: '极小',
     color: 'primary',
     size: 'xsmall',
     'data-cy': 'menu-button-xsmall',
@@ -116,7 +116,7 @@ export const XSmall: Story = {
 export const DropdownRight: Story = {
   args: {
     items: basicItems(),
-    children: 'Right Aligned',
+    children: '右对齐',
     color: 'primary',
     dropdownPosition: 'right',
     'data-cy': 'menu-button-right',
@@ -133,7 +133,7 @@ export const DropdownRight: Story = {
 export const Disabled: Story = {
   args: {
     items: basicItems(),
-    children: 'Disabled Menu',
+    children: '禁用菜单',
     color: 'primary',
     disabled: true,
     'data-cy': 'menu-button-disabled',
@@ -152,11 +152,11 @@ export const WithLinks: Story = {
       >
         <div className="flex items-center gap-2">
           <Download />
-          External link
+          外部链接
         </div>
       </MenuButtonLink>,
     ],
-    children: 'Mixed Actions',
+    children: '混合操作',
     color: 'primary',
     'data-cy': 'menu-button-links',
   },
@@ -165,7 +165,7 @@ export const WithLinks: Story = {
 export const CustomStyling: Story = {
   args: {
     items: basicItems(),
-    children: 'Custom Styled',
+    children: '自定义样式',
     color: 'primary',
     className: 'border-2 border-blue-5',
     menuClassName: 'border-2 border-green-5',

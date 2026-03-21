@@ -12,6 +12,6 @@ export async function removeSecret(
   try {
     await axios.delete(buildDockerProxyUrl(environmentId, 'secrets', id));
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to remove secret');
+    throw parseAxiosError(err, '无法删除密钥');
   }
 }

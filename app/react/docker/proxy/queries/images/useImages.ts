@@ -36,6 +36,6 @@ export async function getImages(environmentId: EnvironmentId) {
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve images');
+    throw parseAxiosError(err, '无法获取镜像列表');
   }
 }

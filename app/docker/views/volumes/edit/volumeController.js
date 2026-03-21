@@ -21,15 +21,15 @@ angular.module('portainer.docker').controller('VolumeController', [
     };
 
     $scope.removeVolume = function removeVolume() {
-      confirmDelete('Do you want to remove this volume?').then((confirmed) => {
+      confirmDelete('您确定要删除此存储卷吗？').then((confirmed) => {
         if (confirmed) {
           VolumeService.remove($scope.volume.Id)
             .then(function success() {
-              Notifications.success('Volume successfully removed', $transition$.params().id);
+              Notifications.success('存储卷已成功删除', $transition$.params().id);
               $state.go('docker.volumes', {});
             })
             .catch(function error(err) {
-              Notifications.error('Failure', err, 'Unable to remove volume');
+              Notifications.error('失败', err, '无法删除存储卷');
             });
         }
       });
@@ -65,7 +65,7 @@ angular.module('portainer.docker').controller('VolumeController', [
           $scope.containersUsingVolume = containers;
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to retrieve volume details');
+          Notifications.error('失败', err, '无法获取存储卷详情');
         });
     }
 

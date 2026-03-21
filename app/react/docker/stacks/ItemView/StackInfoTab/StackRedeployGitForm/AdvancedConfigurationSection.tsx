@@ -65,7 +65,7 @@ export function AdvancedConfigurationSection({ stack }: Props) {
               icon={isAdvancedMode ? MinusIcon : PlusIcon}
               className="mr-1"
             />
-            {isAdvancedMode ? 'Hide' : 'Advanced'} configuration
+            {isAdvancedMode ? '隐藏' : '高级'} 配置
           </Button>
         </div>
       </div>

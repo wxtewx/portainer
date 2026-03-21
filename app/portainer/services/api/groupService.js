@@ -16,7 +16,7 @@ angular.module('portainer.app').factory('GroupService', [
           deferred.resolve(group);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve group', err: err });
+          deferred.reject({ msg: '无法获取分组', err: err });
         });
 
       return deferred.promise;

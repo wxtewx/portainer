@@ -52,7 +52,7 @@ async function getContainerImagesStatus(
   } catch (e) {
     return {
       Status: 'unknown',
-      Message: `Unable to retrieve image status for container: ${containerID}`,
+      Message: `无法获取容器镜像状态： ${containerID}`,
     };
   }
 }
@@ -69,7 +69,7 @@ async function getServiceImagesStatus(
   } catch (e) {
     return {
       Status: 'unknown',
-      Message: `Unable to retrieve image status for service: ${serviceID}`,
+      Message: `无法获取服务镜像状态： ${serviceID}`,
     };
   }
 }

@@ -42,7 +42,7 @@ export function InnerForm({
 
   return (
     <Form className="form-horizontal my-8">
-      <FormSection title="Redeploy from git repository">
+      <FormSection title="从 Git 仓库重新部署">
         <InfoPanel
           className="text-muted small"
           url={gitConfig.URL}

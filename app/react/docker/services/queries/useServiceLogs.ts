@@ -28,6 +28,6 @@ export async function getServiceLogs(
 
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to get service logs');
+    throw parseAxiosError(e, '无法获取服务日志');
   }
 }

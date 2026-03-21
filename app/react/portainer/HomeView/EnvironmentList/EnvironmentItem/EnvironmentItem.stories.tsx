@@ -11,7 +11,7 @@ import { EnvironmentItem } from './EnvironmentItem';
 
 export default {
   component: EnvironmentItem,
-  title: 'Home/EnvironmentList/EnvironmentItem',
+  title: '首页/环境列表/环境项',
 };
 
 interface Args {

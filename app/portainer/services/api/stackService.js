@@ -28,7 +28,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(stack);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve stack details', err: err });
+          deferred.reject({ msg: '无法获取堆栈详情', err: err });
         });
 
       return deferred.promise;
@@ -42,7 +42,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(data.StackFileContent);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve stack content', err: err });
+          deferred.reject({ msg: '无法获取堆栈内容', err: err });
         });
 
       return deferred.promise;
@@ -71,7 +71,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(stacks);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve stacks', err: err });
+          deferred.reject({ msg: '无法获取堆栈', err: err });
         });
 
       return deferred.promise;
@@ -85,7 +85,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(StackHelper.getExternalStacksFromServices(services));
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve external stacks', err: err });
+          deferred.reject({ msg: '无法获取外部堆栈', err: err });
         });
 
       return deferred.promise;
@@ -99,7 +99,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(StackHelper.getExternalStacksFromContainers(containers));
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve external stacks', err: err });
+          deferred.reject({ msg: '无法获取外部堆栈', err: err });
         });
 
       return deferred.promise;
@@ -137,7 +137,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(result);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve stacks', err: err });
+          deferred.reject({ msg: '无法获取堆栈', err: err });
         });
 
       return deferred.promise;
@@ -166,7 +166,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(result);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve stacks', err: err });
+          deferred.reject({ msg: '无法获取堆栈', err: err });
         });
 
       return deferred.promise;
@@ -180,7 +180,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve();
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to remove the stack', err: err });
+          deferred.reject({ msg: '无法删除堆栈', err: err });
         });
 
       return deferred.promise;
@@ -193,7 +193,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve();
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to remove the stack', err: err });
+          deferred.reject({ msg: '无法删除堆栈', err: err });
         });
 
       return deferred.promise;
@@ -212,7 +212,7 @@ angular.module('portainer.app').factory('StackService', [
             deferred.resolve(data);
           })
           .catch(function error(err) {
-            deferred.reject({ msg: 'Unable to associate the stack', err: err });
+            deferred.reject({ msg: '无法关联堆栈', err: err });
           });
       } else {
         Stack.associate({ id: stack.Id, endpointId: endpointId, orphanedRunning })
@@ -220,7 +220,7 @@ angular.module('portainer.app').factory('StackService', [
             deferred.resolve(data);
           })
           .catch(function error(err) {
-            deferred.reject({ msg: 'Unable to associate the stack', err: err });
+            deferred.reject({ msg: '无法关联堆栈', err: err });
           });
       }
 
@@ -278,7 +278,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(data.data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create the stack', err: err });
+          deferred.reject({ msg: '无法创建堆栈', err: err });
         });
 
       return deferred.promise;
@@ -309,7 +309,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create the stack', err: err });
+          deferred.reject({ msg: '无法创建堆栈', err: err });
         });
 
       return deferred.promise;
@@ -368,7 +368,7 @@ angular.module('portainer.app').factory('StackService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create the stack', err: err });
+          deferred.reject({ msg: '无法创建堆栈', err: err });
         });
 
       return deferred.promise;

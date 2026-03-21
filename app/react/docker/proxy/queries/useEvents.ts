@@ -36,6 +36,6 @@ export async function getEvents(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve engine events');
+    throw parseAxiosError(err, '无法获取引擎事件');
   }
 }

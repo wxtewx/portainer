@@ -27,12 +27,12 @@ export const commandsTabs: Record<string, CommandTab> = {
   },
   swarmLinux: {
     id: 'swarm',
-    label: 'Docker Swarm',
+    label: 'Docker 集群',
     command: buildLinuxSwarmCommand,
   },
   standaloneLinux: {
     id: 'standalone',
-    label: 'Docker Standalone',
+    label: 'Docker 独立模式',
     command: buildLinuxStandaloneCommand,
   },
   podmanLinux: {
@@ -42,12 +42,12 @@ export const commandsTabs: Record<string, CommandTab> = {
   },
   swarmWindows: {
     id: 'swarm',
-    label: 'Docker Swarm',
+    label: 'Docker 集群',
     command: buildWindowsSwarmCommand,
   },
   standaloneWindow: {
     id: 'standalone',
-    label: 'Docker Standalone',
+    label: 'Docker 独立模式',
     command: buildWindowsStandaloneCommand,
   },
 } as const;

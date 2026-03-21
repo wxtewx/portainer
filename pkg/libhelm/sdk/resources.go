@@ -255,7 +255,7 @@ func flattenResources(resourceTypesLists map[string][]runtime.Object) []runtime.
 
 	for _, resourceTypeList := range resourceTypesLists {
 		for _, resourceItem := range resourceTypeList {
-			// if the resource item is a list, we need to flatten it too e.g. PodList
+			// if the resource item is a list, we need to flatten it too 例如： PodList
 			items := extractItemsIfList(resourceItem)
 			if items != nil {
 				flattenedResources = append(flattenedResources, items...)

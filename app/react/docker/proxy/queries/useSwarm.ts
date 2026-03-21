@@ -29,7 +29,7 @@ export async function getSwarm(environmentId: EnvironmentId) {
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve swarm information');
+    throw parseAxiosError(err, '无法获取集群信息');
   }
 }
 

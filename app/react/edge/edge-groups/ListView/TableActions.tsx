@@ -17,13 +17,13 @@ export function TableActions({
   return (
     <div className="flex items-center gap-2">
       <DeleteButton
-        confirmMessage="Do you want to remove the selected Edge Group(s)?"
+        confirmMessage="您是否要删除选中的边缘组？"
         disabled={selectedItems.length === 0}
         onConfirmed={() => handleRemove(selectedItems)}
         data-cy="remove-edge-group-button"
       />
 
-      <AddButton data-cy="add-edge-group-button">Add Edge group</AddButton>
+      <AddButton data-cy="add-edge-group-button">添加边缘组</AddButton>
     </div>
   );
 
@@ -31,7 +31,7 @@ export function TableActions({
     const ids = selectedItems.map((item) => item.Id);
     removeMutation.mutate(ids, {
       onSuccess: () => {
-        notifySuccess('Success', 'Edge Group(s) removed');
+        notifySuccess('成功', '边缘组已删除');
       },
     });
   }

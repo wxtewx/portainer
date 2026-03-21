@@ -30,7 +30,7 @@ export function useContainerGroup(
         containerGroupName
       ),
     {
-      ...withError('Unable to retrieve Azure container group'),
+      ...withError('无法获取 Azure 容器组'),
     }
   );
 }

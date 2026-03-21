@@ -114,7 +114,7 @@ angular.module('portainer.docker').controller('ContainerStatsController', [
         })
         .catch(function error(err) {
           stopRepeater();
-          Notifications.error('Failure', err, 'Unable to retrieve container statistics');
+          Notifications.error('失败', err, '无法获取容器监控统计数据');
         });
     }
 
@@ -133,7 +133,7 @@ angular.module('portainer.docker').controller('ContainerStatsController', [
           })
           .catch(function error(err) {
             stopRepeater();
-            Notifications.error('Failure', err, 'Unable to retrieve container statistics');
+            Notifications.error('失败', err, '无法获取容器监控统计数据');
           });
       }, refreshRate * 1000);
     }
@@ -165,7 +165,7 @@ angular.module('portainer.docker').controller('ContainerStatsController', [
           $scope.container = data;
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to retrieve container information');
+          Notifications.error('失败', err, '无法获取容器信息');
         });
 
       $document.ready(function () {

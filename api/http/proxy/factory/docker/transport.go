@@ -640,7 +640,7 @@ func getDockerResourceUUID(client *dockerclient.Client, resourceType portainer.R
 
 	case portainer.VolumeResourceControl:
 		// volumes don't have an UUID and their UACresourceID has a particular construct that makes them unique
-		// e.g. fmt.Sprintf("%s_%s", volumeName, dockerID)
+		// 例如： fmt.Sprintf("%s_%s", volumeName, dockerID)
 		// see transport.getVolumeResourceID() / FetchDockerID()
 		// FetchDockerID fetches info.Swarm.Cluster.ID if environment(endpoint) is swarm and info.ID otherwise
 		// So: return empty ID but without error

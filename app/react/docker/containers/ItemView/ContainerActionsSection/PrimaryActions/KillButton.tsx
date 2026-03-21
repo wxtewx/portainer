@@ -33,7 +33,7 @@ export function KillButton({
       { environmentId, containerId, nodeName },
       {
         onSuccess() {
-          notifySuccess('Success', 'Container successfully killed');
+          notifySuccess('成功', '容器终止成功');
           onSuccess();
         },
       }
@@ -48,11 +48,11 @@ export function KillButton({
         onClick={handleKill}
         disabled={!isRunning || isPortainer}
         isLoading={killMutation.isLoading}
-        loadingText="Killing..."
+        loadingText="正在终止..."
         data-cy="kill-container-button"
         icon={Bomb}
       >
-        Kill
+        终止
       </LoadingButton>
     </Authorized>
   );

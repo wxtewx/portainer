@@ -25,6 +25,6 @@ async function startStack({
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to start stack');
+    throw parseAxiosError(e, '无法启动堆栈');
   }
 }

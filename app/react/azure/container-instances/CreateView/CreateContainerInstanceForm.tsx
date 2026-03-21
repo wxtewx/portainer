@@ -65,10 +65,10 @@ export function CreateContainerInstanceForm({
   async function onSubmit(values: ContainerInstanceFormValues) {
     try {
       await mutateAsync(values);
-      notifications.success('Container successfully created', values.name);
+      notifications.success('容器创建成功', values.name);
       router.stateService.go('azure.containerinstances');
     } catch (e) {
-      notifications.error('Failure', e as Error, 'Unable to create container');
+      notifications.error('失败', e as Error, '无法创建容器');
     }
   }
 }

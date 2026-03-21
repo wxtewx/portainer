@@ -13,7 +13,7 @@ export async function getInfo(environmentId: EnvironmentId) {
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve system info');
+    throw parseAxiosError(err, '无法获取系统信息');
   }
 }
 

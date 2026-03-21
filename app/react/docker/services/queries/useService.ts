@@ -14,7 +14,7 @@ export function useService(environmentId: EnvironmentId, serviceId: ServiceId) {
     () => getService(environmentId, serviceId),
     {
       enabled: !!serviceId,
-      ...withGlobalError('Unable to retrieve service'),
+      ...withGlobalError('无法获取服务'),
     }
   );
 }
@@ -30,6 +30,6 @@ export async function getService(
 
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to get service');
+    throw parseAxiosError(e, '无法获取服务');
   }
 }

@@ -27,7 +27,7 @@ The Portainer team takes the security of our products seriously. If you believe 
 
     - A description of the vulnerability and its potential impact.
 
-    - Step-by-step instructions to reproduce the issue (e.g. proof-of-concept code, scripts, or screenshots).
+    - Step-by-step instructions to reproduce the issue (例如： proof-of-concept code, scripts, or screenshots).
 
     - The version of the software and the environment in which it was found.
 

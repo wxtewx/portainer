@@ -25,7 +25,7 @@ export function useConnectContainerMutation(environmentId: EnvironmentId) {
     (params: Omit<ConnectContainer, 'environmentId'>) =>
       connectContainer({ ...params, environmentId }),
     mutationOptions(
-      withGlobalError('Failed connecting container to network'),
+      withGlobalError('容器连接到网络失败'),
       withInvalidate(queryClient, [containerQueryKeys.list(environmentId)])
     )
   );
@@ -65,6 +65,6 @@ export async function connectContainer({
       { headers: { ...withAgentTargetHeader(nodeName) } }
     );
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to connect container');
+    throw parseAxiosError(err, '无法连接容器');
   }
 }

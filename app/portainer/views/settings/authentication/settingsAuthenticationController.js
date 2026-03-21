@@ -2,9 +2,9 @@ import angular from 'angular';
 import _ from 'lodash-es';
 
 import { buildLdapSettingsModel, buildAdSettingsModel } from '@/portainer/settings/authentication/ldap/ldap-settings.model';
-import { options } from '@/react/portainer/settings/AuthenticationView/InternalAuth/options';
 import { SERVER_TYPES } from '@/react/portainer/settings/AuthenticationView/ldap-options';
 import { AuthenticationMethod } from '@/react/portainer/settings/types';
+import { getDefaultValue as getDefaultSessionValue } from '@/react/portainer/settings/AuthenticationView/SessionLifetimeSelect';
 
 angular.module('portainer.app').controller('SettingsAuthenticationController', SettingsAuthenticationController);
 
@@ -14,36 +14,10 @@ function SettingsAuthenticationController($q, $scope, $state, Notifications, Set
   $scope.state = {
     uploadInProgress: false,
     actionInProgress: false,
-    availableUserSessionTimeoutOptions: [
-      {
-        key: '30 minutes',
-        value: '30m',
-      },
-      {
-        key: '1 hour',
-        value: '1h',
-      },
-      {
-        key: '4 hours',
-        value: '4h',
-      },
-      {
-        key: '8 hours',
-        value: '8h',
-      },
-      {
-        key: '24 hours',
-        value: '24h',
-      },
-      { key: '1 week', value: `${24 * 7}h` },
-      { key: '1 month', value: `${24 * 30}h` },
-      { key: '6 months', value: `${24 * 30 * 6}h` },
-      { key: '1 year', value: `${24 * 30 * 12}h` },
-    ],
   };
 
   $scope.formValues = {
-    UserSessionTimeout: $scope.state.availableUserSessionTimeoutOptions[0],
+    UserSessionTimeout: getDefaultSessionValue(),
     TLSCACert: '',
     ldap: {
       serverType: 0,
@@ -52,29 +26,34 @@ function SettingsAuthenticationController($q, $scope, $state, Notifications, Set
     },
   };
 
-  $scope.authOptions = options;
-
   $scope.onChangeAuthMethod = function onChangeAuthMethod(value) {
-    $scope.authMethod = value;
+    $scope.$evalAsync(() => {
+      $scope.authMethod = value;
 
-    if (value === 4) {
-      $scope.settings.AuthenticationMethod = AuthenticationMethod.LDAP;
-      $scope.formValues.ldap.serverType = SERVER_TYPES.AD;
-      return;
-    }
+      if (value === 4) {
+        $scope.settings.AuthenticationMethod = AuthenticationMethod.LDAP;
+        $scope.formValues.ldap.serverType = SERVER_TYPES.AD;
+        return;
+      }
 
-    if (value === 2) {
-      $scope.settings.AuthenticationMethod = AuthenticationMethod.LDAP;
-      $scope.formValues.ldap.serverType = $scope.formValues.ldap.ldapSettings.ServerType;
-      return;
-    }
-
-    $scope.settings.AuthenticationMethod = value;
+      if (value === 2) {
+        $scope.settings.AuthenticationMethod = AuthenticationMethod.LDAP;
+        $scope.formValues.ldap.serverType = $scope.formValues.ldap.ldapSettings.ServerType;
+        return;
+      }
+      $scope.settings.AuthenticationMethod = value;
+    });
   };
 
   $scope.onChangePasswordLength = function onChangePasswordLength(value) {
     $scope.$evalAsync(() => {
       $scope.settings.InternalAuthSettings = { RequiredPasswordLength: value };
+    });
+  };
+
+  $scope.onChangeSessionLifetime = function onChangeSessionLifetime(value) {
+    $scope.$evalAsync(() => {
+      $scope.settings.UserSessionTimeout = value;
     });
   };
 
@@ -115,12 +94,12 @@ function SettingsAuthenticationController($q, $scope, $state, Notifications, Set
       .then(function success() {
         $scope.state.failedConnectivityCheck = false;
         $scope.state.successfulConnectivityCheck = true;
-        Notifications.success('Success', 'Connection to LDAP successful');
+        Notifications.success('成功', 'LDAP 连接成功');
       })
       .catch(function error(err) {
         $scope.state.failedConnectivityCheck = true;
         $scope.state.successfulConnectivityCheck = false;
-        Notifications.error('Failure', err, 'Connection to LDAP failed');
+        Notifications.error('失败', err, '连接到 LDAP 失败');
       })
       .finally(function final() {
         $scope.state.uploadInProgress = false;
@@ -142,10 +121,10 @@ function SettingsAuthenticationController($q, $scope, $state, Notifications, Set
         return SettingsService.update(settings);
       })
       .then(function success() {
-        Notifications.success('Success', 'Authentication settings updated');
+        Notifications.success('成功', '认证设置已更新');
       })
       .catch(function error(err) {
-        Notifications.error('Failure', err, 'Unable to update authentication settings');
+        Notifications.error('失败', err, '无法更新认证设置');
       })
       .finally(function final() {
         $scope.state.uploadInProgress = false;
@@ -266,7 +245,7 @@ function SettingsAuthenticationController($q, $scope, $state, Notifications, Set
         $scope.state.initialServerType = settings.LDAPSettings.ServerType;
       })
       .catch(function error(err) {
-        Notifications.error('Failure', err, 'Unable to retrieve application settings');
+        Notifications.error('失败', err, '无法获取应用设置');
       });
   }
 

@@ -20,7 +20,7 @@ angular.module('portainer.edge').factory('EdgeStackService', function EdgeStackS
       const { StackFileContent } = await EdgeStacks.file({ id }).$promise;
       return StackFileContent;
     } catch (err) {
-      throw { msg: 'Unable to retrieve stack content', err };
+      throw { msg: '无法获取堆栈内容', err };
     }
   };
 
@@ -32,7 +32,7 @@ angular.module('portainer.edge').factory('EdgeStackService', function EdgeStackS
     try {
       return await EdgeStacks.create({}, { method: 'string', ...payload }).$promise;
     } catch (err) {
-      throw { msg: 'Unable to create the stack', err };
+      throw { msg: '无法创建堆栈', err };
     }
   };
 
@@ -40,7 +40,7 @@ angular.module('portainer.edge').factory('EdgeStackService', function EdgeStackS
     try {
       return await FileUploadService.createEdgeStack(payload, file);
     } catch (err) {
-      throw { msg: 'Unable to create the stack', err };
+      throw { msg: '无法创建堆栈', err };
     }
   };
 
@@ -61,7 +61,7 @@ angular.module('portainer.edge').factory('EdgeStackService', function EdgeStackS
         }
       ).$promise;
     } catch (err) {
-      throw { msg: 'Unable to create the stack', err };
+      throw { msg: '无法创建堆栈', err };
     }
   };
 

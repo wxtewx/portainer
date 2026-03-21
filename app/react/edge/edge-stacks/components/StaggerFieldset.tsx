@@ -26,11 +26,11 @@ interface Props {
 const staggerOptions = [
   {
     value: StaggerOption.AllAtOnce,
-    label: 'All edge devices at once',
+    label: '同时更新所有边缘设备',
   },
   {
     value: StaggerOption.Parallel,
-    label: 'Parallel edge device(s)',
+    label: '并行更新边缘设备',
   },
 ] as const;
 
@@ -41,15 +41,12 @@ export function StaggerFieldset({
   isEdit = true,
 }: Props) {
   return (
-    <FormSection title="Update configurations">
+    <FormSection title="更新配置">
       {!isEdit && (
         <div className="form-group">
           <div className="col-sm-12">
             <TextTip color="blue">
-              Please note that the &apos;Update Configuration&apos; setting
-              takes effect exclusively during edge stack updates, whether
-              triggered manually, through webhook events, or via GitOps updates
-              processes
+              请注意，“更新配置” 设置仅在边缘堆栈更新期间生效，无论是手动触发、通过 Webhook 事件还是通过 GitOps 更新流程
             </TextTip>
           </div>
         </div>
@@ -71,13 +68,11 @@ export function StaggerFieldset({
       {values.StaggerOption === StaggerOption.Parallel && (
         <div className="mb-2">
           <TextTip color="blue">
-            Specify the number of device(s) to be updated concurrently.
+            指定要同时更新的设备数量。
             {values.StaggerParallelOption ===
               StaggerParallelOption.Incremental && (
               <div className="mb-2">
-                For example, if you start with 2 devices and multiply by 5, the
-                update will initially cover 2 edge devices, then 10 devices (2 x
-                5), followed by 50 devices (10 x 5), and so on.
+                例如，如果你从 2 台设备开始并按 5 倍递增，更新将首先覆盖 2 台边缘设备，然后是 10 台 (2 × 5)，接着是 50 台 (10 × 5)，依此类推。
               </div>
             )}
           </TextTip>
@@ -89,7 +84,7 @@ export function StaggerFieldset({
           />
 
           <FormControl
-            label="Timeout"
+            label="超时时间"
             inputId="timeout"
             errors={errors?.Timeout}
           >
@@ -98,7 +93,7 @@ export function StaggerFieldset({
                 <Input
                   name="Timeout"
                   id="stagger-timeout"
-                  placeholder="eg. 5 (optional)"
+                  placeholder="例如： 5 (可选)"
                   value={values.Timeout}
                   onChange={(e) =>
                     handleChange({
@@ -113,7 +108,7 @@ export function StaggerFieldset({
           </FormControl>
 
           <FormControl
-            label="Update delay"
+            label="更新延迟"
             inputId="update-delay"
             errors={errors?.UpdateDelay}
           >
@@ -123,7 +118,7 @@ export function StaggerFieldset({
                   name="UpdateDelay"
                   data-cy="edge-stacks-stagger-update-delay-input"
                   id="stagger-update-delay"
-                  placeholder="eg. 5 (optional)"
+                  placeholder="例如： 5 (可选)"
                   value={values.UpdateDelay}
                   onChange={(e) =>
                     handleChange({
@@ -137,7 +132,7 @@ export function StaggerFieldset({
           </FormControl>
 
           <FormControl
-            label="Update failure action"
+            label="更新失败操作"
             inputId="update-failure-action"
             errors={errors?.UpdateFailureAction}
           >
@@ -156,7 +151,7 @@ export function StaggerFieldset({
                   })
                 }
               >
-                Continue
+                继续
               </Button>
               <Button
                 className="btn-box-shadow"
@@ -172,7 +167,7 @@ export function StaggerFieldset({
                   })
                 }
               >
-                Pause
+                暂停
               </Button>
               <Button
                 className="btn-box-shadow"
@@ -188,7 +183,7 @@ export function StaggerFieldset({
                   })
                 }
               >
-                Rollback
+                回滚
               </Button>
             </ButtonGroup>
           </FormControl>
@@ -207,7 +202,7 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
   return object({
     StaggerOption: number()
       .oneOf([StaggerOption.AllAtOnce, StaggerOption.Parallel])
-      .required('Stagger option is required'),
+      .required('分批更新选项为必填项'),
     StaggerParallelOption: number()
       .when('StaggerOption', {
         is: StaggerOption.Parallel,
@@ -227,8 +222,8 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
             is: StaggerParallelOption.Fixed,
             then: (schema) =>
               schema
-                .required('Devices number is at least 1')
-                .min(1, 'Devices number is at least 1'),
+                .required('设备数量至少为 1')
+                .min(1, '设备数量至少为 1'),
           }),
       })
       .optional(),
@@ -240,8 +235,8 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
             is: StaggerParallelOption.Incremental,
             then: (schema) =>
               schema
-                .min(1, 'Devices number start from at least 1')
-                .required('Devices number is required'),
+                .min(1, '起始设备数量至少为 1')
+                .required('设备数量为必填项'),
           }),
       })
       .optional(),
@@ -256,7 +251,7 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
               schema
                 .min(2)
                 .max(10)
-                .required('Devices number increment by is required'),
+                .required('设备递增数量为必填项'),
           }),
       })
       .optional(),
@@ -267,7 +262,7 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
         then: (schema) =>
           schema.test(
             'is-number',
-            'Timeout must be a number',
+            '超时时间必须为数字',
             (value) => !Number.isNaN(Number(value))
           ),
       })
@@ -279,7 +274,7 @@ export function staggerConfigValidation(): SchemaOf<StaggerConfig> {
         then: (schema) =>
           schema.test(
             'is-number',
-            'Timeout must be a number',
+            '超时时间必须为数字',
             (value) => !Number.isNaN(Number(value))
           ),
       })
