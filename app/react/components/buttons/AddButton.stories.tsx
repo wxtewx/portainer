@@ -17,5 +17,5 @@ function Template({ label }: Args) {
 
 export const Primary: StoryFn<Args> = Template.bind({});
 Primary.args = {
-  label: 'Create new container',
+  label: '创建新容器',
 };

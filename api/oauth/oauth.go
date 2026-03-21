@@ -131,8 +131,8 @@ func GetResource(ctx context.Context, token string, resourceURI string) (map[str
 		}
 	}
 
-	// Some OAuth providers (e.g. Cloudflare Access) return malformed Content-Type headers
-	// (e.g. "application/json; charset=utf-8, application/json") that mime.ParseMediaType
+	// Some OAuth providers (例如： Cloudflare Access) return malformed Content-Type headers
+	// (例如： "application/json; charset=utf-8, application/json") that mime.ParseMediaType
 	// cannot parse. We intentionally ignore that error: if parsing fails, content is empty,
 	// the urlencoded branch is skipped, and json.Unmarshal below acts as the final validator.
 	originalContentType := resp.Header.Get("Content-Type")

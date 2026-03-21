@@ -24,9 +24,9 @@ import { createOwnershipColumn } from '../../components/datatable/createOwnershi
 const columnHelper = createColumnHelper<SecretViewModel>();
 
 const columns = [
-  buildNameColumn<SecretViewModel>('Name', '.secret', 'docker-secrets-name'),
+  buildNameColumn<SecretViewModel>('名称', '.secret', 'docker-secrets-name'),
   columnHelper.accessor((item) => isoDate(item.CreatedAt), {
-    header: 'Creation Date',
+    header: '创建日期',
   }),
   createOwnershipColumn<SecretViewModel>(),
 ];
@@ -61,7 +61,7 @@ export function SecretsDatatable({
 
   return (
     <Datatable
-      title="Secrets"
+      title="密钥"
       titleIcon={Lock}
       columns={columns}
       dataset={dataset || []}
@@ -99,13 +99,13 @@ function TableActions({
         <DeleteButton
           disabled={selectedItems.length === 0}
           onConfirmed={() => onRemove(selectedItems)}
-          confirmMessage="Do you want to remove the selected secret(s)?"
+          confirmMessage="您确定要删除所选密钥吗？"
           data-cy="secret-removeSecretButton"
         />
       </Authorized>
 
       <Authorized authorizations="DockerSecretCreate">
-        <AddButton data-cy="secret-addSecretButton">Add secret</AddButton>
+        <AddButton data-cy="secret-addSecretButton">添加密钥</AddButton>
       </Authorized>
     </div>
   );

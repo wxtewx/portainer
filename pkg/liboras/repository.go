@@ -76,7 +76,7 @@ func HasMediaType(ctx context.Context, repository registry.Repository, expectedM
 	err := repository.Tags(ctx, "", func(tagList []string) error {
 		if len(tagList) > 0 {
 			// Order the taglist by latest semver, then get the latest tag
-			// e.g. ["1.0", "1.1"] -> ["1.1", "1.0"] -> "1.1"
+			// 例如： ["1.0", "1.1"] -> ["1.1", "1.0"] -> "1.1"
 			sort.Slice(tagList, func(i, j int) bool {
 				return semver.Compare(tagList[i], tagList[j]) > 0
 			})

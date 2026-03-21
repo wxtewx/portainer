@@ -15,9 +15,9 @@ export function TLSVerificationField({ value, initialValue, onChange }: Props) {
         <SwitchField
           name="TLSSkipVerify"
           checked={value}
-          tooltip="Enabling this will allow skipping TLS validation for any self-signed certificate."
+          tooltip="启用此选项将允许跳过对自签名证书的 TLS 验证。"
           labelClass="col-sm-3 col-lg-2"
-          label="Skip TLS Verification"
+          label="跳过 TLS 验证"
           onChange={async (newValue) => {
             if (initialValue && !newValue) {
               const confirmed = await confirmEnableTLSVerify();

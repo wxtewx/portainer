@@ -33,7 +33,7 @@ export function VolumeSelector({
   const selectedValue = volumes.find((vol) => vol.Name === value);
   return (
     <Select
-      placeholder="Select a volume"
+      placeholder="选择一个数据卷"
       options={volumes}
       getOptionValue={(vol) => vol.Name}
       isMulti={false}
@@ -56,7 +56,7 @@ function Option(props: OptionProps<{ Name: string; Driver: string }, false>) {
       <span title={`${vol.Name} - ${vol.Driver}`}>
         {vol.Name !== 'auto'
           ? `${truncate(vol.Name, 30)} - ${truncate(vol.Driver, 30)}`
-          : 'auto'}
+          : '自动'}
       </span>
     </components.Option>
   );

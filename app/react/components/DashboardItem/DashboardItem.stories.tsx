@@ -33,7 +33,7 @@ export const Primary: StoryFn<StoryProps> = Template.bind({});
 Primary.args = {
   value: 1,
   icon: List,
-  type: 'Example resource',
+  type: '示例资源',
 };
 
 export function WithLink() {
@@ -42,7 +42,7 @@ export function WithLink() {
       <DashboardItem
         value={1}
         icon={List}
-        type="Example resource"
+        type="示例资源"
         data-cy="data-cy-example"
       />
     </Link>
@@ -54,7 +54,7 @@ export function WithChildren() {
     <DashboardItem
       value={1}
       icon={List}
-      type="Example resource"
+      type="示例资源"
       data-cy="data-cy-example"
     >
       <div>Children</div>

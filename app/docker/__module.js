@@ -34,7 +34,7 @@ angular.module('portainer.docker', ['portainer.app', reactModule]).config([
             endpoint.Status = status;
 
             if (status === EnvironmentStatus.Down) {
-              throw error || new Error(`The environment named ${endpoint.Name} is unreachable.`);
+              throw error || new Error(`名为 ${endpoint.Name} 的环境无法访问。`);
             }
 
             await StateManager.updateEndpointState(endpoint);
@@ -45,7 +45,7 @@ angular.module('portainer.docker', ['portainer.app', reactModule]).config([
               params = { redirect: true, environmentId: endpoint.Id, environmentName: endpoint.Name, route: 'docker.dashboard' };
             } else {
               EndpointProvider.clean();
-              Notifications.error('Failed loading environment', e);
+              Notifications.error('加载环境失败', e);
             }
             $state.go('portainer.home', params, { reload: true, inherit: false });
             return false;

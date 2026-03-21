@@ -10,7 +10,7 @@ export function useInputGroupContext() {
   const context = useContext(Context);
 
   if (context == null) {
-    throw new Error('Should be inside a InputGroup component');
+    throw new Error('必须位于 InputGroup 组件内部');
   }
 }
 

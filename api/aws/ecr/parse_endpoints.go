@@ -18,11 +18,11 @@ import (
 //   - Non-FIPS variants: All formats above without "-fips"
 //
 // Regex groups:
-//   - Group 1: Full account prefix (optional) - e.g., "123456789012.dkr." or "123456789012.dkr-"
-//   - Group 2: Account ID (optional) - e.g., "123456789012"
+//   - Group 1: Full account prefix (optional) - 例如：, "123456789012.dkr." or "123456789012.dkr-"
+//   - Group 2: Account ID (optional) - 例如：, "123456789012"
 //   - Group 3: FIPS flag (optional) - either "-fips" or empty string
-//   - Group 4: Region - e.g., "us-east-1", "us-gov-west-1"
-//   - Group 5: Domain suffix - e.g., "amazonaws.com", "api.aws"
+//   - Group 4: Region - 例如：, "us-east-1", "us-gov-west-1"
+//   - Group 5: Domain suffix - 例如：, "amazonaws.com", "api.aws"
 var ecrEndpointPattern = regexp.MustCompile(
 	`^((\d{12})\.dkr[\.\-])?ecr(\-fips)?\.([a-zA-Z0-9][a-zA-Z0-9-_]*)\.(amazonaws\.(?:com(?:\.cn)?|eu)|api\.aws|on\.(?:aws|amazonwebservices\.com\.cn)|sc2s\.sgov\.gov|c2s\.ic\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)$`,
 )

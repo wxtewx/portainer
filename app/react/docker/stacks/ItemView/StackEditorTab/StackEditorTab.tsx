@@ -72,7 +72,7 @@ export function StackEditorTab({
       )}
       onSubmit={async (values) => {
         const response = await confirmStackUpdate(
-          'Do you want to force an update of the stack?',
+          '您确定要强制更新此堆栈吗？',
           stack.Type === StackType.DockerSwarm
         );
 
@@ -95,12 +95,12 @@ export function StackEditorTab({
           },
           {
             onSuccess() {
-              notifySuccess('Success', 'Stack successfully deployed');
+              notifySuccess('成功', '堆栈已成功部署');
               router.stateService.reload();
               onSubmitSuccess();
             },
             onError(err) {
-              notifyError('Failure', err as Error, 'Unable to create stack');
+              notifyError('失败', err as Error, '无法更新堆栈');
             },
           }
         );

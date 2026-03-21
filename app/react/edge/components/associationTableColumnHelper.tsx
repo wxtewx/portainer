@@ -11,14 +11,14 @@ export type DecoratedEnvironment = Environment & {
 const columHelper = createColumnHelper<DecoratedEnvironment>();
 
 export const columns = [
-  columHelper.accessor('Name', {
+  columHelper.accessor('名称', {
     header: 'Name',
     id: 'Name',
     cell: ({ getValue }) => (
       <span title={getValue()}>{truncate(getValue(), { length: 64 })}</span>
     ),
   }),
-  columHelper.accessor('Group', {
+  columHelper.accessor('分组', {
     header: 'Group',
     id: 'Group',
     cell: ({ getValue }) => (
@@ -26,7 +26,7 @@ export const columns = [
     ),
   }),
   columHelper.accessor((row) => row.Tags.join(','), {
-    header: 'Tags',
+    header: '标签',
     id: 'tags',
     enableSorting: false,
     cell: ({ getValue }) => (

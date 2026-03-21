@@ -17,7 +17,7 @@ export function PublicUrlField() {
         id="public-url-field"
         name="publicUrl"
         as={Input}
-        placeholder="e.g. 10.0.0.10 or mydocker.mydomain.com"
+        placeholder="例如： 10.0.0.10 or mydocker.mydomain.com"
         data-cy="public-url-input"
       />
     </FormControl>

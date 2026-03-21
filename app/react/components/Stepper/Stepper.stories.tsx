@@ -17,7 +17,7 @@ interface Args {
 function Template({ totalSteps = 5 }: Args) {
   const steps: Array<Step> = Array.from({ length: totalSteps }).map(
     (_, index) => ({
-      label: `Step ${index + 1}`,
+      label: `步骤 ${index + 1}`,
     })
   );
 
@@ -32,14 +32,14 @@ function Template({ totalSteps = 5 }: Args) {
           data-cy="previous-button"
           disabled={currentStepIndex <= 0}
         >
-          Previous
+          上一步
         </Button>
         <Button
           onClick={() => setCurrentStepIndex(currentStepIndex + 1)}
           data-cy="next-button"
           disabled={currentStepIndex >= steps.length - 1}
         >
-          Next
+          下一步
         </Button>
       </div>
     </div>
@@ -50,10 +50,10 @@ export { Template };
 
 function ClickableTemplate({ totalSteps = 4 }: Args) {
   const steps: Array<Step> = [
-    { label: 'Select Environment' },
-    { label: 'Configure' },
-    { label: 'Review' },
-    { label: 'Deploy' },
+    { label: '选择环境' },
+    { label: '配置' },
+    { label: '检查' },
+    { label: '部署' },
   ].slice(0, totalSteps);
 
   const [currentStepIndex, setCurrentStepIndex] = useState(2);
@@ -66,7 +66,7 @@ function ClickableTemplate({ totalSteps = 4 }: Args) {
         onStepClick={(stepIndex) => setCurrentStepIndex(stepIndex)}
       />
       <p className="text-sm text-gray-6">
-        Click on completed or current steps to navigate. Current step:{' '}
+        点击已完成或当前步骤进行导航。当前步骤：{' '}
         {currentStepIndex + 1}
       </p>
     </div>

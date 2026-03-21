@@ -18,8 +18,7 @@ import { AssignmentDialog } from './AssignmentDialog/AssignmentDialog';
 
 const overusedTooltip = (
   <>
-    Associating devices is disabled as your node count exceeds your license
-    limit
+    由于节点数量超出许可限制，设备关联功能已禁用
   </>
 );
 
@@ -39,9 +38,9 @@ export function TableActions({
         onConfirmed={() => handleRemoveDevice(selectedRows)}
         disabled={selectedRows.length === 0}
         data-cy="remove-device-button"
-        confirmMessage="You're about to remove edge device(s) from waiting room, which will not be shown until next agent startup."
+        confirmMessage="您即将从等待区移除边缘设备，设备将在下一次代理启动前不再显示。"
       >
-        Remove Device
+        移除设备
       </DeleteButton>
 
       <TooltipWithChildren
@@ -50,8 +49,7 @@ export function TableActions({
             overusedTooltip
           ) : (
             <>
-              Associate device(s) and assigning edge groups, group and tags with
-              overriding options
+              关联设备并通过覆盖选项分配边缘组、分组和标签
             </>
           )
         }
@@ -66,7 +64,7 @@ export function TableActions({
             color="secondary"
             icon={CheckCircle}
           >
-            Associate and assignment
+            关联并分配
           </Button>
         </span>
       </TooltipWithChildren>
@@ -77,8 +75,7 @@ export function TableActions({
             overusedTooltip
           ) : (
             <>
-              Associate device(s) based on their pre-assigned edge groups, group
-              and tags
+               根据预分配的边缘组、分组和标签关联设备
             </>
           )
         }
@@ -90,7 +87,7 @@ export function TableActions({
             disabled={selectedRows.length === 0 || licenseOverused}
             icon={Check}
           >
-            Associate Device
+            关联设备
           </Button>
         </span>
       </TooltipWithChildren>
@@ -116,7 +113,7 @@ export function TableActions({
       devices.map((d) => d.Id),
       {
         onSuccess() {
-          notifySuccess('Success', 'Edge devices associated successfully');
+          notifySuccess('成功', '边缘设备关联成功');
         },
       }
     );
@@ -127,7 +124,7 @@ export function TableActions({
       devices.map((d) => ({ id: d.Id, name: d.Name })),
       {
         onSuccess() {
-          notifySuccess('Success', 'Edge devices were hidden successfully');
+          notifySuccess('成功', '边缘设备已成功隐藏');
         },
       }
     );

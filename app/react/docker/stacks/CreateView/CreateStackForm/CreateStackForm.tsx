@@ -88,7 +88,7 @@ export function CreateStackForm({ environmentId, isSwarm, swarmId }: Props) {
 
     createStackMutation.mutate(payload, {
       onSuccess: () => {
-        notifySuccess('Success', 'Stack successfully deployed');
+        notifySuccess('成功', '堆栈已成功部署');
         router.stateService.go('docker.stacks');
       },
     });
@@ -142,7 +142,7 @@ function buildCreateStackPayload({
 
     case 'upload':
       if (!values.upload.file) {
-        throw new Error('File is required for upload method');
+        throw new Error('上传方式必须选择文件');
       }
       if (stackType === 'swarm') {
         return {
@@ -235,6 +235,6 @@ function buildCreateStackPayload({
       };
 
     default:
-      throw new Error('Invalid method');
+      throw new Error('无效的部署方式');
   }
 }

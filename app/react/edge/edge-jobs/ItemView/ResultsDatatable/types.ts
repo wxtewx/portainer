@@ -16,7 +16,7 @@ function isTableMeta(meta: unknown): meta is TableMeta {
 
 export function getTableMeta(meta: unknown): TableMeta {
   if (!isTableMeta(meta)) {
-    throw new Error('missing correct table meta');
+    throw new Error('缺少正确的表格元数据');
   }
 
   return meta;

@@ -42,10 +42,9 @@ export function AMTButton({
         color="light"
         data-cy="associate-amt-button"
       >
-        Associate with OpenAMT{' '}
+        关联 OpenAMT{' '}
         <Tooltip
-          message="OpenAMT support is deprecated and will be removed in a future
-              version of Portainer."
+          message="OpenAMT 支持已弃用，并将在未来的 Portainer 版本中移除。"
         />
       </Button>
       {isOpenDialog && (

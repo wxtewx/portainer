@@ -11,14 +11,14 @@ const meta: Meta<typeof ServiceWidget> = {
   render: (args) => <Wrapped {...args} />,
   args: {
     titleIcon: 'icon-name',
-    title: 'Service Widget',
+    title: '服务组件',
     onAdd: () => {},
     hasChanges: false,
     onReset: () => {},
     onSubmit: () => {},
-    labelForAddButton: 'Add',
+    labelForAddButton: '添加',
     isValid: true,
-    children: <div className="p-5">This service has no ports published.</div>,
+    children: <div className="p-5">此服务未发布任何端口。</div>,
   },
 };
 

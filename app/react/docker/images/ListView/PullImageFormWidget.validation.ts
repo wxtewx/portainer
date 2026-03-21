@@ -14,11 +14,11 @@ export function useValidation(
       object({
         config: imageConfigValidation().test(
           'rate-limits',
-          'Rate limit exceeded',
+          '已超出速率限制',
           () => !isDockerhubRateLimited
         ),
         node: isNodeVisible
-          ? string().required('Node is required')
+          ? string().required('节点为必填项')
           : string().default(''),
       }),
     [isDockerhubRateLimited, isNodeVisible]

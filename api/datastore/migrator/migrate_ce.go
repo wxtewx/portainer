@@ -35,7 +35,7 @@ func (m *Migrator) Migrate() error {
 	apiVersion := semver.MustParse(portainer.APIVersion)
 	if schemaVersion.Equal(apiVersion) {
 		// detect and run migrations when the versions are the same.
-		// e.g. development builds
+		// 例如： development builds
 		latestMigrations := m.LatestMigrations()
 		if latestMigrations.Version.Equal(schemaVersion) &&
 			version.MigratorCount != len(latestMigrations.MigrationFuncs) {

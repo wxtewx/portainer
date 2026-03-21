@@ -22,7 +22,7 @@ export function useCreateServiceMutation(environmentId: EnvironmentId) {
     createService,
     mutationOptions(
       withInvalidate(queryClient, [queryKeys.list(environmentId)]),
-      withError('Unable to create service')
+      withError('无法创建服务')
     )
   );
 }
@@ -49,6 +49,6 @@ export async function createService({
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to create service');
+    throw parseAxiosError(e, '无法创建服务');
   }
 }

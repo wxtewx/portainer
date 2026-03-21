@@ -25,7 +25,7 @@ export function DifferentTheme() {
     <table>
       <thead>
         <tr>
-          <th>Color/Theme</th>
+          <th>颜色/主题</th>
           {themes.map((theme) => (
             <th key={theme} className="text-center">
               {theme}
@@ -54,7 +54,7 @@ export function DifferentTheme() {
                     key={state}
                     disabled={state === 'disabled'}
                   >
-                    {state} {color} button
+                    {state} {color} 按钮
                   </Button>
                 ))}
               </td>
@@ -80,7 +80,7 @@ function Template({
       disabled={disabled}
       data-cy="button"
     >
-      Primary Button
+      主要按钮
     </Button>
   );
 }
@@ -91,14 +91,14 @@ Primary.args = {
   size: 'small',
   disabled: false,
   onClick: () => {
-    alert('Hello Button!');
+    alert('你好，按钮！');
   },
 };
 
 export function Disabled() {
   return (
     <Button color="primary" onClick={() => {}} disabled data-cy="button">
-      Disabled Button
+      禁用按钮
     </Button>
   );
 }
@@ -106,7 +106,7 @@ export function Disabled() {
 export function Danger() {
   return (
     <Button color="danger" onClick={() => {}} data-cy="button">
-      Danger Button
+      危险按钮
     </Button>
   );
 }
@@ -114,7 +114,7 @@ export function Danger() {
 export function ButtonIcon() {
   return (
     <Button color="primary" onClick={() => {}} icon={Download} data-cy="button">
-      Button with an icon
+      带图标的按钮
     </Button>
   );
 }
@@ -128,7 +128,7 @@ export function ButtonIconLarge() {
       size="large"
       data-cy="button"
     >
-      Button with an icon
+       带图标的按钮
     </Button>
   );
 }
@@ -142,7 +142,7 @@ export function ButtonIconMedium() {
       size="medium"
       data-cy="button"
     >
-      Button with an icon
+       带图标的按钮
     </Button>
   );
 }
@@ -156,7 +156,7 @@ export function ButtonIconXSmall() {
       size="xsmall"
       data-cy="button"
     >
-      Button with an icon
+       带图标的按钮
     </Button>
   );
 }
@@ -164,7 +164,7 @@ export function ButtonIconXSmall() {
 export function Default() {
   return (
     <Button color="default" onClick={() => {}} data-cy="button">
-      Default
+      默认
     </Button>
   );
 }
@@ -172,7 +172,7 @@ export function Default() {
 export function Link() {
   return (
     <Button color="link" onClick={() => {}} data-cy="button">
-      Link Button
+      链接按钮
     </Button>
   );
 }
@@ -180,7 +180,7 @@ export function Link() {
 export function XSmall() {
   return (
     <Button color="primary" onClick={() => {}} size="xsmall" data-cy="button">
-      XSmall Button
+      超小按钮
     </Button>
   );
 }
@@ -188,7 +188,7 @@ export function XSmall() {
 export function Small() {
   return (
     <Button color="primary" onClick={() => {}} size="small" data-cy="button">
-      Small Button
+      小按钮
     </Button>
   );
 }
@@ -196,7 +196,7 @@ export function Small() {
 export function Large() {
   return (
     <Button color="primary" onClick={() => {}} size="large" data-cy="button">
-      Large Button
+      大按钮
     </Button>
   );
 }

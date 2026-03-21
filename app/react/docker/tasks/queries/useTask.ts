@@ -15,7 +15,7 @@ export function useTask(environmentId: EnvironmentId, taskId: TaskId) {
 
     () => getTask(environmentId, taskId),
     {
-      ...withGlobalError('Unable to retrieve task'),
+      ...withGlobalError('无法获取任务'),
     }
   );
 }
@@ -28,6 +28,6 @@ export async function getTask(environmentId: EnvironmentId, taskId: TaskId) {
 
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to get task');
+    throw parseAxiosError(e, '无法获取任务');
   }
 }

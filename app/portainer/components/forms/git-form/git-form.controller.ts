@@ -43,7 +43,7 @@ export default class GitFormController {
   async handleChange(newValues: Partial<GitFormModel>) {
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
 
     const value = {
@@ -86,16 +86,16 @@ export default class GitFormController {
         );
       } catch (err) {
         notifyError(
-          'Failure',
+          '失败',
           err as Error,
-          'Unable to retrieve user saved git credentials'
+          '无法获取用户保存的 Git 凭据'
         );
       }
     }
 
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
 
     const isCreatedFromCustomTemplate =

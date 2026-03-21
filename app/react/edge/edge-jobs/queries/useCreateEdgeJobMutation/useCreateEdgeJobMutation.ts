@@ -64,6 +64,6 @@ function createEdgeJob({ method, payload }: CreateEdgeJobPayload) {
         fileContent: payload.fileContent,
       });
     default:
-      throw new Error('Invalid method');
+      throw new Error('无效的方法');
   }
 }

@@ -27,6 +27,7 @@ const enabledPlatforms: Array<ContainerPlatform> = [
 ];
 
 function UpgradeBEBanner() {
+  return null;
   const {
     user: { Id },
   } = useCurrentUser();

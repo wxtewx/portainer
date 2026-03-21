@@ -24,7 +24,7 @@ interface Props extends AutomationTestingProps {
   onOpenAddDrawer(): void;
   isRemoving?: boolean;
   isLoading?: boolean;
-  /** When false, Remove fires immediately without a confirmation dialog (e.g. create mode) */
+  /** When false, Remove fires immediately without a confirmation dialog (例如： create mode) */
   confirmRemove?: boolean;
   /** When true, don't show the add/remove buttons and hide the checkbox */
   readOnly?: boolean;

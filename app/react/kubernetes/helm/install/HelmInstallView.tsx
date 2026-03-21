@@ -58,7 +58,7 @@ export function HelmInstallView() {
                   <Input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. my-app"
+                    placeholder="例如： my-app"
                     data-cy="k8sHelmInstall-nameInput"
                   />
                 </FormControl>

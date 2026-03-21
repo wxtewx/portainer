@@ -34,7 +34,7 @@ function Template({ isLoading, data, settings, columns }: Args) {
       isLoading={isLoading}
       dataset={data}
       settingsManager={settings}
-      title="Edge Jobs"
+      title="边缘任务"
       titleIcon={Clock}
       data-cy="edge-jobs-datatable"
       acceptRow={() => {}}
@@ -48,7 +48,7 @@ const columnHelper = createColumnHelper<BasicRow>();
 export const Default: StoryFn<Args> = Template.bind({});
 const editableColumns = [
   columnHelper.accessor('Name', {
-    header: 'Name',
+    header: '名称',
     cell: ({ row: { original, index }, table }) => {
       if (!isEditableTableMeta(table.options.meta)) {
         return null;
@@ -63,7 +63,7 @@ const editableColumns = [
     },
   }),
   columnHelper.accessor('Created', {
-    header: 'Created',
+    header: '创建时间',
   }),
   actionsColumn<BasicRow>(() => {}),
 ];

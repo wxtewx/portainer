@@ -228,7 +228,7 @@ angular.module('portainer.docker').controller('CreateServiceController', [
         .sort((a, b) => {
           if (a.model.Id === b.model.Id) {
             $scope.formValues.Secrets.$invalid = true;
-            $scope.formValues.Secrets.$error = 'Secret ' + a.model.Name + ' cannot be assigned multiple times.';
+            $scope.formValues.Secrets.$error = '密钥 ' + a.model.Name + ' 不能重复配置。';
           }
         });
       if (!$scope.formValues.Secrets.$invalid) {
@@ -243,7 +243,7 @@ angular.module('portainer.docker').controller('CreateServiceController', [
         .sort((a, b) => {
           if (a.model.Id === b.model.Id) {
             $scope.formValues.Configs.$invalid = true;
-            $scope.formValues.Configs.$error = 'Config ' + a.model.Name + ' cannot be assigned multiple times.';
+            $scope.formValues.Configs.$error = '配置 ' + a.model.Name + ' 不能重复配置。';
           }
         });
       if (!$scope.formValues.Configs.$invalid) {
@@ -531,11 +531,11 @@ angular.module('portainer.docker').controller('CreateServiceController', [
           return $q.all([rcPromise, webhookPromise]);
         })
         .then(function success() {
-          Notifications.success('Success', 'Service successfully created');
+          Notifications.success('成功', '服务创建成功');
           $state.go('docker.services', {}, { reload: true });
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to create service');
+          Notifications.error('失败', err, '无法创建服务');
         })
         .finally(function final() {
           $scope.state.actionInProgress = false;
@@ -618,7 +618,7 @@ angular.module('portainer.docker').controller('CreateServiceController', [
           $scope.allowBindMounts = data.allowBindMounts;
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to initialize view');
+          Notifications.error('失败', err, '无法初始化视图');
         });
     }
 

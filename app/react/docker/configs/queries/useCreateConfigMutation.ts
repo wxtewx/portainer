@@ -17,6 +17,6 @@ export async function createConfig(
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to create config');
+    throw parseAxiosError(e, '无法创建配置');
   }
 }

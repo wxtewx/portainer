@@ -31,6 +31,6 @@ export function useRestartContainer() {
         ),
       });
     },
-    ...withGlobalError('Unable to restart container'),
+    ...withGlobalError('容器重启失败'),
   });
 }

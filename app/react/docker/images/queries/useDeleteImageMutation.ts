@@ -41,6 +41,6 @@ export async function deleteImage({
       params: { force },
     });
   } catch (err) {
-    throw parseAxiosError(err as Error, 'Unable to delete image');
+    throw parseAxiosError(err as Error, '无法删除镜像');
   }
 }

@@ -149,9 +149,9 @@ export function WithConnectButton() {
           disabled={state === 'connecting'}
           data-cy="connect button"
         >
-          {state === 'connected' ? 'Disconnect' : 'Connect'}
+          {state === 'connected' ? '断开连接' : '连接'}
         </Button>
-        <span className="text-sm text-gray-500">state: {state}</span>
+        <span className="text-sm text-gray-500">状态: {state}</span>
       </div>
       <div className="h-[400px]">
         <Terminal
@@ -178,7 +178,7 @@ ServerDisconnects.parameters = {
   msw: {
     handlers: [
       shellHandler.addEventListener('connection', ({ client }) => {
-        client.send('# Closing in 2s...\r\n');
+        client.send('# 2秒后关闭连接...\r\n');
         setTimeout(() => client.close(), 2000);
       }),
     ],

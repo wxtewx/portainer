@@ -13,7 +13,7 @@ export async function getVersion(environmentId: EnvironmentId) {
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve version');
+    throw parseAxiosError(err, '无法获取版本信息');
   }
 }
 

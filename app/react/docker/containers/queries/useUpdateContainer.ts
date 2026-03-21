@@ -31,6 +31,6 @@ export async function updateContainer(
       { headers: { ...withAgentTargetHeader(nodeName) } }
     );
   } catch (err) {
-    throw parseAxiosError(err, 'failed updating container');
+    throw parseAxiosError(err, '更新容器失败');
   }
 }

@@ -11,7 +11,7 @@ import (
 type Registry struct {
 	ID     string // AWS account ID (empty for accountless endpoints like "ecr-fips.us-west-1.amazonaws.com")
 	FIPS   bool   // Whether this is a FIPS endpoint (contains "-fips" in the URL)
-	Region string // AWS region (e.g., "us-east-1", "us-gov-west-1")
+	Region string // AWS region (例如：, "us-east-1", "us-gov-west-1")
 	Public bool   // Whether this is ecr-public.aws.com
 }
 

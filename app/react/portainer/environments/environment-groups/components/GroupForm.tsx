@@ -116,7 +116,7 @@ function InnerForm({
           name="name"
           value={values.name}
           onChange={handleChange}
-          placeholder="e.g. my-group"
+          placeholder="例如： my-group"
           data-cy="group-name-input"
         />
       </FormControl>
@@ -127,7 +127,7 @@ function InnerForm({
           name="description"
           value={values.description}
           onChange={handleChange}
-          placeholder="e.g. production environments..."
+          placeholder="例如： production environments..."
           data-cy="group-description-input"
         />
       </FormControl>

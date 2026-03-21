@@ -137,9 +137,9 @@ export default class DockerFeaturesConfigurationController {
         await this.EndpointService.updateSecuritySettings(this.endpoint.Id, settings);
 
         this.endpoint.SecuritySettings = settings;
-        this.Notifications.success('Success', 'Saved settings successfully');
+        this.Notifications.success('成功', '设置保存成功');
       } catch (e) {
-        this.Notifications.error('Failure', e, 'Failed saving settings');
+        this.Notifications.error('失败', e, '设置保存失败');
       }
       this.state.actionInProgress = false;
       this.$state.reload();

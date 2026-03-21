@@ -32,8 +32,8 @@ export function DeleteConfigButton({
               notifySuccess(
                 `${pluralize(
                   selectedItems.length,
-                  'Config'
-                )} successfully removed`,
+                  '配置'
+                )} 已成功删除`,
                 // log the item name if it's only one config
                 selectedItems.length === 1 ? selectedItems[0].Name : ''
               );
@@ -41,7 +41,7 @@ export function DeleteConfigButton({
           }
         );
       }}
-      confirmMessage="Do you want to remove the selected config(s)?"
+      confirmMessage="您确定要删除所选配置吗？"
       disabled={selectedItems.length === 0}
     />
   );
@@ -54,7 +54,7 @@ function useDeleteConfigListMutation(environmentId: EnvironmentId) {
       promiseSequence(
         ids.map((configId) => () => deleteConfig({ environmentId, configId }))
       ),
-    ...withGlobalError('Unable to remove configs'),
+    ...withGlobalError('无法删除配置'),
     ...withInvalidate(queryClient, [queryKeys.base(environmentId)]),
   });
 }

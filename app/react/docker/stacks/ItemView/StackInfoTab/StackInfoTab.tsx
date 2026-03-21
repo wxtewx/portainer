@@ -52,7 +52,7 @@ export function StackInfoTab({
         isOrphaned={isOrphaned || isOrphanedRunning}
       />
 
-      <FormSection title="Stack details">
+      <FormSection title="堆栈详情">
         <div className="form-group">
           {stackName}
 
@@ -121,15 +121,12 @@ function ExternalOrphanedWarning({
             <Icon icon={AlertTriangle} mode="warning" className="!mr-0" />
             {isExternal && (
               <span>
-                This stack was created outside of Portainer. Control over this
-                stack is limited.
+                此堆栈是在 Portainer 外部创建的，对该堆栈的管理权限有限。
               </span>
             )}
             {isOrphaned && (
               <span>
-                This stack is orphaned. You can re-associate it with the current
-                environment using the &quot;Associate to this environment&quot;
-                feature.
+                此堆栈已脱离管理。你可以使用 “关联到当前环境” 功能将其重新关联到当前环境。
               </span>
             )}
           </p>

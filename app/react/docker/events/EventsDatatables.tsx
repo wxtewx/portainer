@@ -12,19 +12,35 @@ import { createEventDetails } from './model';
 
 const columnHelper = createColumnHelper<EventMessage>();
 
+const typeMap: Record<EventMessage['Type'], string> = {
+  container: '容器',
+  network: '网络',
+  volume: '数据卷',
+  service: '服务',
+  node: '节点',
+  image: '镜像',
+  plugin: '插件',
+  secret: '密钥',
+  config: '配置',
+  daemon: '守护进程',
+};
+
 export const columns = [
   columnHelper.accessor('time', {
-    header: 'Date',
+    header: '日期',
     cell: ({ getValue }) => {
       const value = getValue();
       return isoDateFromTimestamp(value);
     },
   }),
   columnHelper.accessor((c) => c.Type, {
-    header: 'Type',
+    header: '类型',
+    cell: ({ getValue }) => {
+      return typeMap[getValue()] || getValue();
+    },
   }),
   columnHelper.accessor((c) => createEventDetails(c), {
-    header: 'Details',
+    header: '详情',
   }),
 ];
 
@@ -47,7 +63,7 @@ export function EventsDatatable({
       isLoading={!dataset}
       columns={columns}
       settingsManager={tableState}
-      title="Events"
+      title="事件"
       titleIcon={Clock}
       disableSelect
       data-cy="docker-events-datatable"

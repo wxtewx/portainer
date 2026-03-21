@@ -26,6 +26,6 @@ async function getApiVersion(environmentId: EnvironmentId) {
       return 1;
     }
 
-    throw parseAxiosError(error as Error, 'Unable to ping agent');
+    throw parseAxiosError(error as Error, '无法连通代理');
   }
 }

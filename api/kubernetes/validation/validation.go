@@ -44,7 +44,7 @@ func RegexError(fmt string, examples ...string) error {
 		return errors.New(s.String())
 	}
 
-	s.WriteString(" (e.g. ")
+	s.WriteString(" (例如： ")
 	for i := range examples {
 		if i > 0 {
 			_, _ = s.WriteString(" or ")

@@ -49,13 +49,13 @@ export async function migrateSwarmStack({
   name?: string;
 }) {
   if (!fromSwarmId) {
-    throw new Error('Original Swarm ID is required to migrate a Swarm stack');
+    throw new Error('迁移 Swarm 堆栈需要提供原始 Swarm ID');
   }
 
   const targetSwarm = await getSwarm(targetEnvId);
   if (fromEnvId !== targetEnvId && fromSwarmId === targetSwarm.ID) {
     throw new Error(
-      'Target environment is located in the same Swarm cluster as the current environment'
+      '目标环境与当前环境位于同一个 Swarm 集群中'
     );
   }
 

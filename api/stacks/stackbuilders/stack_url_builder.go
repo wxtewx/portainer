@@ -9,7 +9,7 @@ import (
 type UrlMethodStackBuildProcess interface {
 	// Set general stack information
 	SetGeneralInfo(payload *StackPayload, endpoint *portainer.Endpoint) UrlMethodStackBuildProcess
-	// Set unique stack information, e.g. swarm stack has swarmID, kubernetes stack has namespace
+	// Set unique stack information, 例如： swarm stack has swarmID, kubernetes stack has namespace
 	SetUniqueInfo(payload *StackPayload) UrlMethodStackBuildProcess
 	// Deploy stack based on the configuration
 	Deploy(payload *StackPayload, endpoint *portainer.Endpoint) UrlMethodStackBuildProcess

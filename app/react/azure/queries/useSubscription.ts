@@ -18,7 +18,7 @@ export function useSubscription(
     queryKeys.subscription(environmentId, subscriptionId),
     () => getSubscription(environmentId, subscriptionId),
     {
-      ...withError('Unable to retrieve Azure subscription'),
+      ...withError('无法获取 Azure 订阅'),
     }
   );
 }
@@ -37,7 +37,7 @@ async function getSubscription(
   } catch (e) {
     throw parseAxiosError(
       e as Error,
-      'Unable to retrieve subscription',
+      '无法获取订阅',
       azureErrorParser
     );
   }

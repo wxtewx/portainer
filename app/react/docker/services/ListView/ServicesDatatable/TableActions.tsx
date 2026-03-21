@@ -40,7 +40,7 @@ export function TableActions({
               icon={RefreshCw}
               data-cy="service-updateServiceButton"
             >
-              Update
+              更新
             </Button>
           </Authorized>
         )}
@@ -48,7 +48,7 @@ export function TableActions({
           <DeleteButton
             disabled={selectedItems.length === 0}
             onConfirmed={() => handleRemove(selectedItems)}
-            confirmMessage="Do you want to remove the selected service(s)? All the containers associated to the selected service(s) will be removed too."
+            confirmMessage="您确定要删除选中的服务吗？与选中服务关联的所有容器也将被删除。"
             data-cy="service-removeServiceButton"
           />
         </Authorized>
@@ -64,7 +64,7 @@ export function TableActions({
 
   async function handleUpdate(selectedItems: Array<ServiceViewModel>) {
     const confirmed = await confirmServiceForceUpdate(
-      'Do you want to force an update of the selected service(s)? All the tasks associated to the selected service(s) will be recreated.'
+      '您确定要强制更新选中的服务吗？与选中服务关联的所有任务将被重新创建。'
     );
 
     if (!confirmed) {
@@ -78,7 +78,7 @@ export function TableActions({
       },
       {
         onSuccess() {
-          notifySuccess('Success', 'Service(s) successfully updated');
+          notifySuccess('成功', '服务已成功更新');
           router.stateService.reload();
         },
       }
@@ -90,7 +90,7 @@ export function TableActions({
       selectedItems.map((service) => service.Id),
       {
         onSuccess() {
-          notifySuccess('Success', 'Service(s) successfully removed');
+          notifySuccess('成功', '服务已成功删除');
           router.stateService.reload();
         },
       }

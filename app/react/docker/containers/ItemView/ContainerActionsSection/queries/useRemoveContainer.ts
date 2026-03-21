@@ -39,6 +39,6 @@ export function useRemoveContainer() {
       });
       router.stateService.go('^');
     },
-    ...withGlobalError('Unable to remove container'),
+    ...withGlobalError('容器删除失败'),
   });
 }

@@ -40,7 +40,7 @@ export function useIntervalOptions(
       settingsQuery.data !== defaultValue
     ) {
       setOptions((options) => {
-        let label = `${settingsQuery.data} seconds`;
+        let label = `${settingsQuery.data} 秒`;
         const option = options.find((o) => o.value === settingsQuery.data);
         if (option) {
           label = option.label;
@@ -49,7 +49,7 @@ export function useIntervalOptions(
         return [
           {
             value: defaultValue,
-            label: `Use default interval (${label})`,
+            label: `使用默认间隔 (${label})`,
           },
           ...options.slice(1),
         ];

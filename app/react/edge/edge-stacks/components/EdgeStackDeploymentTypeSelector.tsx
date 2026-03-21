@@ -31,7 +31,7 @@ export function EdgeStackDeploymentTypeSelector({
       disabled: () => !allowKubeToSelectCompose && hasKubeEndpoint,
       tooltip: () =>
         hasKubeEndpoint
-          ? 'Cannot use this option with Edge Kubernetes environments'
+          ? '边缘 Kubernetes 环境无法使用此选项'
           : '',
     },
     {
@@ -40,7 +40,7 @@ export function EdgeStackDeploymentTypeSelector({
       disabled: () => hasDockerEndpoint,
       tooltip: () =>
         hasDockerEndpoint
-          ? 'Cannot use this option with Edge Docker environments'
+          ? '边缘 Docker 环境无法使用此选项'
           : '',
       iconType: 'logo',
     },
@@ -48,7 +48,7 @@ export function EdgeStackDeploymentTypeSelector({
 
   return (
     <>
-      <div className="col-sm-12 form-section-title"> Deployment type</div>
+      <div className="col-sm-12 form-section-title"> 部署类型</div>
       <BoxSelector
         radioName="deploymentType"
         value={value}
