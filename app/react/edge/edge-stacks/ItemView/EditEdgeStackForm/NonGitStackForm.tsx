@@ -233,8 +233,6 @@ function InnerForm({
           当选择的边缘组中包含多种环境类型时，没有可用的部署类型 (例如：Kubernetes 和 Docker 环境)。请选择包含相同类型环境的边缘组。
         </TextTip>
       )}
-        </TextTip>
-      )}
 
       {values.deploymentType === DeploymentType.Compose && hasKubeEndpoint && (
         <FormError>
