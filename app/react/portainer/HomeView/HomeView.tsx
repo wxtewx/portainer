@@ -69,7 +69,7 @@ export function HomeView() {
       {process.env.PORTAINER_EDITION !== 'CE' && <LicenseNodePanel />}
 
       {process.env.PORTAINER_EDITION !== 'CE' && <MotdPanel />}
-
+      
       {process.env.PORTAINER_EDITION !== 'CE' && <BackupFailedPanel />}
 
       {connectingToEdgeEndpoint ? (

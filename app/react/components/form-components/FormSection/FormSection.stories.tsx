@@ -17,7 +17,7 @@ function Template({ title, content }: Args) {
 }
 
 const exampleContent = `内容
-
+  
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas turpis magna,
    vel pretium dui rhoncus nec. Maecenas felis purus, consectetur non porta sit amet,
     auctor sed sapien. Aliquam eu nunc felis. Pellentesque pulvinar velit id quam pellentesque,

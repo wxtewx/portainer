@@ -10,6 +10,8 @@
         <span ng-if="$ctrl.isAdmin">
           您当前正在使用匿名账户从 DockerHub 拉取镜像，并且每 6 小时只能拉取 100 次。您可以在
           <a ui-sref="portainer.registries">镜像仓库管理页面</a>中配置DockerHub认证：
+          您当前正在使用匿名账户从 DockerHub 拉取镜像，并且每 6 小时只能拉取 100 次。您可以在
+          <a ui-sref="portainer.registries">镜像仓库管理页面</a>中配置DockerHub认证：
           <span style="font-weight: bold">{{ $ctrl.pullRateLimits.remaining }}/{{ $ctrl.pullRateLimits.limit }}</span>
         </span>
         <span ng-if="!$ctrl.isAdmin">

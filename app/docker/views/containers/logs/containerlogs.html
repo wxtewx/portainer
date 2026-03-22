@@ -1,8 +1,11 @@
 <page-header
   title="'容器日志'"
+  title="'容器日志'"
   breadcrumbs="[
     { label:'容器', link:'docker.containers' },
     {
+    { label:'容器', link:'docker.containers' },
+    { 
       label:(container.Name | trimcontainername),
       link: 'docker.containers.container',
       linkParams: { id: container.Id }
