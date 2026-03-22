@@ -44,11 +44,11 @@ export function useCreate({
       mutationOptions(
         {
           onSuccess: () => {
-            notifySuccess('Success', 'Edge stack created');
+            notifySuccess('成功', '边缘堆栈已创建');
             router.stateService.go('^');
           },
         },
-        withError('unable to create edge stack')
+        withError('无法创建边缘堆栈')
       )
     );
 
@@ -59,7 +59,7 @@ export function useCreate({
       switch (method) {
         case 'file':
           if (!values.file) {
-            throw new Error('File is required');
+            throw new Error('文件为必填项');
           }
 
           return {
@@ -93,7 +93,7 @@ export function useCreate({
             },
           };
         default:
-          throw new Error(`Unknown method: ${method}`);
+          throw new Error(`未知的方法： ${method}`);
       }
     }
 

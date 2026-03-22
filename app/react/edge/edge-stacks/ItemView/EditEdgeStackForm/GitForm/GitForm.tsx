@@ -110,7 +110,7 @@ export function GitForm({ stack }: { stack: EdgeStack }) {
 
           updateStackMutation.mutate(getPayload(values, credentialId, false), {
             onSuccess() {
-              notifySuccess('Success', 'Stack updated successfully');
+              notifySuccess('成功', '堆栈已成功更新');
               router.stateService.reload();
             },
           });
@@ -124,7 +124,7 @@ export function GitForm({ stack }: { stack: EdgeStack }) {
 
     updateStackMutation.mutate(getPayload(values, credentialId, true), {
       onSuccess() {
-        notifySuccess('Success', 'Stack updated successfully');
+        notifySuccess('成功', '堆栈已成功更新');
         router.stateService.reload();
       },
     });
@@ -187,18 +187,13 @@ function InnerForm({
 
       {hasKubeEndpoint && hasDockerEndpoint && (
         <TextTip>
-          There are no available deployment types when there is more than one
-          type of environment in your edge group selection (例如： Kubernetes and
-          Docker environments). Please select edge groups that have environments
-          of the same type.
+          当选择的边缘组中包含多种环境类型时，没有可用的部署类型 (例如：：Kubernetes 和 Docker 环境)。请选择包含相同类型环境的边缘组。
         </TextTip>
       )}
 
       {values.deploymentType === DeploymentType.Compose && hasKubeEndpoint && (
         <FormError>
-          Edge groups with kubernetes environments no longer support compose
-          deployment types in Portainer. Please select edge groups that only
-          have docker environments when using compose deployment types.
+          在 Portainer 中，包含 Kubernetes 环境的边缘组不再支持。使用 Compose 部署类型时，请选择仅包含 Docker 环境的边缘组。
         </FormError>
       )}
       <EdgeStackDeploymentTypeSelector
@@ -210,11 +205,11 @@ function InnerForm({
         }}
       />
 
-      <FormSection title="Update from git repository">
+      <FormSection title="从 Git 仓库更新">
         <InfoPanel
           className="text-muted small"
           url={gitUrl}
-          type="Edge stack"
+          type="边缘堆栈"
           configFilePath={gitPath}
         />
 
@@ -232,7 +227,7 @@ function InnerForm({
         />
       </FormSection>
 
-      <FormSection title="Advanced configuration" isFoldable>
+      <FormSection title="高级配置" isFoldable>
         <RefField
           value={values.refName}
           onChange={(value) => setFieldValue('refName', value)}
@@ -276,25 +271,25 @@ function InnerForm({
         errorMessage={errors.privateRegistryId}
       />
 
-      <FormSection title="Actions">
+      <FormSection title="操作">
         <LoadingButton
           disabled={dirty || !isValid || isLoading}
           data-cy="pull-and-update-stack-button"
           isLoading={isUpdateVersion && isLoading}
-          loadingText="updating stack..."
+          loadingText="正在更新堆栈..."
         >
-          Pull and update stack
+          拉取并更新堆栈
         </LoadingButton>
 
         <LoadingButton
           type="button"
           disabled={!dirty || !isValid || isLoading}
           isLoading={!isUpdateVersion && isLoading}
-          loadingText="updating settings..."
+          loadingText="正在更新设置..."
           onClick={onUpdateSettingsClick}
           data-cy="edge-stack-update-settings-button"
         >
-          Update settings
+          更新设置
         </LoadingButton>
       </FormSection>
     </Form>

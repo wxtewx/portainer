@@ -78,11 +78,11 @@ export function PrivateRegistryFieldsetWrapper({
       } else {
         onChange(undefined);
         onFieldError(
-          'Images need to be from a single registry, please edit and reload'
+          '镜像必须来自同一个镜像仓库，请编辑后重新加载'
         );
       }
     } catch (err) {
-      notifyError('Failure', err as Error, 'Unable to retrieve registries');
+      notifyError('失败', err as Error, '无法获取镜像仓库');
     }
   }
 
