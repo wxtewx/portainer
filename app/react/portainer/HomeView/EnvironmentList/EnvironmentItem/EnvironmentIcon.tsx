@@ -27,7 +27,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
           <img
             src={podman}
             width="60"
-            alt="podman environment"
+            alt="podman 环境"
             aria-hidden="true"
           />
         );
@@ -36,7 +36,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
         <img
           src={docker}
           width="60"
-          alt="docker environment"
+          alt="docker 环境"
           aria-hidden="true"
         />
       );
@@ -45,7 +45,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
         <img
           src={azure}
           width="60"
-          alt="azure environment"
+          alt="azure 环境"
           aria-hidden="true"
         />
       );
@@ -54,7 +54,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
         return (
           <img
             src={podmanEdge}
-            alt="podman edge environment"
+            alt="podman 边缘环境"
             aria-hidden="true"
           />
         );
@@ -62,7 +62,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
       return (
         <img
           src={dockerEdge}
-          alt="docker edge environment"
+          alt="docker 边缘环境"
           aria-hidden="true"
         />
       );
@@ -73,7 +73,7 @@ export function EnvironmentIcon({ type, containerEngine }: Props) {
       return (
         <img
           src={kubeEdge}
-          alt="kubernetes edge environment"
+          alt="kubernetes 边缘环境"
           aria-hidden="true"
         />
       );

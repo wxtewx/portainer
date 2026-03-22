@@ -35,7 +35,7 @@ export function EdgeGroupsSelector() {
       dynamic: false,
     });
 
-    notifySuccess('Edge group created', `Group ${group.Name} created`);
+    notifySuccess('边缘组已创建', `分组 ${group.Name} 已创建`);
     return group.Id;
   }
 }

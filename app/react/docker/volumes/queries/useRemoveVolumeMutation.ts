@@ -18,6 +18,6 @@ export async function removeVolume(
       },
     });
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to remove volume');
+    throw parseAxiosError(e, '无法删除数据卷');
   }
 }

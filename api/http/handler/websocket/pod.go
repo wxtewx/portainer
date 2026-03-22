@@ -142,7 +142,7 @@ func (handler *Handler) hijackPodExecStartOperation(
 	go ws.StreamFromReaderToWebsocket(websocketConn, stdoutReader, errorChan)
 
 	// StartExecProcess is a blocking operation which streams IO to/from pod;
-	// this must execute in asynchronously, since the websocketConn could return errors (e.g. client disconnects) before
+	// this must execute in asynchronously, since the websocketConn could return errors (例如： client disconnects) before
 	// the blocking operation is completed.
 	go cli.StartExecProcess(serviceAccountToken, isAdminToken, namespace, podName, containerName, commandArray, stdinReader, stdoutWriter, errorChan)
 

@@ -16,10 +16,10 @@ function Template({
   return (
     <ButtonGroup size={size}>
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button icon={Square} color="danger" onClick={() => {}} data-cy="button">
-        Stop
+        停止
       </Button>
       <Button
         icon={RefreshCw}
@@ -27,7 +27,7 @@ function Template({
         onClick={() => {}}
         data-cy="button"
       >
-        Restart
+        重启
       </Button>
       <Button
         icon={Play}
@@ -36,10 +36,10 @@ function Template({
         onClick={() => {}}
         data-cy="button"
       >
-        Resume
+        恢复
       </Button>
       <Button icon={Trash2} color="danger" onClick={() => {}} data-cy="button">
-        Remove
+        移除
       </Button>
     </ButtonGroup>
   );
@@ -54,13 +54,13 @@ export function Xsmall() {
   return (
     <ButtonGroup size="xsmall">
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button icon={Square} color="danger" onClick={() => {}} data-cy="button">
-        Stop
+        停止
       </Button>
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button
         icon={RefreshCw}
@@ -68,7 +68,7 @@ export function Xsmall() {
         onClick={() => {}}
         data-cy="button"
       >
-        Restart
+        重启
       </Button>
     </ButtonGroup>
   );
@@ -78,13 +78,13 @@ export function Small() {
   return (
     <ButtonGroup size="small">
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button icon={Square} color="danger" onClick={() => {}} data-cy="button">
-        Stop
+        停止
       </Button>
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button
         icon={RefreshCw}
@@ -92,7 +92,7 @@ export function Small() {
         onClick={() => {}}
         data-cy="button"
       >
-        Restart
+        重启
       </Button>
     </ButtonGroup>
   );
@@ -102,13 +102,13 @@ export function Large() {
   return (
     <ButtonGroup size="large">
       <Button icon={Play} color="primary" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button icon={Square} color="danger" onClick={() => {}} data-cy="button">
-        Stop
+        停止
       </Button>
       <Button icon={Play} color="light" onClick={() => {}} data-cy="button">
-        Start
+        启动
       </Button>
       <Button
         icon={RefreshCw}
@@ -116,7 +116,7 @@ export function Large() {
         onClick={() => {}}
         data-cy="button"
       >
-        Restart
+        重启
       </Button>
     </ButtonGroup>
   );

@@ -24,7 +24,7 @@ export function useServices<T = Service>(
     queryKeys.filters(environmentId, filters),
     () => getServices(environmentId, filters),
     {
-      ...withGlobalError('Unable to retrieve services'),
+      ...withGlobalError('无法获取服务列表'),
       enabled,
       select,
     }
@@ -42,6 +42,6 @@ export async function getServices(
 
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to get services');
+    throw parseAxiosError(e, '无法获取服务列表');
   }
 }

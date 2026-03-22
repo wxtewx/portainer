@@ -107,7 +107,7 @@ export function NonGitStackForm({ edgeStack }: { edgeStack: EdgeStack }) {
     if (isBE && values.deploymentType === DeploymentType.Compose) {
       const defaultToggle = values.prePullImage;
       const result = await confirmStackUpdate(
-        'Do you want to force an update of the stack?',
+        '您是否要强制更新此堆栈？',
         defaultToggle
       );
       if (!result) {
@@ -150,7 +150,7 @@ export function NonGitStackForm({ edgeStack }: { edgeStack: EdgeStack }) {
       },
       {
         onSuccess: () => {
-          notifySuccess('Success', 'Stack successfully deployed');
+          notifySuccess('成功', '堆栈部署成功');
           router.stateService.go('^');
         },
       }
@@ -230,18 +230,15 @@ function InnerForm({
 
       {hasKubeEndpoint && hasDockerEndpoint && (
         <TextTip>
-          There are no available deployment types when there is more than one
-          type of environment in your edge group selection (e.g. Kubernetes and
-          Docker environments). Please select edge groups that have environments
-          of the same type.
+          当选择的边缘组中包含多种环境类型时，没有可用的部署类型 (例如：Kubernetes 和 Docker 环境)。请选择包含相同类型环境的边缘组。
+        </TextTip>
+      )}
         </TextTip>
       )}
 
       {values.deploymentType === DeploymentType.Compose && hasKubeEndpoint && (
         <FormError>
-          Edge groups with kubernetes environments no longer support compose
-          deployment types in Portainer. Please select edge groups that only
-          have docker environments when using compose deployment types.
+          在 Portainer 中，包含 Kubernetes 环境的边缘组不再支持 Compose 部署类型。使用 Compose 部署类型时，请选择仅包含 Docker 环境的边缘组。
         </FormError>
       )}
 
@@ -269,12 +266,12 @@ function InnerForm({
             <div className="form-group">
               <div className="col-sm-12">
                 <SwitchField
-                  label="Create an Edge stack webhook"
+                  label="创建边缘堆栈 Webhook"
                   data-cy="edge-stack-enable-webhook-switch"
                   checked={values.webhookEnabled}
                   labelClass="col-sm-3 col-lg-2"
                   onChange={(value) => setFieldValue('webhookEnabled', value)}
-                  tooltip="Create a webhook (or callback URI) to automate the update of this stack. Sending a POST request to this callback URI (without requiring any authentication) will pull the most up-to-date version of the associated image and re-deploy this stack."
+                  tooltip="创建 Webhook (或回调 URI) 以自动更新此堆栈。向此回调 URI 发送 POST 请求 (无需任何身份验证) 将拉取相关镜像的最新版本并重新部署此堆栈。"
                 />
               </div>
             </div>
@@ -288,9 +285,7 @@ function InnerForm({
                 />
 
                 <TextTip color="orange">
-                  Sending environment variables to the webhook is updating the
-                  stack with the new values. New variables names will be added
-                  to the stack and existing variables will be updated.
+                  向 Webhook 发送环境变量将使用新值更新堆栈。新的变量名将被添加到堆栈中，现有变量将被更新。
                 </TextTip>
               </>
             )}
@@ -342,7 +337,7 @@ function InnerForm({
         </>
       )}
 
-      <FormSection title="Actions">
+      <FormSection title="操作">
         <div className="form-group">
           <div className="col-sm-12">
             <LoadingButton
@@ -352,16 +347,15 @@ function InnerForm({
               disabled={!isValid || staggerUpdating}
               isLoading={isLoading}
               button-spinner="$ctrl.actionInProgress"
-              loadingText="Update in progress..."
+              loadingText="更新中..."
             >
-              Update the stack
+              更新堆栈
             </LoadingButton>
           </div>
           {staggerUpdating && (
             <div className="col-sm-12">
               <FormError>
-                Concurrent updates in progress, stack update temporarily
-                unavailable
+                正在进行并发更新，堆栈更新暂时不可用
               </FormError>
             </div>
           )}
@@ -414,10 +408,10 @@ function useCachedContent() {
 
 function formValidation(): SchemaOf<FormValues> {
   return object({
-    content: string().required('Content is required'),
+    content: string().required('内容为必填项'),
     deploymentType: number()
       .oneOf([0, 1, 2])
-      .required('Deployment type is required'),
+      .required('部署类型为必填项'),
     privateRegistryId: number().optional(),
     prePullImage: boolean().default(false),
     retryDeploy: boolean().default(false),
@@ -425,7 +419,7 @@ function formValidation(): SchemaOf<FormValues> {
     edgeGroups: array()
       .of(number().required())
       .required()
-      .min(1, 'At least one edge group is required'),
+      .min(1, '至少需要选择一个边缘组'),
     webhookEnabled: boolean().default(false),
     versions: array().of(number().optional()).optional(),
     envVars: envVarValidation(),

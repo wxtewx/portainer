@@ -37,7 +37,7 @@ export function parseCPU(cpu: string) {
  *
  * @param memoryBytes - The memory size in bytes
  * @param options - Options for formatting (defaults to IEC standard)
- * @returns Human-readable memory size (e.g., "100 MiB")
+ * @returns Human-readable memory size (例如：, "100 MiB")
  */
 export function bytesToReadableFormat(
   memoryBytes: number,
@@ -76,7 +76,7 @@ export function getMebibytes(memoryBytes: number): number {
  * Parses a value using the filesize-parser library and gives the result in bytes.
  *
  * This function handles both string and number inputs.
- * If the base is not provided, the value is a string and it contains 'i' (e.g. "100MiB"), use base 2 (binary/IEC).
+ * If the base is not provided, the value is a string and it contains 'i' (例如： "100MiB"), use base 2 (binary/IEC).
  * Otherwise, it uses the provided base (defaulting to 10).
  */
 export function safeFilesizeParser(value: string | number, base?: 2 | 10) {
@@ -84,7 +84,7 @@ export function safeFilesizeParser(value: string | number, base?: 2 | 10) {
     return 0;
   }
 
-  // If the value is a string and contains 'i' (e.g. "100MiB"), use base 2 (binary/IEC)
+  // If the value is a string and contains 'i' (例如： "100MiB"), use base 2 (binary/IEC)
   const hasBinaryUnit = typeof value === 'string' && value.includes('i');
   const inferredBase = hasBinaryUnit ? 2 : 10;
 

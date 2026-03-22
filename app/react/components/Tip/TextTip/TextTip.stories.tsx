@@ -16,5 +16,5 @@ function Template({
 
 export const Primary: StoryFn<PropsWithChildren<unknown>> = Template.bind({});
 Primary.args = {
-  children: 'This is a text tip with children',
+  children: '这是一条带内容的文本提示',
 };

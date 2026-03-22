@@ -20,7 +20,7 @@ export function validateYAML(
   try {
     yamlObject = YAML.parse(yaml, { maxAliasCount: 10000 });
   } catch (err) {
-    return `There is an error in the yaml syntax: ${err}`;
+    return `YAML 语法存在错误： ${err}`;
   }
 
   const names = extractContainerNamesFromYaml(yamlObject);
@@ -41,9 +41,9 @@ export function validateYAML(
 
   return `${
     duplicateContainers.length === 1
-      ? 'This container name is'
-      : 'These container names are'
-  } already used by another container running in this environment: ${_.join(
+      ? '此容器名称已'
+      : '这些容器名称已'
+  } 被当前环境中运行的其他容器占用： ${_.join(
     duplicateContainers,
     ', '
   )}.`;

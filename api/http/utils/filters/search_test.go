@@ -197,7 +197,7 @@ func TestSearchFn_FormattedAccessor(t *testing.T) {
 		{ID: 2, Name: "Keyboard", Description: "Gaming keyboard", Price: 150, Category: "Electronics"},
 	}
 
-	// Search by formatted price (e.g., "$25")
+	// Search by formatted price (例如：, "$25")
 	accessors := []SearchAccessor[Product]{productPriceAccessor}
 	params := SearchQueryParams{search: "$25"}
 

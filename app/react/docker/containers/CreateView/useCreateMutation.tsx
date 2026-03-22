@@ -54,7 +54,7 @@ export function useCreateOrReplaceMutation() {
   return useMutation(
     createOrReplace,
     mutationOptions(
-      withError('Failed to create container'),
+      withError('创建容器失败'),
       withInvalidate(queryClient, [queryKeys.list(environmentId)])
     )
   );
@@ -221,7 +221,7 @@ async function applyContainerSettings(
   // Portainer will always return a resource control, but since types mark it as optional, we need to check it.
   // Ignoring the missing value will result with bugs, hence it's better to throw an error
   if (!resourceControl) {
-    throw new PortainerError('resource control expected after creation');
+    throw new PortainerError('创建后预期存在资源控制配置');
   }
 
   await applyResourceControl(accessControl, resourceControl.Id);
@@ -299,7 +299,7 @@ async function createContainer(
 
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to create container');
+    throw parseAxiosError(err, '无法创建容器');
   }
 }
 

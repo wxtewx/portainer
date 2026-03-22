@@ -46,7 +46,7 @@ function SheetHeader({
               size="large"
               onClick={onReload}
               className="m-0 p-0 focus:text-inherit"
-              title="Refresh drawer content"
+              title="刷新抽屉内容"
               data-cy="sheet-refreshButton"
             >
               <RefreshCw className="icon" />
@@ -137,7 +137,7 @@ const SheetContent = forwardRef<
               size="medium"
               data-cy="sheet-closeButton"
             >
-              <span className="sr-only">Close</span>
+              <span className="sr-only">关闭</span>
             </Button>
           </SheetPrimitive.Close>
         )}

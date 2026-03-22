@@ -47,7 +47,7 @@ function ImageServiceFactory(AngularToReact) {
       const containerByImageId = groupBy(containers, 'ImageID');
       return images.map((item) => new ImageViewModel(item, !!containerByImageId[item.Id] && containerByImageId[item.Id].length > 0));
     } catch (e) {
-      throw parseAxiosError(e, 'Unable to retrieve images');
+      throw parseAxiosError(e, '无法获取镜像');
     }
   }
 
@@ -56,7 +56,7 @@ function ImageServiceFactory(AngularToReact) {
       const layers = await getImageHistory(environmentId, imageId);
       return layers.reverse().map((layer, idx) => new ImageLayerViewModel(idx, layer));
     } catch (e) {
-      throw parseAxiosError(e, 'Unable to retrieve image history');
+      throw parseAxiosError(e, '无法获取镜像历史记录');
     }
   }
 

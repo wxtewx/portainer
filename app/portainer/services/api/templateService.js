@@ -27,13 +27,13 @@ function TemplateServiceFactory($q, Templates, EndpointService) {
               template.RegistryModel.Registry = registry;
               return template;
             } catch (err) {
-              deferred.reject({ msg: 'Unable to retrieve templates', err: err });
+              deferred.reject({ msg: '无法获取模板', err: err });
             }
           })
         );
       })
       .catch(function error(err) {
-        deferred.reject({ msg: 'Unable to retrieve templates', err: err });
+        deferred.reject({ msg: '无法获取模板', err: err });
       });
 
     return deferred.promise;

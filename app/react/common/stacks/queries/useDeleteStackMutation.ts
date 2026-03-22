@@ -32,7 +32,7 @@ export function useDeleteStackMutation() {
         // exact: true,
       });
     },
-    ...withGlobalError('Unable to delete stack'),
+    ...withGlobalError('删除堆栈失败'),
   });
 }
 
@@ -50,6 +50,6 @@ async function deleteStack({
       },
     });
   } catch (error) {
-    throw parseAxiosError(error, 'Unable to delete stack');
+    throw parseAxiosError(error, '删除堆栈失败');
   }
 }

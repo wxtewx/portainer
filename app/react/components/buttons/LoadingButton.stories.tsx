@@ -21,13 +21,13 @@ function Template({ loadingText, isLoading }: Args) {
       isLoading={isLoading}
       icon={Download}
     >
-      Download
+      下载
     </LoadingButton>
   );
 }
 
 Template.args = {
-  loadingText: 'loading',
+  loadingText: '加载中',
   isLoading: false,
 };
 
@@ -36,12 +36,12 @@ export const Example = Template.bind({});
 export function IsLoading() {
   return (
     <LoadingButton
-      loadingText="loading"
+      loadingText="加载中"
       isLoading
       icon={Download}
       data-cy="loading-button"
     >
-      Download
+      下载
     </LoadingButton>
   );
 }

@@ -11,7 +11,7 @@ import { withGlobalError } from '@/react-tools/react-query';
 export function useAssociateStackToEnvironmentMutation() {
   return useMutation({
     mutationFn: associateStackToEnvironmentMutation,
-    ...withGlobalError('Failed to associate stack to environment'),
+    ...withGlobalError('将堆栈关联到环境失败'),
   });
 }
 
@@ -37,7 +37,7 @@ async function associateStackToEnvironmentMutation({
 
   const resourceControl = associatedStack.ResourceControl;
   if (!resourceControl) {
-    throw new PortainerError('resource control expected after creation');
+    throw new PortainerError('创建后未获取到资源控制信息');
   }
 
   await applyResourceControl(accessControl, resourceControl.Id);

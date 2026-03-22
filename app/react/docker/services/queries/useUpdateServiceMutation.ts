@@ -22,7 +22,7 @@ export function useUpdateServiceMutation(environmentId: EnvironmentId) {
     updateService,
     mutationOptions(
       withInvalidate(queryClient, [queryKeys.list(environmentId)]),
-      withError('Unable to update service')
+      withError('无法更新服务')
     )
   );
 }
@@ -59,6 +59,6 @@ export async function updateService({
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to update service');
+    throw parseAxiosError(e, '无法更新服务');
   }
 }

@@ -44,14 +44,14 @@ export function EdgeGroupsSelector({
   return horizontal ? (
     <FormControl
       errors={error}
-      label="Edge Groups"
+      label="边缘组"
       required={required}
       inputId={inputId}
     >
       {selector}
     </FormControl>
   ) : (
-    <FormSection title={`Edge Groups${required ? ' *' : ''}`} htmlFor={inputId}>
+    <FormSection title={`边缘组${required ? ' *' : ''}`} htmlFor={inputId}>
       <div className="form-group">
         <div className="col-sm-12">{selector} </div>
         {error && (
@@ -85,7 +85,7 @@ function InnerSelector({
 
   return items.length ? (
     <Select
-      aria-label="Edge groups"
+      aria-label="边缘组"
       options={items}
       isMulti
       getOptionLabel={(item) => item.Name}
@@ -94,7 +94,7 @@ function InnerSelector({
       onChange={(value) => {
         onChange(value.map((item) => item.Id));
       }}
-      placeholder="Select one or multiple group(s)"
+      placeholder="选择一个或多个组"
       closeMenuOnSelect={false}
       data-cy="edge-stacks-groups-selector"
       id="edge-stacks-groups-selector"
@@ -102,11 +102,11 @@ function InnerSelector({
     />
   ) : (
     <div className="small text-muted">
-      No Edge groups are available. Head over to the{' '}
+      暂无可用的边缘组。请前往{' '}
       <Link to="edge.groups" data-cy="edge-stacks-groups-view-link">
-        Edge groups view
+        边缘组页面
       </Link>{' '}
-      to create one.
+      创建一个。
     </div>
   );
 }

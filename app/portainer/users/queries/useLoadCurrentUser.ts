@@ -14,7 +14,7 @@ interface CurrentUserResponse extends User {
 
 export function useLoadCurrentUser({ staleTime }: { staleTime?: number } = {}) {
   return useQuery(userQueryKeys.me(), () => getCurrentUser(), {
-    ...withError('Unable to retrieve user details'),
+    ...withError('无法获取用户详情'),
     staleTime,
   });
 }
@@ -27,6 +27,6 @@ export async function getCurrentUser() {
 
     return user;
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to retrieve user details');
+    throw parseAxiosError(e as Error, '无法获取用户详情');
   }
 }

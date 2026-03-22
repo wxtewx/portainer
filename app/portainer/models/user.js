@@ -6,9 +6,9 @@ export function UserViewModel(data) {
   this.EndpointAuthorizations = data.EndpointAuthorizations;
   this.PortainerAuthorizations = data.PortainerAuthorizations;
   if (data.Role === 1) {
-    this.RoleName = 'administrator';
+    this.RoleName = '管理员';
   } else {
-    this.RoleName = 'user';
+    this.RoleName = '用户';
   }
   this.AuthenticationMethod = data.AuthenticationMethod;
   this.Checked = false;

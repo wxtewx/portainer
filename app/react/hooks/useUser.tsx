@@ -31,12 +31,12 @@ export function useCurrentUser() {
   const context = useContext(UserContext);
 
   if (context === null) {
-    throw new Error('should be nested under UserProvider');
+    throw new Error('必须嵌套在 UserProvider 内部');
   }
 
   const { user } = context;
   if (typeof user === 'undefined') {
-    throw new Error('should be authenticated');
+    throw new Error('需要先完成身份验证');
   }
 
   return useMemo(

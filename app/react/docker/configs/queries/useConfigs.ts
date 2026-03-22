@@ -21,7 +21,7 @@ export function useConfigsList<T>(
     queryFn: () => getConfigs(environmentId),
     refetchInterval,
     select,
-    ...withGlobalError('Unable to retrieve configs'),
+    ...withGlobalError('无法获取配置'),
   });
 }
 
@@ -32,6 +32,6 @@ export async function getConfigs(environmentId: EnvironmentId) {
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to retrieve configs');
+    throw parseAxiosError(e, '无法获取配置');
   }
 }

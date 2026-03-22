@@ -163,7 +163,7 @@ func (c *Client) applyResource(ctx context.Context, dynamicClient dynamic.Interf
 
 	// Apply using Server-Side Apply (Patch). If the resource does not exist (404),
 	// fall back to Create so restoration can create Deployments and other resources
-	// that were removed (e.g. by Helm uninstall).
+	// that were removed (例如： by Helm uninstall).
 	patchOptions := metav1.PatchOptions{
 		FieldManager: "portainer",
 		Force:        boolPtr(true),

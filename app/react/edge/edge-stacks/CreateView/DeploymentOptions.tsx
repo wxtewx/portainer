@@ -16,8 +16,8 @@ export function DeploymentOptions({
           <SwitchField
             checked={values.prePullImage}
             name="prePullImage"
-            label="Pre-pull images"
-            tooltip="When enabled, the image will be pre-pulled before deployment is started. This is useful in scenarios where the image download may be delayed or  intermittent and would subsequently cause the deployment to fail"
+            label="预拉取镜像"
+            tooltip="启用后，将在开始部署前预拉取镜像。这在镜像下载可能延迟或断断续续，并会导致部署失败的场景中非常有用"
             labelClass="col-sm-3 col-lg-2"
             onChange={(value) => setFieldValue('prePullImage', value)}
             data-cy="pre-pull-images-switch"
@@ -30,8 +30,8 @@ export function DeploymentOptions({
           <SwitchField
             checked={values.retryDeploy}
             name="retryDeploy"
-            label="Retry deployment"
-            tooltip="When enabled, this will allow the edge agent to retry deployment if failed to deploy initially"
+            label="重试部署"
+            tooltip="启用后，如果首次部署失败，边缘代理将允许重试部署"
             labelClass="col-sm-3 col-lg-2"
             onChange={(value) => setFieldValue('retryDeploy', value)}
             data-cy="retry-deployment-switch"

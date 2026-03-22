@@ -11,9 +11,9 @@ export function getEditorValidationSchema({
 }): SchemaOf<EditorFormValues> {
   return object({
     fileContent: string()
-      .required('Stack file content is required')
-      .min(1, 'Stack file content cannot be empty')
-      .test('valid-yaml', 'Invalid YAML', function validateYamlTest(value) {
+      .required('堆栈文件内容为必填项')
+      .min(1, '堆栈文件内容不能为空')
+      .test('valid-yaml', '无效的 YAML', function validateYamlTest(value) {
         if (!value) {
           return true;
         }

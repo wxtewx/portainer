@@ -37,7 +37,7 @@ export async function checkAuthorizations(transition: Transition) {
   if (!isLoggedIn) {
     // eslint-disable-next-line no-console
     console.info(
-      'User is not authenticated, redirecting to login, access:',
+      '用户未认证，正在重定向到登录页，权限：',
       access
     );
     return $state.target('portainer.logout');
@@ -55,7 +55,7 @@ export async function checkAuthorizations(transition: Transition) {
 
       // eslint-disable-next-line no-console
       console.info(
-        'User is not an admin, redirecting to home, access:',
+        '用户不是管理员，正在重定向到首页，权限：',
         access
       );
       return $state.target('portainer.home');
@@ -68,7 +68,7 @@ export async function checkAuthorizations(transition: Transition) {
 
       // eslint-disable-next-line no-console
       console.info(
-        'User is not an edge admin, redirecting to home, access:',
+        '用户不是边缘管理员，正在重定向到首页，权限：',
         access
       );
       return $state.target('portainer.home');
@@ -78,7 +78,7 @@ export async function checkAuthorizations(transition: Transition) {
   if (access.length > 0 && !authService.hasAuthorizations(access)) {
     // eslint-disable-next-line no-console
     console.info(
-      'User does not have the required authorizations, redirecting to home'
+      '用户没有所需的权限，正在重定向到首页'
     );
     return $state.target('portainer.home');
   }

@@ -23,7 +23,7 @@ angular.module('portainer.app').factory('BackupService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve backup S3 settings', err: err });
+          deferred.reject({ msg: '无法获取备份 S3 设置', err: err });
         });
 
       return deferred.promise;
@@ -37,7 +37,7 @@ angular.module('portainer.app').factory('BackupService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to save backup S3 settings', err: err });
+          deferred.reject({ msg: '无法保存备份 S3 设置', err: err });
         });
 
       return deferred.promise;
@@ -51,7 +51,7 @@ angular.module('portainer.app').factory('BackupService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to export backup', err: err });
+          deferred.reject({ msg: '无法导出备份', err: err });
         });
 
       return deferred.promise;
@@ -65,7 +65,7 @@ angular.module('portainer.app').factory('BackupService', [
           deferred.resolve(data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to restore backup from S3', err: err });
+          deferred.reject({ msg: '无法从 S3 恢复备份', err: err });
         });
 
       return deferred.promise;

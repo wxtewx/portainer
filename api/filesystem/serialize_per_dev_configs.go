@@ -37,7 +37,7 @@ func MultiFilterDirForPerDevConfigsWithDefaults(dirEntries []DirEntry, configPat
 	filteredDirEntries, envFiles := MultiFilterDirForPerDevConfigs(dirEntries, configPath, multiFilterArgs)
 
 	// Add files that should always be included
-	// e.g. entrypoint files
+	// 例如： entrypoint files
 	defaultDirEntries := GetDirEntriesByFilenames(dirEntries, defaultFilenames)
 	filteredDirEntries = append(filteredDirEntries, defaultDirEntries...)
 

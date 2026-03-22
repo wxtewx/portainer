@@ -34,7 +34,7 @@ export function useUpdateEdgeStackGitMutation() {
   return useMutation(
     updateEdgeStackGit,
     mutationOptions(
-      withError('Failed updating stack'),
+      withError('更新堆栈失败'),
       withInvalidate(queryClient, [queryKeys.base()])
     )
   );
@@ -47,6 +47,6 @@ async function updateEdgeStackGit({
   try {
     await axios.put(buildUrl(id, 'git'), payload);
   } catch (err) {
-    throw parseAxiosError(err as Error, 'Failed updating stack');
+    throw parseAxiosError(err as Error, '更新堆栈失败');
   }
 }

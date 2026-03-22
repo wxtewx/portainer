@@ -14,7 +14,7 @@ export function useAMTDevices(
     ['amt_devices', environmentId],
     () => getDevices(environmentId),
     {
-      ...withError('Failed retrieving AMT devices'),
+      ...withError('获取 AMT 设备失败'),
       enabled,
     }
   );
@@ -28,6 +28,6 @@ async function getDevices(environmentId: EnvironmentId) {
 
     return devices;
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to retrieve device information');
+    throw parseAxiosError(e as Error, '无法获取设备信息');
   }
 }

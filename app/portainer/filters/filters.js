@@ -84,13 +84,13 @@ export function endpointTypeName(type) {
   if (type === 1) {
     return 'Docker';
   } else if (type === 2 || type === 6) {
-    return 'Agent';
+    return '代理';
   } else if (type === 3) {
     return 'Azure ACI';
   } else if (type === 5) {
     return 'Kubernetes';
   } else if (type === 4 || type === 7) {
-    return 'Edge Agent';
+    return '边缘代理';
   }
   return '';
 }

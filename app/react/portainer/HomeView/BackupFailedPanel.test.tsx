@@ -15,9 +15,9 @@ test('when backup failed, should show message', async () => {
 
   await expect(
     findByText(
-      `The latest automated backup has failed at ${isoDate(
+      `最新自动备份于 ${isoDate(
         timestamp
-      )}. For details please see the log files and have a look at the`,
+      )} 失败。详情请查看日志文件并参考`,
       { exact: false }
     )
   ).resolves.toBeVisible();
@@ -27,7 +27,7 @@ test("when user is using less nodes then allowed he shouldn't see message", asyn
   const { findByText } = renderComponent({ failed: false });
 
   await expect(
-    findByText('The latest automated backup has failed at', { exact: false })
+    findByText('最新自动备份于', { exact: false })
   ).rejects.toBeTruthy();
 });
 

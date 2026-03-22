@@ -42,7 +42,7 @@ export function toViewModel(portBindings: PortMap): Values {
       const [containerPort, protocol] = key.split('/');
 
       if (!isProtocol(protocol)) {
-        throw new Error(`Invalid protocol: ${protocol}`);
+        throw new Error(`无效的协议： ${protocol}`);
       }
 
       if (!bindings) {
@@ -52,7 +52,7 @@ export function toViewModel(portBindings: PortMap): Values {
       const containerPortNumber = parseInt(containerPort, 10);
 
       if (Number.isNaN(containerPortNumber)) {
-        throw new Error(`Invalid container port: ${containerPort}`);
+        throw new Error(`无效的容器端口： ${containerPort}`);
       }
 
       return bindings.map((binding) => {

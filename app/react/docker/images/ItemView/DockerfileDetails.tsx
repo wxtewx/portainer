@@ -21,20 +21,20 @@ interface Props {
 export function DockerfileDetails({ image }: Props) {
   return (
     <TableContainer>
-      <TableTitle label="Dockerfile details" icon={List} />
+      <TableTitle label="Dockerfile 详情" icon={List} />
       <DetailsTable dataCy="dockerfile-details-table">
         <DetailsTable.Row label="CMD">
           <code>{image.Command ? joinCommand(image.Command) : '-'}</code>
         </DetailsTable.Row>
 
         {image.Entrypoint && (
-          <DetailsTable.Row label="ENTRYPOINT">
+          <DetailsTable.Row label="入口点">
             <code>{joinCommand(image.Entrypoint)}</code>
           </DetailsTable.Row>
         )}
 
         {image.ExposedPorts.length > 0 && (
-          <DetailsTable.Row label="EXPOSE">
+          <DetailsTable.Row label="暴露端口">
             {image.ExposedPorts.map((port, index) => (
               <span className="label label-default space-right" key={index}>
                 {port}
@@ -44,7 +44,7 @@ export function DockerfileDetails({ image }: Props) {
         )}
 
         {image.Volumes.length > 0 && (
-          <DetailsTable.Row label="VOLUME">
+          <DetailsTable.Row label="数据卷">
             <div className="flex flex-wrap gap-1">
               {image.Volumes.map((volume, index) => (
                 <span key={index} className="label label-default space-right">
@@ -56,7 +56,7 @@ export function DockerfileDetails({ image }: Props) {
         )}
 
         {image.Env.length > 0 && (
-          <DetailsTable.Row label="ENV">
+          <DetailsTable.Row label="环境变量">
             <table className="table-bordered table-condensed table">
               <tbody>
                 {image.Env.map((variable) => (

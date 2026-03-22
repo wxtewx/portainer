@@ -5,7 +5,7 @@ export const authenticationActivityTypesMap = {
 };
 
 export const authenticationActivityTypesLabels = {
-  [authenticationActivityTypesMap.AuthSuccess]: 'Authentication success',
-  [authenticationActivityTypesMap.AuthFailure]: 'Authentication failure',
-  [authenticationActivityTypesMap.Logout]: 'Logout',
+  [authenticationActivityTypesMap.AuthSuccess]: '认证成功',
+  [authenticationActivityTypesMap.AuthFailure]: '认证失败',
+  [authenticationActivityTypesMap.Logout]: '退出登录',
 };

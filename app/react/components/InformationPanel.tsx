@@ -33,7 +33,7 @@ export function InformationPanel({
                     onClick={() => onDismiss()}
                     data-cy="dismiss-information-panel-button"
                   >
-                    dismiss
+                    关闭
                   </Button>
                 </span>
               )}

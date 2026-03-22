@@ -67,7 +67,7 @@ function getBaseValidationSchema({
       .oneOf(['editor', 'repository', 'template', 'upload'])
       .default('editor'),
     name: nameValidation({ environmentId, stacks }).required(
-      'Stack name is required'
+      '堆栈名称为必填项'
     ),
     env: envVarValidation(),
     accessControl: accessControlFormValidation(isAdmin),

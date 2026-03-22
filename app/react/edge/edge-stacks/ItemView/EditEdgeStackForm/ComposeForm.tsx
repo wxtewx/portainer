@@ -28,7 +28,7 @@ export function ComposeForm({
       {hasKubeEndpoint && (
         <TextTip>
           <p>
-            Portainer no longer supports{' '}
+            Portainer 不再支持用于 Kubernetes 部署的{' '}
             <a
               href="https://docs.docker.com/compose/compose-file/"
               target="_blank"
@@ -36,26 +36,17 @@ export function ComposeForm({
             >
               docker-compose
             </a>{' '}
-            format manifests for Kubernetes deployments, and we have removed the{' '}
+            格式清单，我们已移除了支持该功能的{' '}
             <a href="https://kompose.io/" target="_blank" rel="noreferrer">
               Kompose
             </a>{' '}
-            conversion tool which enables this. The reason for this is because
-            Kompose now poses a security risk, since it has a number of Common
-            Vulnerabilities and Exposures (CVEs).
+            转换工具。原因是 Kompose 存在安全风险，因为它存在大量通用漏洞披露 (CVE) 问题。
           </p>
           <p>
-            Unfortunately, while the Kompose project has a maintainer and is
-            part of the CNCF, it is not being actively maintained. Releases are
-            very infrequent and new pull requests to the project (including ones
-            we&apos;ve submitted) are taking months to be merged, with new CVEs
-            arising in the meantime.
+            遗憾的是，尽管 Kompose 项目拥有维护者且属于 CNCF 项目，但它并未得到积极维护。版本发布非常不频繁，项目的新拉取请求 (包括我们提交的请求) 需要数月才能合并，与此同时新的漏洞不断出现。
           </p>
           <p>
-            We advise installing your own instance of Kompose in a sandbox
-            environment, performing conversions of your Docker Compose files to
-            Kubernetes manifests and using those manifests to set up
-            applications.
+            我们建议您在沙箱环境中安装自己的 Kompose 实例，将 Docker Compose 文件转换为 Kubernetes 清单，并使用这些清单来部署应用。
           </p>
         </TextTip>
       )}
@@ -66,7 +57,7 @@ export function ComposeForm({
         type="yaml"
         schema={dockerComposeSchema}
         id="compose-editor"
-        textTip="Define or paste the content of your docker compose file here"
+        textTip="在此定义或粘贴您的 docker compose 文件内容"
         onChange={(value) => handleContentChange(DeploymentType.Compose, value)}
         error={errors.content}
         readonly={hasKubeEndpoint}
@@ -74,15 +65,15 @@ export function ComposeForm({
         onVersionChange={handleVersionChange}
       >
         <div>
-          You can get more information about Compose file format in the{' '}
+          您可以在{' '}
           <a
             href="https://docs.docker.com/compose/compose-file/"
             target="_blank"
             rel="noreferrer"
           >
-            official documentation
+            官方文档
           </a>
-          .
+          中获取更多关于 Compose 文件格式的信息。
         </div>
       </WebEditorForm>
     </>

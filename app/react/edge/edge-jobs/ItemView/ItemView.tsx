@@ -15,12 +15,12 @@ import { ResultsDatatable } from './ResultsDatatable/ResultsDatatable';
 const tabs = [
   {
     id: 0,
-    label: 'Configuration',
+    label: '配置',
     icon: WrenchIcon,
   },
   {
     id: 1,
-    label: 'Results',
+    label: '执行结果',
     icon: ListIcon,
   },
 ] as const;
@@ -43,8 +43,8 @@ export function ItemView() {
   return (
     <>
       <PageHeader
-        title="Edge job details"
-        breadcrumbs={[{ label: 'Edge jobs', link: 'edge.jobs' }, edgeJob.Name]}
+        title="边缘任务详情"
+        breadcrumbs={[{ label: '边缘任务', link: 'edge.jobs' }, edgeJob.Name]}
       />
 
       <div className="row">

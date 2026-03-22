@@ -16,6 +16,6 @@ export async function createSecret(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to create secret');
+    throw parseAxiosError(err, '无法创建密钥');
   }
 }

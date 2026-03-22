@@ -5,9 +5,9 @@ angular.module('portainer.kubernetes').filter('kubernetesConfigurationKindText',
   return function (type) {
     switch (type) {
       case KubernetesConfigurationKinds.SECRET:
-        return 'Secret';
+        return '密钥';
       case KubernetesConfigurationKinds.CONFIGMAP:
-        return 'ConfigMap';
+        return '配置映射';
     }
   };
 });

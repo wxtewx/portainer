@@ -12,9 +12,9 @@ angular.module('portainer.app').factory('FormValidator', [
       }
 
       if (isAdmin && accessControlData.Ownership === RCO.RESTRICTED && accessControlData.AuthorizedUsers.length === 0 && accessControlData.AuthorizedTeams.length === 0) {
-        return 'You must specify at least one team or user.';
+        return '必须指定至少一个团队或用户。';
       } else if (!isAdmin && accessControlData.Ownership === RCO.RESTRICTED && accessControlData.AuthorizedTeams.length === 0) {
-        return 'You must specify at least a team.';
+        return '必须指定至少一个团队。';
       }
       return '';
     };

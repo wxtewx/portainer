@@ -33,6 +33,6 @@ export function useRecreateContainer() {
         ),
       });
     },
-    ...withGlobalError('Unable to re-create container'),
+    ...withGlobalError('容器重新创建失败'),
   });
 }

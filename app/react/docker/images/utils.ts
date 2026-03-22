@@ -56,7 +56,7 @@ export function buildImageFullURIFromModel(imageModel: ImageModel) {
  */
 export function buildImageFullURI(image: string, registry?: Registry) {
   if (!image) {
-    throw new Error('Missing image');
+    throw new Error('缺少镜像名称');
   }
 
   if (!registry) {

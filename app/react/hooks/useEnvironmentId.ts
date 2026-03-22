@@ -18,7 +18,7 @@ export function useEnvironmentId(force = true): EnvironmentId {
       return 0;
     }
 
-    throw new Error('endpointId url param is required');
+    throw new Error('endpointId url 参数是必需的');
   }
 
   return parseInt(environmentId, 10);

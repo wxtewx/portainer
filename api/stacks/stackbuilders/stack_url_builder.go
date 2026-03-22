@@ -4,22 +4,22 @@ import (
 	"time"
 
 	portainer "github.com/portainer/portainer/api"
-	httperror "github.com/portainer/portainer/pkg/libhttp/error"
 )
 
 type UrlMethodStackBuildProcess interface {
 	// Set general stack information
 	SetGeneralInfo(payload *StackPayload, endpoint *portainer.Endpoint) UrlMethodStackBuildProcess
-	// Set unique stack information, e.g. swarm stack has swarmID, kubernetes stack has namespace
+	// Set unique stack information, 例如： swarm stack has swarmID, kubernetes stack has namespace
 	SetUniqueInfo(payload *StackPayload) UrlMethodStackBuildProcess
 	// Deploy stack based on the configuration
 	Deploy(payload *StackPayload, endpoint *portainer.Endpoint) UrlMethodStackBuildProcess
 	// Save the stack information to database
-	SaveStack() (*portainer.Stack, *httperror.HandlerError)
+	SaveStack() (*portainer.Stack, error)
 	// Get reponse from http request. Use if it is needed
 	GetResponse() string
 	// Set manifest url
 	SetURL(payload *StackPayload) UrlMethodStackBuildProcess
+	Error() error
 }
 
 type UrlMethodStackBuilder struct {
@@ -55,7 +55,7 @@ func (b *UrlMethodStackBuilder) Deploy(payload *StackPayload, endpoint *portaine
 	// Deploy the stack
 	err := b.deploymentConfiger.Deploy()
 	if err != nil {
-		b.err = httperror.InternalServerError(err.Error(), err)
+		b.err = err
 		return b
 	}
 
@@ -64,4 +64,8 @@ func (b *UrlMethodStackBuilder) Deploy(payload *StackPayload, endpoint *portaine
 
 func (b *UrlMethodStackBuilder) GetResponse() string {
 	return ""
+}
+
+func (b *UrlMethodStackBuilder) Error() error {
+	return b.err
 }

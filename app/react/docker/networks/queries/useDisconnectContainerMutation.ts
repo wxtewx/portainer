@@ -38,7 +38,7 @@ export function useDisconnectContainer({
         queryKeys.item(environmentId, networkId),
         containerQueryKeys.list(environmentId),
       ]),
-      withGlobalError('Unable to disconnect container from network')
+      withGlobalError('无法将容器从网络中断开')
     )
   );
 }
@@ -67,6 +67,6 @@ export async function disconnectContainer(
     );
     return { networkId, environmentId };
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to disconnect container from network');
+    throw parseAxiosError(err, '无法将容器从网络中断开');
   }
 }

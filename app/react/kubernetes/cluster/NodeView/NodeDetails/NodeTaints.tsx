@@ -68,7 +68,7 @@ function NodeTaintItem({
         >
           <InputGroup.Addon>Key</InputGroup.Addon>
           <InputGroup.Input
-            placeholder="e.g. foo"
+            placeholder="例如： foo"
             value={item.key}
             onChange={(e) => handleChange('key', e.target.value)}
             disabled={disabled}
@@ -86,7 +86,7 @@ function NodeTaintItem({
         >
           <InputGroup.Addon>Value</InputGroup.Addon>
           <InputGroup.Input
-            placeholder="e.g. bar"
+            placeholder="例如： bar"
             value={item.value}
             onChange={(e) => handleChange('value', e.target.value)}
             disabled={disabled}

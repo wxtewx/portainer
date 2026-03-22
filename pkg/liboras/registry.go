@@ -31,7 +31,7 @@ func CreateClient(registry portainer.Registry) (*remote.Registry, error) {
 
 	// By default, oras sends multiple requests to get the full list of repos/tags/referrers.
 	// set a high page size limit for fewer round trips.
-	// e.g. https://github.com/oras-project/oras-go/blob/v2.6.0/registry/remote/registry.go#L129-L142
+	// 例如： https://github.com/oras-project/oras-go/blob/v2.6.0/registry/remote/registry.go#L129-L142
 	registryClient.RepositoryListPageSize = 1000
 	registryClient.TagListPageSize = 1000
 	registryClient.ReferrerListPageSize = 1000

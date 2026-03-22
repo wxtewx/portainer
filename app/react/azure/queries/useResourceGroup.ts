@@ -19,7 +19,7 @@ export function useResourceGroup(
     queryKeys.resourceGroup(environmentId, subscriptionId, resourceGroupName),
     () => getResourceGroup(environmentId, subscriptionId, resourceGroupName),
     {
-      ...withError('Unable to retrieve Azure resource group'),
+      ...withError('无法获取 Azure 资源组'),
     }
   );
 }
@@ -39,7 +39,7 @@ export async function getResourceGroup(
   } catch (err) {
     throw parseAxiosError(
       err as Error,
-      'Unable to retrieve resource group',
+      '无法获取资源组',
       azureErrorParser
     );
   }

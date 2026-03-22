@@ -6,8 +6,8 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Vendor</th>
-              <th>Size</th>
+              <th>厂商</th>
+              <th>容量</th>
             </tr>
           </thead>
           <tbody>
@@ -16,13 +16,13 @@
               <td>{{ disk.Size | humansize }}</td>
             </tr>
             <tr ng-if="$ctrl.disks === undefined">
-              <td colspan="2" class="text-muted text-center">Loading...</td>
+              <td colspan="2" class="text-muted text-center">加载中...</td>
             </tr>
             <tr ng-if="$ctrl.disks === null">
-              <td colspan="2" class="text-muted text-center"> Failed to load devices. </td>
+              <td colspan="2" class="text-muted text-center">加载磁盘失败。</td>
             </tr>
             <tr ng-if="$ctrl.disks.length === 0">
-              <td colspan="2" class="text-muted text-center"> No disks available. </td>
+              <td colspan="2" class="text-muted text-center">暂无可用磁盘。</td>
             </tr>
           </tbody>
         </table>
