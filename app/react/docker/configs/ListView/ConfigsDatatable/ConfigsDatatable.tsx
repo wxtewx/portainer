@@ -43,7 +43,7 @@ export function ConfigsDatatable() {
       dataset={dataset}
       columns={columns}
       settingsManager={tableState}
-      title="Configs"
+      title="配置"
       titleIcon={Clipboard}
       renderTableSettings={() => (
         <TableSettingsMenu>
@@ -64,7 +64,7 @@ export function ConfigsDatatable() {
 
             <Authorized authorizations="DockerConfigCreate">
               <AddButton data-cy="add-docker-config-button">
-                Add config
+                添加配置
               </AddButton>
             </Authorized>
           </div>

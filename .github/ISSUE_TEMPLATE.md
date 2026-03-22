@@ -30,7 +30,7 @@ Briefly describe the problem you are having in a few paragraphs.
 
 1. 2. 3.
 
-Any other info e.g. Why do you consider this to be a bug? What did you expect to happen instead?
+Any other info 例如： Why do you consider this to be a bug? What did you expect to happen instead?
 
 **Technical details:**
 

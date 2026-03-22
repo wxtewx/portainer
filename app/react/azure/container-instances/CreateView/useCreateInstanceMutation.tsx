@@ -23,7 +23,7 @@ export function useCreateInstanceMutation(
   return useMutation<ContainerGroup, unknown, ContainerInstanceFormValues>(
     (values) => {
       if (!values.subscription) {
-        throw new PortainerError('subscription is required');
+        throw new PortainerError('必须选择订阅');
       }
 
       const subscriptionResourceGroup = getSubscriptionResourceGroups(
@@ -34,7 +34,7 @@ export function useCreateInstanceMutation(
         (r) => r.value === values.resourceGroup
       );
       if (!resourceGroup) {
-        throw new PortainerError('resource group not found');
+        throw new PortainerError('未找到资源组');
       }
 
       return createContainerGroup(
@@ -48,7 +48,7 @@ export function useCreateInstanceMutation(
       async onSuccess(containerGroup, values) {
         const resourceControl = containerGroup.Portainer?.ResourceControl;
         if (!resourceControl) {
-          throw new PortainerError('resource control expected after creation');
+          throw new PortainerError('创建后未获取到资源控制信息');
         }
 
         const accessControlData = values.accessControl;

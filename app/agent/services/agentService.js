@@ -29,7 +29,7 @@ function AgentServiceFactory(Agent, AgentVersion1, HttpRequestHelper, Host, Stat
         return new AgentViewModel(item);
       });
     } catch (err) {
-      throw { msg: 'Unable to retrieve agents', err };
+      throw { msg: '无法获取代理', err };
     }
   }
 }

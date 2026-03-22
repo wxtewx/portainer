@@ -21,7 +21,7 @@ function PluginServiceFactory(AngularToReact) {
  */
 async function volumePlugins(environmentId, systemOnly) {
   const { systemPluginsData, pluginsData } = await getAllPlugins(environmentId);
-  return aggregateData(systemPluginsData, pluginsData, systemOnly, 'Volume');
+  return aggregateData(systemPluginsData, pluginsData, systemOnly, '存储卷');
 }
 
 /**
@@ -30,7 +30,7 @@ async function volumePlugins(environmentId, systemOnly) {
  */
 async function networksPlugins(environmentId, systemOnly) {
   const { systemPluginsData, pluginsData } = await getAllPlugins(environmentId);
-  return aggregateData(systemPluginsData, pluginsData, systemOnly, 'Network');
+  return aggregateData(systemPluginsData, pluginsData, systemOnly, '网络');
 }
 
 /**
@@ -39,7 +39,7 @@ async function networksPlugins(environmentId, systemOnly) {
  */
 async function loggingPlugins(environmentId, systemOnly) {
   const { systemPluginsData, pluginsData } = await getAllPlugins(environmentId);
-  return aggregateData(systemPluginsData, pluginsData, systemOnly, 'Log');
+  return aggregateData(systemPluginsData, pluginsData, systemOnly, '日志');
 }
 
 async function getAllPlugins(environmentId) {

@@ -9,7 +9,7 @@ export function useTableSettings<T extends object>() {
 
   const context = useContext(Context);
   if (context === null) {
-    throw new Error('must be nested under TableSettingsProvider');
+    throw new Error('必须嵌套在 TableSettingsProvider 内部');
   }
 
   return useStore(context);

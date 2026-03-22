@@ -13,6 +13,6 @@ function Template({ header, content }: Props) {
 
 export const Primary: StoryFn<Props> = Template.bind({});
 Primary.args = {
-  header: 'Insights box header',
-  content: 'This is the content of the insights box',
+  header: '信息面板标题',
+  content: '这是信息面板的内容',
 };

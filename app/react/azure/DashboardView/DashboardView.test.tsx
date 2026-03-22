@@ -23,17 +23,17 @@ vi.mock('@uirouter/react', async (importOriginal: () => Promise<object>) => ({
 test('dashboard items should render correctly', async () => {
   const { findByLabelText } = await renderComponent();
 
-  const subscriptionsItem = await findByLabelText('Subscription');
+  const subscriptionsItem = await findByLabelText('订阅');
   expect(subscriptionsItem).toBeVisible();
 
   const subscriptionElements = within(subscriptionsItem);
   expect(subscriptionElements.getByLabelText('value')).toBeVisible();
 
   expect(subscriptionElements.getByLabelText('resourceType')).toHaveTextContent(
-    'Subscriptions'
+    '订阅'
   );
 
-  const resourceGroupsItem = await findByLabelText('Resource group');
+  const resourceGroupsItem = await findByLabelText('资源组');
   expect(resourceGroupsItem).toBeVisible();
 
   const resourceGroupElements = within(resourceGroupsItem);
@@ -41,16 +41,16 @@ test('dashboard items should render correctly', async () => {
 
   expect(
     resourceGroupElements.getByLabelText('resourceType')
-  ).toHaveTextContent('Resource groups');
+  ).toHaveTextContent('资源组');
 });
 
 test('when there are no subscriptions, should show 0 subscriptions and 0 resource groups', async () => {
   const { findByLabelText } = await renderComponent();
 
-  const subscriptionElements = within(await findByLabelText('Subscription'));
+  const subscriptionElements = within(await findByLabelText('订阅'));
   expect(subscriptionElements.getByLabelText('value')).toHaveTextContent('0');
 
-  const resourceGroupElements = within(await findByLabelText('Resource group'));
+  const resourceGroupElements = within(await findByLabelText('资源组'));
   expect(resourceGroupElements.getByLabelText('value')).toHaveTextContent('0');
 });
 
@@ -70,7 +70,7 @@ test('should correctly show total number of resource groups across multiple subs
     'subscription-2': 3,
   });
 
-  const resourceGroupElements = within(await findByLabelText('Resource group'));
+  const resourceGroupElements = within(await findByLabelText('资源组'));
   expect(resourceGroupElements.getByLabelText('value')).toHaveTextContent('5');
 });
 
@@ -83,8 +83,8 @@ test("when only subscriptions fail to load, don't show the dashboard", async () 
     500,
     200
   );
-  expect(queryByLabelText('Subscription')).not.toBeInTheDocument();
-  expect(queryByLabelText('Resource group')).not.toBeInTheDocument();
+  expect(queryByLabelText('订阅')).not.toBeInTheDocument();
+  expect(queryByLabelText('资源组')).not.toBeInTheDocument();
 });
 
 test('when only resource groups fail to load, still show the subscriptions', async () => {
@@ -96,8 +96,8 @@ test('when only resource groups fail to load, still show the subscriptions', asy
     200,
     500
   );
-  await expect(findByLabelText('Subscription')).resolves.toBeInTheDocument();
-  expect(queryByLabelText('Resource group')).not.toBeInTheDocument();
+  await expect(findByLabelText('订阅')).resolves.toBeInTheDocument();
+  expect(queryByLabelText('资源组')).not.toBeInTheDocument();
 });
 
 async function renderComponent(
@@ -143,7 +143,7 @@ async function renderComponent(
 
   const renderResult = render(<Wrapped />);
 
-  await expect(renderResult.findByText(/Home/)).resolves.toBeVisible();
+  await expect(renderResult.findByText(/首页/)).resolves.toBeVisible();
 
   return renderResult;
 }

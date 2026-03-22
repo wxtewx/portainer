@@ -27,20 +27,20 @@ type Story = StoryObj<typeof BlocklistItem>;
 
 export const Default: Story = {
   args: {
-    children: 'Default Blocklist Item',
+    children: '默认列表项',
   },
 };
 
 export const Selected: Story = {
   args: {
-    children: 'Selected Blocklist Item',
+    children: '已选中列表项',
     isSelected: true,
   },
 };
 
 export const AsDiv: Story = {
   args: {
-    children: 'Blocklist Item as div',
+    children: '作为 div 的列表项',
     as: 'div',
   },
 };
@@ -50,8 +50,8 @@ export const WithCustomContent: Story = {
     children: (
       <div className="flex flex-col gap-2 w-full">
         <div className="flex flex-wrap gap-1 justify-between">
-          <Badge type="success">Deployed</Badge>
-          <span className="text-xs text-muted">Revision #4</span>
+          <Badge type="success">已部署</Badge>
+          <span className="text-xs text-muted">版本 #4</span>
         </div>
         <div className="flex flex-wrap gap-1 justify-between">
           <span className="text-xs text-muted">my-app-1.0.0</span>
@@ -67,9 +67,9 @@ export const WithCustomContent: Story = {
 export const MultipleItems: Story = {
   render: () => (
     <div className="blocklist">
-      <BlocklistItem>First Item</BlocklistItem>
-      <BlocklistItem isSelected>Second Item (Selected)</BlocklistItem>
-      <BlocklistItem>Third Item</BlocklistItem>
+      <BlocklistItem>第一项</BlocklistItem>
+      <BlocklistItem isSelected>第二项 (已选中)</BlocklistItem>
+      <BlocklistItem>第三项</BlocklistItem>
     </div>
   ),
 };

@@ -17,7 +17,7 @@ function StatusServiceFactory($q) {
         deferred.resolve(status);
       })
       .catch(function error(err) {
-        deferred.reject({ msg: 'Unable to retrieve application status', err: err });
+        deferred.reject({ msg: '无法获取应用程序状态', err: err });
       });
 
     return deferred.promise;

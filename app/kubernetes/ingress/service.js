@@ -24,7 +24,7 @@ export function KubernetesIngressService($async, KubernetesIngresses) {
       };
       return res;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve Ingress', err);
+      throw new PortainerError('无法获取入口路由', err);
     }
   }
 
@@ -34,7 +34,7 @@ export function KubernetesIngressService($async, KubernetesIngresses) {
       const res = _.reduce(data.items, (arr, item) => _.concat(arr, KubernetesIngressConverter.apiToModel(item)), []);
       return res;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve Ingresses', err);
+      throw new PortainerError('无法获取入口路由列表', err);
     }
   }
 
@@ -54,7 +54,7 @@ export function KubernetesIngressService($async, KubernetesIngresses) {
         const data = await KubernetesIngresses(namespace).create(params, payload).$promise;
         return data;
       } catch (err) {
-        throw new PortainerError('Unable to create ingress', err);
+        throw new PortainerError('无法创建入口路由', err);
       }
     });
   }
@@ -72,7 +72,7 @@ export function KubernetesIngressService($async, KubernetesIngresses) {
         const data = await KubernetesIngresses(namespace).patch(params, payload).$promise;
         return data;
       } catch (err) {
-        throw new PortainerError('Unable to patch ingress', err);
+        throw new PortainerError('无法更新入口路由', err);
       }
     });
   }
@@ -84,7 +84,7 @@ export function KubernetesIngressService($async, KubernetesIngresses) {
         params.id = ingressClassName;
         await KubernetesIngresses(namespace).delete(params).$promise;
       } catch (err) {
-        throw new PortainerError('Unable to delete ingress', err);
+        throw new PortainerError('无法删除入口路由', err);
       }
     });
   }

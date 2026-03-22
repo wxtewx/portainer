@@ -23,7 +23,7 @@ export function useTags<T = Tag[]>({
     staleTime: 50,
     select,
     enabled,
-    ...withError('Failed to retrieve tags'),
+    ...withError('获取标签失败'),
   });
 }
 
@@ -41,7 +41,7 @@ export function useCreateTagMutation() {
   return useMutation(
     createTag,
     mutationOptions(
-      withError('Unable to create tag'),
+      withError('无法创建标签'),
       withInvalidate(queryClient, [tagKeys.all])
     )
   );

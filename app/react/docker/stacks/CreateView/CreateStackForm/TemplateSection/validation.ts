@@ -10,7 +10,7 @@ export function getTemplateValidationSchema({
   containerNames: Array<string> | undefined;
 }): SchemaOf<TemplateFormValues> {
   return object({
-    selectedId: number().required('Template is required'),
+    selectedId: number().required('模板为必填项'),
     variables: array(
       object({
         key: string().required(),
@@ -18,8 +18,8 @@ export function getTemplateValidationSchema({
       })
     ).default([]),
     fileContent: string()
-      .required('Template content is required')
-      .test('valid-yaml', 'Invalid YAML', function validateYamlTest(value) {
+      .required('模板内容为必填项')
+      .test('valid-yaml', '无效的 YAML', function validateYamlTest(value) {
         if (!value) {
           return true;
         }

@@ -37,7 +37,7 @@ angular.module('portainer.app').factory('RegistryService', [
           deferred.resolve(registries);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve registries', err: err });
+          deferred.reject({ msg: '无法获取镜像仓库', err: err });
         });
 
       return deferred.promise;
@@ -52,7 +52,7 @@ angular.module('portainer.app').factory('RegistryService', [
           deferred.resolve(registry);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve registry details', err: err });
+          deferred.reject({ msg: '无法获取镜像仓库详情', err: err });
         });
 
       return deferred.promise;
@@ -178,7 +178,7 @@ angular.module('portainer.app').factory('RegistryService', [
           const regs = await EndpointService.registries(endpointId, namespace);
           return retrievePorRegistryModelFromRepositoryWithRegistries(repository, regs, registryId);
         } catch (err) {
-          throw { msg: 'Unable to retrieve the registry associated to the repository', err: err };
+          throw { msg: '无法获取与该镜像仓库关联的配置', err: err };
         }
       });
     }
@@ -195,7 +195,7 @@ angular.module('portainer.app').factory('RegistryService', [
 
           return registries;
         } catch (err) {
-          throw { msg: 'Unable to retrieve the registries', err: err };
+          throw { msg: '无法获取镜像仓库列表', err: err };
         }
       });
     }

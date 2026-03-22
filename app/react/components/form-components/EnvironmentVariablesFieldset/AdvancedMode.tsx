@@ -43,7 +43,7 @@ export function AdvancedMode({
         id="environment-variables-editor"
         value={editorValue}
         onChange={handleEditorChange}
-        textTip="e.g. key=value"
+        textTip="例如： key=value"
         data-cy={dataCy}
       />
     </>

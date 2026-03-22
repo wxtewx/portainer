@@ -39,6 +39,6 @@ async function getNodes(environmentId: EnvironmentId, apiVersion: number) {
     );
     return response.data;
   } catch (error) {
-    throw parseAxiosError(error as Error, 'Unable to retrieve nodes');
+    throw parseAxiosError(error as Error, '无法获取节点信息');
   }
 }

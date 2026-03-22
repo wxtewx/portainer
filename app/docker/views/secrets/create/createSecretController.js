@@ -89,11 +89,11 @@ angular.module('portainer.docker').controller('CreateSecretController', [
           return ResourceControlService.applyResourceControl(userId, accessControlData, resourceControl);
         })
         .then(function success() {
-          Notifications.success('Success', 'Secret successfully created');
+          Notifications.success('成功', '密钥创建成功');
           $state.go('docker.secrets', {}, { reload: true });
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to create secret');
+          Notifications.error('失败', err, '无法创建密钥');
         })
         .finally(function final() {
           $scope.state.actionInProgress = false;

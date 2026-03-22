@@ -13,7 +13,7 @@ export async function configureAMT(formValues: OpenAMTConfiguration) {
   try {
     await axios.post(`${BASE_URL}/configure`, formValues);
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to configure AMT');
+    throw parseAxiosError(e as Error, '无法配置 AMT');
   }
 }
 
@@ -27,7 +27,7 @@ export async function getAMTInfo(environmentId: EnvironmentId) {
   } catch (e) {
     throw parseAxiosError(
       e as Error,
-      'Unable to retrieve environment information'
+      '无法获取环境信息'
     );
   }
 }
@@ -46,6 +46,6 @@ export async function enableDeviceFeatures(
       );
     return authorizationResponse;
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to enable device features');
+    throw parseAxiosError(e as Error, '无法启用设备功能');
   }
 }

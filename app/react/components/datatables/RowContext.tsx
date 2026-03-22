@@ -16,7 +16,7 @@ export function createRowContext<TContext>() {
   function useRowContext() {
     const context = useContext(Context);
     if (!context) {
-      throw new Error('should be nested under RowProvider');
+      throw new Error('必须嵌套在 RowProvider 内部');
     }
 
     return context;

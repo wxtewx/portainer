@@ -1,6 +1,6 @@
 export function arrayMove<T>(array: Array<T>, from: number, to: number) {
   if (!checkValidIndex(array, from) || !checkValidIndex(array, to)) {
-    throw new Error('index is out of bounds');
+    throw new Error('索引超出范围');
   }
 
   const item = array[from];

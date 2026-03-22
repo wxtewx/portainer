@@ -30,6 +30,6 @@ async function getStaggerStatus(edgeStackId: EdgeStack['Id']) {
     );
     return data.status;
   } catch (error) {
-    throw parseAxiosError(error as Error, 'Unable to retrieve stagger status');
+    throw parseAxiosError(error as Error, '无法获取分批更新状态');
   }
 }

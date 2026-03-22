@@ -6,17 +6,17 @@ export const tagOptions: ReadonlyArray<BoxSelectorOption<boolean>> = [
   {
     id: 'or-selector',
     value: true,
-    label: 'Partial Match',
+    label: '部分匹配',
     description:
-      'Associate any environment matching at least one of the selected tags',
+      '关联匹配至少一个所选标签的任意环境',
     icon: Tag,
     iconType: 'badge',
   },
   {
     id: 'and-selector',
     value: false,
-    label: 'Full Match',
-    description: 'Associate any environment matching all of the selected tags',
+    label: '完全匹配',
+    description: '关联匹配所有所选标签的任意环境',
     icon: Tag,
     iconType: 'badge',
   },

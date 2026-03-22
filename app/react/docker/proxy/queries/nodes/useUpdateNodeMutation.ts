@@ -26,6 +26,6 @@ export async function updateNode(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to update node');
+    throw parseAxiosError(err, '无法更新节点');
   }
 }

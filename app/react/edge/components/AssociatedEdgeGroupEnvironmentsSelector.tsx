@@ -61,9 +61,7 @@ export function AssociatedEdgeGroupEnvironmentsSelector({
   return (
     <>
       <div className="col-sm-12 small text-muted">
-        You can select which environment should be part of this group by moving
-        them to the associated environments table. Simply click on any
-        environment entry to move it from one table to the other.
+        你可以通过将环境移动到关联环境表中来选择应属于此组的环境。只需单击任意环境条目，即可将其从一个表移动到另一个表。
       </div>
 
       {error && (
@@ -78,7 +76,7 @@ export function AssociatedEdgeGroupEnvironmentsSelector({
         <div className="flex">
           <div className="w-1/2">
             <EdgeGroupAssociationTable
-              title="Available environments"
+              title="可用环境"
               query={{
                 excludeEdgeGroupIds: edgeGroupId ? [edgeGroupId] : [],
               }}
@@ -94,7 +92,7 @@ export function AssociatedEdgeGroupEnvironmentsSelector({
           </div>
           <div className="w-1/2">
             <EdgeGroupAssociationTable
-              title="Associated environments"
+              title="已关联环境"
               query={{
                 edgeGroupIds: edgeGroupId ? [edgeGroupId] : [],
                 endpointIds: edgeGroupId ? undefined : [], // workaround to avoid showing all environments for new edge group

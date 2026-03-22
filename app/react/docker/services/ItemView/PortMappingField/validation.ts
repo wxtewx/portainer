@@ -19,14 +19,14 @@ export function validation() {
           !hostPort || isRange(hostPort),
         then: rangeOrNumber(),
         otherwise: port().typeError(
-          'Container port must be a number when host port is not a range'
+          '主机端口不是范围时，容器端口必须为数字'
         ),
       }),
       protocol: mixed().oneOf(['tcp', 'udp']),
       publishMode: mixed().oneOf(['ingress', 'host']),
     }).test({
       message:
-        'Invalid port specification: host port range must be equal to container port range',
+        '无效的端口配置：主机端口范围必须与容器端口范围大小一致',
       test: (portBinding) => {
         const hostPort = portBinding.hostPort as Range | number | undefined;
         return !(
@@ -43,8 +43,8 @@ export function validation() {
 function port() {
   return number()
     .optional()
-    .min(0, 'Port must be a number between 0 to 65535')
-    .max(65535, 'Port must be a number between 0 to 65535');
+    .min(0, '端口必须是 0 到 65535 之间的数字')
+    .max(65535, '端口必须是 0 到 65535 之间的数字');
 }
 
 function rangeOrNumber() {
@@ -58,7 +58,7 @@ function range(): SchemaOf<Range> {
     start: port().required(),
     end: port().required(),
   }).test({
-    message: 'Start port must be less than end port',
+    message: '起始端口必须小于结束端口',
     test: (value) => !value.start || !value.end || value.start <= value.end,
   });
 }

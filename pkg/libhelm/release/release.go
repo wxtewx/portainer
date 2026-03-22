@@ -93,7 +93,7 @@ type Chart struct {
 	// Schema is an optional JSON schema for imposing structure on Values
 	Schema []byte `json:"schema"`
 	// Files are miscellaneous files in a chart archive,
-	// e.g. README, LICENSE, etc.
+	// 例如： README, LICENSE, etc.
 	Files []*File `json:"files"`
 }
 
@@ -176,7 +176,7 @@ type Dependency struct {
 	// Appending `index.yaml` to this string should result in a URL that can be
 	// used to fetch the repository index.
 	Repository string `json:"repository"`
-	// A yaml path that resolves to a boolean, used for enabling/disabling charts (e.g. subchart1.enabled )
+	// A yaml path that resolves to a boolean, used for enabling/disabling charts (例如： subchart1.enabled )
 	Condition string `json:"condition,omitempty"`
 	// Tags can be used to group charts for enabling/disabling together
 	Tags []string `json:"tags,omitempty"`

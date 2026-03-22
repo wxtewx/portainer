@@ -60,7 +60,7 @@ function NodeLabelItem({
         >
           <InputGroup.Addon>Name</InputGroup.Addon>
           <InputGroup.Input
-            placeholder="e.g. foo.bar"
+            placeholder="例如： foo.bar"
             value={item.key}
             onChange={(e) => handleChange('key', e.target.value)}
             disabled={disabled || item.isSystem}
@@ -78,7 +78,7 @@ function NodeLabelItem({
         >
           <InputGroup.Addon>Value</InputGroup.Addon>
           <InputGroup.Input
-            placeholder="e.g. true"
+            placeholder="例如： true"
             value={item.value}
             onChange={(e) => handleChange('value', e.target.value)}
             disabled={disabled || item.isSystem}

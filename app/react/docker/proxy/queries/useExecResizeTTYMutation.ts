@@ -25,6 +25,6 @@ export async function resizeTTY(
       }
     );
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to resize tty of exec');
+    throw parseAxiosError(err, '无法调整执行终端大小');
   }
 }

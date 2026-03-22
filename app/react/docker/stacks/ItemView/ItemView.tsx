@@ -45,15 +45,15 @@ export function ItemView() {
         stackType,
       })
     ) {
-      notifyError('Failure', undefined, 'Invalid type URL parameter.');
+      notifyError('失败', undefined, '无效的类型URL参数。');
     }
   }, [isExternal, isOrphaned, isOrphanedRunning, stackType]);
 
   return (
     <>
       <PageHeader
-        title="Stack details"
-        breadcrumbs={[{ label: 'Stacks', link: '^' }, stackName]}
+        title="堆栈详情"
+        breadcrumbs={[{ label: '堆栈', link: '^' }, stackName]}
       />
       <StackDetails
         isExternal={isExternal}

@@ -25,7 +25,7 @@ export function HelmService(HelmFactory) {
     try {
       return await HelmFactory.templates({ repo }).$promise;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve helm charts', err);
+      throw new PortainerError('无法获取 Helm 图表', err);
     }
   }
 
@@ -40,7 +40,7 @@ export function HelmService(HelmFactory) {
     try {
       return await HelmFactory.show({ repo, chart, type: 'values' }).$promise;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve values from chart', err);
+      throw new PortainerError('无法从图表获取配置值', err);
     }
   }
 
@@ -81,7 +81,7 @@ export function HelmService(HelmFactory) {
     try {
       await HelmFactory.uninstall({ endpointId, release: Name, namespace: ResourcePool }).$promise;
     } catch (err) {
-      throw new PortainerError('Unable to delete release', err);
+      throw new PortainerError('无法删除发布版本', err);
     }
   }
 
@@ -96,7 +96,7 @@ export function HelmService(HelmFactory) {
       const releases = await HelmFactory.list({ endpointId, selector, namespace, filter, output }).$promise;
       return releases;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve release list', err);
+      throw new PortainerError('无法获取发布版本列表', err);
     }
   }
 }

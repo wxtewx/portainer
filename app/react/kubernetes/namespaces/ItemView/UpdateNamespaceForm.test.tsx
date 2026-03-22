@@ -182,7 +182,7 @@ describe('UpdateNamespaceForm', () => {
 
       // In edit mode, name is text not an input
       expect(
-        screen.queryByPlaceholderText('e.g. my-namespace')
+        screen.queryByPlaceholderText('例如： my-namespace')
       ).not.toBeInTheDocument();
 
       // DockerHub should be shown as a selected registry (it has namespace access)

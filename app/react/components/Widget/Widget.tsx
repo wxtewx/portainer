@@ -25,7 +25,7 @@ export function useWidgetContext() {
   const context = useContext(Context);
 
   if (context == null) {
-    throw new Error('Should be inside a Widget component');
+    throw new Error('必须在 Widget 组件内部使用');
   }
 
   return context;

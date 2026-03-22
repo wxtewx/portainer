@@ -21,10 +21,10 @@ const meta: Meta<WidgetProps> = {
   component: Widget,
   args: {
     loading: false,
-    title: 'Title',
+    title: '标题',
     icon: User,
-    bodyText: 'Body',
-    footerText: 'Footer',
+    bodyText: '内容',
+    footerText: '页脚',
   },
 };
 
@@ -87,7 +87,7 @@ function WidgetWithTaskBar({
       <WidgetTitle title={title} icon={icon} />
       <WidgetTaskbar>
         <button type="button" className="btn btn-primary">
-          Button
+          按钮
         </button>
       </WidgetTaskbar>
       <WidgetBody loading={loading}>{bodyText}</WidgetBody>

@@ -20,6 +20,6 @@ export async function getTaskLogs(
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to get task logs');
+    throw parseAxiosError(e, '无法获取任务日志');
   }
 }

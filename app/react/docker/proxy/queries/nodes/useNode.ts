@@ -21,6 +21,6 @@ export async function getNode(
     );
     return data;
   } catch (error) {
-    throw parseAxiosError(error, 'Unable to retrieve node');
+    throw parseAxiosError(error, '无法获取节点信息');
   }
 }

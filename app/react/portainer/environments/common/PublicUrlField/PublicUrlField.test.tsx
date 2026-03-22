@@ -17,7 +17,7 @@ describe('PublicUrlField', () => {
     renderComponent();
 
     const input = screen.getByPlaceholderText(
-      'e.g. 10.0.0.10 or mydocker.mydomain.com'
+      '例如： 10.0.0.10 or mydocker.mydomain.com'
     );
     expect(input).toBeVisible();
   });

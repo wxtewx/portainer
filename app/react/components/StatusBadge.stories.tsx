@@ -14,42 +14,42 @@ type Story = StoryObj<typeof StatusBadge>;
 
 export const Default: Story = {
   args: {
-    children: 'Default',
+    children: '默认',
   },
 };
 
 export const WithIcon: Story = {
   args: {
     icon: Check,
-    children: 'With Icon',
+    children: '带图标',
   },
 };
 
 export const Success: Story = {
   args: {
     color: 'success',
-    children: 'Success',
+    children: '成功',
   },
 };
 
 export const Warning: Story = {
   args: {
     color: 'warning',
-    children: 'Warning',
+    children: '警告',
   },
 };
 
 export const Danger: Story = {
   args: {
     color: 'danger',
-    children: 'Danger',
+    children: '危险',
   },
 };
 
 export const WithAriaAttributes: Story = {
   args: {
-    'aria-label': 'Badge with Aria Attributes',
-    children: 'With Aria Attributes',
+    'aria-label': '带 Aria 属性的徽章',
+    children: '带 Aria 属性',
   },
 };
 
@@ -60,7 +60,7 @@ export const WithChildren: Story = {
         <span role="img" aria-label="Star">
           ⭐️
         </span>
-        With Children
+        带子元素
       </>
     ),
   },

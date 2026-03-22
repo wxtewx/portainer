@@ -21,6 +21,6 @@ export async function getImage(
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to retrieve image');
+    throw parseAxiosError(e, '无法获取镜像信息');
   }
 }

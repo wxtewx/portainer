@@ -39,6 +39,6 @@ export async function getContainerTop(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve container top');
+    throw parseAxiosError(err, '无法获取容器进程信息');
   }
 }

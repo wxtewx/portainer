@@ -29,7 +29,7 @@ export function usePullImageMutation(envId: EnvironmentId) {
         ...args,
         registry: getRegistry(registriesQuery.data || [], args.registryId),
       }),
-    ...withGlobalError('Failure', 'Failed pulling image'),
+    ...withGlobalError('失败', '拉取镜像失败'),
     ...withInvalidate(queryClient, [queryKeys.base(envId)]),
   });
 }
@@ -76,6 +76,6 @@ export async function pullImage({
       return;
     }
 
-    throw parseAxiosError(err, 'Unable to pull image');
+    throw parseAxiosError(err, '无法拉取镜像');
   }
 }

@@ -13,6 +13,7 @@ import { GpuFieldset, GpuFieldsetValues } from './GpuFieldset';
 import { Values as RuntimeValues, RuntimeSection } from './RuntimeSection';
 import { DevicesField, Values as Devices } from './DevicesField';
 import { SysctlsField, Values as Sysctls } from './SysctlsField';
+import { SecurityOptField, Values as SecurityOpt } from './SecurityOptField';
 import {
   ResourceFieldset,
   Values as ResourcesValues,
@@ -24,6 +25,7 @@ export interface Values {
   devices: Devices;
 
   sysctls: Sysctls;
+  securityOpt: SecurityOpt;
 
   sharedMemorySize: number;
 
@@ -40,6 +42,7 @@ export function ResourcesTab({
   isInitFieldVisible,
   isDevicesFieldVisible,
   isSysctlFieldVisible,
+  isSecurityOptFieldVisible,
   renderLimits,
 }: {
   values: Values;
@@ -49,6 +52,7 @@ export function ResourcesTab({
   isInitFieldVisible: boolean;
   isDevicesFieldVisible: boolean;
   isSysctlFieldVisible: boolean;
+  isSecurityOptFieldVisible: boolean;
   renderLimits?: (values: ResourcesValues) => ReactNode;
 }) {
   const environmentId = useEnvironmentId();
@@ -88,7 +92,14 @@ export function ResourcesTab({
         />
       )}
 
-      <FormControl label="Shared memory size" inputId="shm-size">
+      {isSecurityOptFieldVisible && (
+        <SecurityOptField
+          values={values.securityOpt}
+          onChange={(securityOpt) => setFieldValue('securityOpt', securityOpt)}
+        />
+      )}
+
+      <FormControl label="共享内存大小" inputId="shm-size">
         <div className="flex items-center gap-4">
           <Input
             id="shm-size"
@@ -102,7 +113,7 @@ export function ResourcesTab({
             data-cy="shared-memory-size"
           />
           <div className="small text-muted">
-            Size of /dev/shm (<b>MB</b>)
+            /dev/shm 大小 (<b>MB</b>)
           </div>
         </div>
       </FormControl>

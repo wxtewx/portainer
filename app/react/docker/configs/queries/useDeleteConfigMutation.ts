@@ -21,6 +21,6 @@ export async function deleteConfig({
   try {
     await axios.delete(buildUrl(environmentId, configId));
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to delete config');
+    throw parseAxiosError(err, '无法删除配置');
   }
 }

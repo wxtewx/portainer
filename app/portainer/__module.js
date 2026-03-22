@@ -48,10 +48,10 @@ angular
               await StateManager.initialize();
               if (!loggedIn && isTransitionRequiresAuthentication($state.transition)) {
                 $state.go('portainer.logout');
-                return Promise.reject('Unauthenticated');
+                return Promise.reject('未认证');
               }
             } catch (err) {
-              Notifications.error('Failure', err, 'Unable to retrieve application settings');
+              Notifications.error('失败', err, '无法获取应用设置');
               throw err;
             }
           });
@@ -87,7 +87,7 @@ angular
 
                 return endpoint;
               } catch (e) {
-                Notifications.error('Failed loading environment', e);
+                Notifications.error('F加载环境失败', e);
                 $state.go('portainer.home', {}, { reload: true });
                 return;
               }

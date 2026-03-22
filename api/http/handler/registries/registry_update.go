@@ -92,7 +92,7 @@ func (handler *Handler) registryUpdate(w http.ResponseWriter, r *http.Request) *
 
 	// Enforce name uniqueness across registries check is performed even if Name
 	// didn't change (Name not in payload) as we need to enforce this rule on
-	// updates not performed with frontend (e.g. on direct API requests)
+	// updates not performed with frontend (例如： on direct API requests)
 	// See https://portainer.atlassian.net/browse/EE-2706 for more details
 	for _, r := range registries {
 		if r.ID != registry.ID && r.Name == registry.Name {

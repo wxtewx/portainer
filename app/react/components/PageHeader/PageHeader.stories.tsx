@@ -39,5 +39,5 @@ function Template({ title }: StoryProps) {
 
 export const Primary: StoryFn<StoryProps> = Template.bind({});
 Primary.args = {
-  title: 'Container details',
+  title: '容器详情',
 };

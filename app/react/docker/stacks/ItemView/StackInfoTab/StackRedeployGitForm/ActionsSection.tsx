@@ -19,7 +19,7 @@ export function ActionsSection({
   onDeploy,
 }: Props) {
   return (
-    <FormSection title="Actions">
+    <FormSection title="操作">
       <LoadingButton
         size="small"
         color="primary"
@@ -27,11 +27,11 @@ export function ActionsSection({
         onClick={onDeploy}
         disabled={isDirty || isSaveLoading}
         isLoading={isDeployLoading}
-        loadingText="In progress..."
+        loadingText="处理中..."
         data-cy="stack-redeploy-button"
       >
         <RefreshCw className="mr-1" />
-        Pull and redeploy
+        拉取并重新部署
       </LoadingButton>
 
       <LoadingButton
@@ -39,11 +39,11 @@ export function ActionsSection({
         color="primary"
         disabled={!isDirty || !isValid || isDeployLoading}
         isLoading={isSaveLoading}
-        loadingText="In progress..."
+        loadingText="处理中..."
         className="ml-2"
         data-cy="stack-save-settings-button"
       >
-        Save settings
+        保存设置
       </LoadingButton>
     </FormSection>
   );
