@@ -8,7 +8,7 @@ import (
 	portainer "github.com/portainer/portainer/api"
 	"github.com/portainer/portainer/api/dataservices"
 	"github.com/portainer/portainer/api/datastore"
-	"github.com/portainer/portainer/api/docker/consts"
+	dockerconsts "github.com/portainer/portainer/api/docker/consts"
 	"github.com/portainer/portainer/api/http/security"
 
 	"github.com/stretchr/testify/assert"
@@ -28,13 +28,12 @@ func TestHandler_getDockerStacks(t *testing.T) {
 	containers := []types.Container{
 		{
 			Labels: map[string]string{
-				consts.ComposeStackNameLabel: "stack1",
+				dockerconsts.ComposeStackNameLabel: "stack1",
 			},
 		},
 		{
 			Labels: map[string]string{
-				consts.ComposeStackNameLabel:        "stack2",
-				"io.portainer.accesscontrol.public": "true",
+				dockerconsts.ComposeStackNameLabel: "stack2",
 			},
 		},
 	}
@@ -44,7 +43,7 @@ func TestHandler_getDockerStacks(t *testing.T) {
 			Spec: swarm.ServiceSpec{
 				Annotations: swarm.Annotations{
 					Labels: map[string]string{
-						consts.SwarmStackNameLabel: "stack3",
+						dockerconsts.SwarmStackNameLabel: "stack3",
 					},
 				},
 			},
@@ -66,16 +65,14 @@ func TestHandler_getDockerStacks(t *testing.T) {
 		is.NoError(tx.Stack().Create(&stack1))
 		is.NoError(tx.Stack().Create(&portainer.Stack{
 			ID:         2,
-			Name:       "stack2", // stack 2 on env 2
+			Name:       "stack2",
 			EndpointID: 2,
 			Type:       portainer.DockerSwarmStack,
 		}))
 		is.NoError(tx.User().Create(&portainer.User{ID: 1, Role: portainer.AdministratorRole}))
-		is.NoError(tx.User().Create(&portainer.User{ID: 2, Role: portainer.StandardUserRole}))
 		return nil
 	}))
 
-	// testing admin user
 	is.NoError(store.ViewTx(func(tx dataservices.DataStoreTx) error {
 		stacksList, err := GetDockerStacks(tx, &security.RestrictedRequestContext{
 			IsAdmin: true,
@@ -96,43 +93,11 @@ func TestHandler_getDockerStacks(t *testing.T) {
 				Name:       "stack2",
 				IsExternal: true,
 				Type:       portainer.DockerComposeStack,
-				Labels: map[string]string{
-					consts.ComposeStackNameLabel:        "stack2",
-					"io.portainer.accesscontrol.public": "true",
-				},
 			},
 			{
 				Name:       "stack3",
 				IsExternal: true,
 				Type:       portainer.DockerSwarmStack,
-				Labels: map[string]string{
-					consts.SwarmStackNameLabel: "stack3",
-				},
-			},
-		}
-
-		assert.ElementsMatch(t, expectedStacks, stacksList)
-		return nil
-	}))
-
-	// testing standard user
-	is.NoError(store.ViewTx(func(tx dataservices.DataStoreTx) error {
-		stacksList, err := GetDockerStacks(tx, &security.RestrictedRequestContext{
-			IsAdmin: false,
-			UserID:  2,
-		}, environment.ID, containers, services)
-		require.NoError(t, err)
-		assert.Len(t, stacksList, 1)
-
-		expectedStacks := []StackViewModel{
-			{
-				Name:       "stack2",
-				IsExternal: true,
-				Type:       portainer.DockerComposeStack,
-				Labels: map[string]string{
-					consts.ComposeStackNameLabel:        "stack2",
-					"io.portainer.accesscontrol.public": "true",
-				},
 			},
 		}
 

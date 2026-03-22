@@ -32,7 +32,7 @@ class KubernetesHorizontalPodAutoScalerService {
       const res = KubernetesHorizontalPodAutoScalerConverter.apiToModel(raw, yaml);
       return res;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve HorizontalPodAutoScaler', err);
+      throw new PortainerError('无法获取 Pod 自动扩缩容器', err);
     }
   }
 
@@ -42,7 +42,7 @@ class KubernetesHorizontalPodAutoScalerService {
       const res = _.map(data.items, (item) => KubernetesHorizontalPodAutoScalerConverter.apiToModel(item));
       return res;
     } catch (err) {
-      throw new PortainerError('Unable to retrieve HorizontalPodAutoScalers', err);
+      throw new PortainerError('无法获取 Pod 自动扩缩容器列表', err);
     }
   }
 
@@ -64,7 +64,7 @@ class KubernetesHorizontalPodAutoScalerService {
       const data = await this.KubernetesHorizontalPodAutoScalers(namespace).create(params, payload).$promise;
       return data;
     } catch (err) {
-      throw new PortainerError('Unable to create horizontalPodAutoScaler', err);
+      throw new PortainerError('无法创建 Pod 自动扩缩容器', err);
     }
   }
 
@@ -87,7 +87,7 @@ class KubernetesHorizontalPodAutoScalerService {
       const data = await this.KubernetesHorizontalPodAutoScalers(namespace).patch(params, payload).$promise;
       return data;
     } catch (err) {
-      throw new PortainerError('Unable to patch horizontalPodAutoScaler', err);
+      throw new PortainerError('无法更新 Pod 自动扩缩容器', err);
     }
   }
 
@@ -105,7 +105,7 @@ class KubernetesHorizontalPodAutoScalerService {
       const namespace = horizontalPodAutoScaler.Namespace;
       await this.KubernetesHorizontalPodAutoScalers(namespace).delete(params).$promise;
     } catch (err) {
-      throw new PortainerError('Unable to remove horizontalPodAutoScaler', err);
+      throw new PortainerError('无法删除 Pod 自动扩缩容器', err);
     }
   }
 

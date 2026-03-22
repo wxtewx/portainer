@@ -13,10 +13,9 @@ export function LicenseNodePanel() {
   }
 
   return (
-    <InformationPanel title="License node allowance exceeded">
+    <InformationPanel title="已超出许可证节点配额">
       <TextTip>
-        The number of nodes for your license has been exceeded. Please contact
-        your administrator.
+        已超出许可证允许的节点数量，请联系管理员。
       </TextTip>
     </InformationPanel>
   );

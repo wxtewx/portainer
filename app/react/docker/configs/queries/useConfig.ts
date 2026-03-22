@@ -17,6 +17,6 @@ export async function getConfig(
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to retrieve config');
+    throw parseAxiosError(e, '无法获取配置');
   }
 }

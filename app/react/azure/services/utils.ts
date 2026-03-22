@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 
 export function azureErrorParser(axiosError: AxiosError) {
   if (!axiosError.response) {
-    const error = new Error('Failed azure request');
+    const error = new Error('Azure 请求失败');
     return {
       error,
       details: axiosError.message,
@@ -16,7 +16,7 @@ export function azureErrorParser(axiosError: AxiosError) {
     'error' in responseData &&
     typeof responseData.error === 'string'
       ? responseData.error
-      : `Failed azure request: ${axiosError.response?.statusText}`;
+      : `Azure 请求失败: ${axiosError.response?.statusText}`;
 
   return {
     error: new Error(message),

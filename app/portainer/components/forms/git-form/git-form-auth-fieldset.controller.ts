@@ -44,7 +44,7 @@ export default class GitFormAuthFieldsetController {
   async handleChange(newValues: Partial<GitAuthModel>) {
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
 
     const value = {
@@ -87,15 +87,15 @@ export default class GitFormAuthFieldsetController {
         );
       } catch (err) {
         notifyError(
-          'Failure',
+          '失败',
           err as Error,
-          'Unable to retrieve user saved git credentials'
+          '无法获取用户保存的 Git 凭据'
         );
       }
     }
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
     await this.runGitValidation(this.value, this.isAuthEdit);
   }

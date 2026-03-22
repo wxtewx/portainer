@@ -31,6 +31,6 @@ export function useStartContainer() {
         ),
       });
     },
-    ...withGlobalError('Unable to start container'),
+    ...withGlobalError('容器启动失败'),
   });
 }

@@ -67,7 +67,7 @@ export function StackDetails({
               options={_.compact([
                 {
                   id: 'info',
-                  label: 'Stack',
+                  label: '堆栈',
                   icon: List,
                   children: (
                     <StackInfoTab
@@ -90,7 +90,7 @@ export function StackDetails({
                   ? {
                       id: 'editor',
                       icon: Edit2,
-                      label: 'Editor',
+                      label: '编辑器',
                       children: (
                         <StackEditorTab
                           stack={stack}

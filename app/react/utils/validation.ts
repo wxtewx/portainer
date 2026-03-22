@@ -1,7 +1,7 @@
 import { string } from 'yup';
 
 /**
- * Validates a duration string format (e.g., "5m0s", "10m", "1h30m")
+ * Validates a duration string format (例如：, "5m0s", "10m", "1h30m")
  *
  * Valid units:
  * - ns (nanoseconds)

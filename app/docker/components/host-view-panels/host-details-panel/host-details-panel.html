@@ -6,28 +6,28 @@
         <table class="table">
           <tbody>
             <tr>
-              <td>Hostname</td>
+              <td>主机名</td>
               <td>{{ $ctrl.host.name }}</td>
             </tr>
             <tr ng-if="$ctrl.host.os">
-              <td>OS Information</td>
+              <td>系统信息</td>
               <td>{{ $ctrl.host.os.type }} {{ $ctrl.host.os.arch }} {{ $ctrl.host.os.name }}</td>
             </tr>
             <tr ng-if="$ctrl.host.kernelVersion">
-              <td>Kernel Version</td>
+              <td>内核版本</td>
               <td>{{ $ctrl.host.kernelVersion }}</td>
             </tr>
             <tr>
-              <td>Total CPU</td>
+              <td>CPU 核心数</td>
               <td>{{ $ctrl.host.totalCPU }}</td>
             </tr>
             <tr>
-              <td>Total memory</td>
+              <td>内存大小</td>
               <td>{{ $ctrl.host.totalMemory | humansize }}</td>
             </tr>
             <tr ng-if="$ctrl.isBrowseEnabled">
               <td colspan="2">
-                <button class="btn btn-primary btn-sm" title="Browse" ui-sref="{{ $ctrl.browseUrl }}"> Browse </button>
+                <button class="btn btn-primary btn-sm" title="浏览" ui-sref="{{ $ctrl.browseUrl }}"> 浏览 </button>
               </td>
             </tr>
           </tbody>

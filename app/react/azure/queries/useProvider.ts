@@ -26,7 +26,7 @@ export function useProvider(
         return [subscription.subscriptionId, provider] as const;
       },
 
-      ...withError('Unable to retrieve Azure providers'),
+      ...withError('无法获取 Azure 服务提供商'),
     })),
   });
 
@@ -71,7 +71,7 @@ async function getContainerInstanceProvider(
   } catch (error) {
     throw parseAxiosError(
       error as Error,
-      'Unable to retrieve provider',
+      '无法获取服务提供商',
       azureErrorParser
     );
   }

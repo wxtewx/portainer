@@ -39,7 +39,7 @@ function goToParent(onClick: () => void): FileData {
         className="!m-0 !p-0"
         data-cy="component-goToParentButton"
       >
-        Go to parent
+        返回上一级
       </Button>
     ),
     Dir: true,

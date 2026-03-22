@@ -26,7 +26,7 @@ func (kcl *KubeClient) GetConfigMapsAndSecrets(namespace string) ([]models.K8sCo
 	}
 
 	// run the functions concurrently and wait for results.  We can also pass in a context to cancel.
-	// e.g. Deadline timer.
+	// 例如： Deadline timer.
 	results, err := concurrent.Run(context.TODO(), listConfigMaps, listSecrets)
 	if err != nil {
 		return nil, err

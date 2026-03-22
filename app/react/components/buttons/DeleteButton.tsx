@@ -27,8 +27,8 @@ export function DeleteButton({
   size,
   children,
   isLoading,
-  text = 'Remove',
-  loadingText = 'Removing...',
+  text = '移除',
+  loadingText = '正在移除...',
   icon = false,
   type,
   'data-cy': dataCy,
@@ -75,7 +75,7 @@ export function DeleteButton({
       loadingText={loadingText}
       type={type}
     >
-      {children || 'Remove'}
+      {children || '移除'}
     </LoadingButton>
   );
 

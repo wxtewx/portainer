@@ -22,7 +22,7 @@ export function useStackFile(
         options: { signal },
       }),
 
-    ...withGlobalError('Unable to retrieve stack'),
+    ...withGlobalError('获取堆栈失败'),
     enabled: !!stackId && enabled,
   });
 }
@@ -45,6 +45,6 @@ export async function getStackFile({
     });
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to retrieve stack file');
+    throw parseAxiosError(e, '获取堆栈文件失败');
   }
 }

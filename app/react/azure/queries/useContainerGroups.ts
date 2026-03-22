@@ -26,7 +26,7 @@ export function useContainerGroups(
           ),
           queryFn: async () =>
             getContainerGroups(environmentId, subscription.subscriptionId),
-          ...withError('Unable to retrieve Azure container groups'),
+          ...withError('无法获取 Azure 容器组'),
           enabled,
         })),
       [subscriptions, enabled, environmentId]
@@ -54,6 +54,6 @@ export async function getContainerGroups(
 
     return data.value;
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to retrieve container groups');
+    throw parseAxiosError(e as Error, '无法获取容器组');
   }
 }

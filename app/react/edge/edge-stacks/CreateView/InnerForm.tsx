@@ -44,10 +44,8 @@ export function InnerForm({
   const hasDockerEndpoint = hasType(EnvironmentType.EdgeAgentOnDocker);
   const hasMultipleTypes = hasKubeEndpoint && hasDockerEndpoint;
   const multipleTypesError = hasMultipleTypes
-    ? `There are no available deployment types when there is more than one
-          type of environment in your edge group selection (e.g. Kubernetes and
-          Docker environments). Please select edge groups that have environments
-          of the same type.`
+    ? `当选择的边缘组中包含多种环境类型时，没有可用的部署类型 (例如： Kubernetes 和
+          Docker 环境)。请选择包含相同类型环境的边缘组。`
     : undefined;
 
   return (
@@ -56,7 +54,7 @@ export function InnerForm({
         onChange={(value) => setFieldValue('name', value)}
         value={values.name}
         errors={errors.name}
-        placeholder="e.g. my-stack"
+        placeholder="例如： my-stack"
       />
 
       <EdgeGroupsSelector
@@ -138,8 +136,8 @@ export function InnerForm({
 
       <FormActions
         data-cy="edgeStackCreate-createStackButton"
-        submitLabel="Deploy the stack"
-        loadingText="Deployment in progress..."
+        submitLabel="部署堆栈"
+        loadingText="部署中..."
         isValid={isValid}
         isLoading={isLoading}
       />

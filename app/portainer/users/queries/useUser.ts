@@ -13,7 +13,7 @@ export function useUser(
   { staleTime }: { staleTime?: number } = {}
 ) {
   return useQuery(userQueryKeys.user(id), () => getUser(id), {
-    ...withError('Unable to retrieve user details'),
+    ...withError('无法获取用户详情'),
     staleTime,
   });
 }
@@ -24,6 +24,6 @@ export async function getUser(id: UserId) {
 
     return user;
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to retrieve user details');
+    throw parseAxiosError(e as Error, '无法获取用户详情');
   }
 }

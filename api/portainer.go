@@ -361,8 +361,6 @@ type (
 		ChartPath string `json:"ChartPath,omitempty" example:"charts/my-app"`
 		// Array of paths to Helm values YAML files for Helm git deployments
 		ValuesFiles []string `json:"ValuesFiles,omitempty" example:"['values/prod.yaml', 'values/secrets.yaml']"`
-		// Helm chart version from Chart.yaml (read-only, extracted during Git sync)
-		Version string `json:"Version,omitempty" example:"1.2.3"`
 		// Enable automatic rollback on deployment failure (equivalent to helm --atomic flag)
 		Atomic bool `json:"Atomic" example:"true"`
 		// Timeout for Helm operations (equivalent to helm --timeout flag)
@@ -647,6 +645,8 @@ type (
 		AllowContainerCapabilitiesForRegularUsers bool `json:"allowContainerCapabilitiesForRegularUsers" example:"true"`
 		// Whether non-administrator should be able to use sysctl settings
 		AllowSysctlSettingForRegularUsers bool `json:"allowSysctlSettingForRegularUsers" example:"true"`
+		// Whether non-administrator should be able to use security-opt settings
+		AllowSecurityOptForRegularUsers bool `json:"allowSecurityOptForRegularUsers" example:"true"`
 		// Whether host management features are enabled
 		EnableHostManagementFeatures bool `json:"enableHostManagementFeatures" example:"true"`
 	}
@@ -1874,7 +1874,7 @@ type (
 
 const (
 	// APIVersion is the version number of the Portainer API
-	APIVersion = "2.39.1"
+	APIVersion = "2.39.0"
 	// Support annotation for the API version ("STS" for Short-Term Support or "LTS" for Long-Term Support)
 	APIVersionSupport = "LTS"
 	// Edition is what this edition of Portainer is called
@@ -1930,6 +1930,8 @@ const (
 	KubectlShellImageEnvVar = "KUBECTL_SHELL_IMAGE"
 	// PullLimitCheckDisabledEnvVar is the environment variable used to disable the pull limit check
 	PullLimitCheckDisabledEnvVar = "PULL_LIMIT_CHECK_DISABLED"
+	// FeatureFlagEnvVar is the environment variable used to set the list of enabled feature flags
+	FeatureFlagEnvVar = "FEATURE_FLAG"
 	// LicenseServerBaseURL represents the base URL of the API used to validate
 	// an extension license.
 	LicenseServerBaseURL = "https://api.portainer.io"
@@ -2477,6 +2479,7 @@ func DefaultEndpointSecuritySettings() EndpointSecuritySettings {
 		AllowHostNamespaceForRegularUsers:         false,
 		AllowPrivilegedModeForRegularUsers:        false,
 		AllowSysctlSettingForRegularUsers:         false,
+		AllowSecurityOptForRegularUsers:           false,
 		AllowVolumeBrowserForRegularUsers:         false,
 		EnableHostManagementFeatures:              false,
 

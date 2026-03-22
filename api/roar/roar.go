@@ -12,7 +12,7 @@ type Roar[T ~int] struct {
 
 // Iterate iterates over the bitmap, calling the given callback with each value in the bitmap.  If the callback returns
 // false, the iteration is halted.
-// The iteration results are undefined if the bitmap is modified (e.g., with Add or Remove).
+// The iteration results are undefined if the bitmap is modified (例如：, with Add or Remove).
 // There is no guarantee as to what order the values will be iterated.
 func (r *Roar[T]) Iterate(f func(T) bool) {
 	if r.rb == nil {

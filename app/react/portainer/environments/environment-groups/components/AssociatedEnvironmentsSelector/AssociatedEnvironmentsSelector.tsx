@@ -48,7 +48,7 @@ export function AssociatedEnvironmentsSelector({ groupId, readOnly }: Props) {
       <AddEnvironmentsDrawer
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
-        excludeGroupIds={[groupId]}
+        excludeIds={currentIds}
         onAdd={handleAdd}
         isLoading={updateMutation.isLoading}
       />

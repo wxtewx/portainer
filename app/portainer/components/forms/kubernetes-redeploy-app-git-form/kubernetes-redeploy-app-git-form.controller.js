@@ -117,9 +117,9 @@ class KubernetesRedeployAppGitFormController {
     return this.$async(async () => {
       try {
         const confirmed = await confirm({
-          title: 'Are you sure?',
-          message: 'Any changes to this application will be overridden by the definition in git and may cause a service interruption. Do you wish to continue?',
-          confirmButton: buildConfirmButton('Update', 'warning'),
+          title: '您确定吗？',
+          message: '此应用的所有本地修改都会被 Git 中的配置覆盖，可能导致服务中断。您是否继续？',
+          confirmButton: buildConfirmButton('更新', 'warning'),
           modalType: ModalType.Warn,
         });
         if (!confirmed) {
@@ -132,10 +132,10 @@ class KubernetesRedeployAppGitFormController {
 
         this.state.redeployInProgress = true;
         await this.StackService.updateKubeGit(this.stack.Id, this.stack.EndpointId, this.namespace, this.formValues);
-        this.Notifications.success('Success', 'Pulled and redeployed application successfully');
+        this.Notifications.success('成功', '已拉取并重新部署应用');
         this.$state.go('kubernetes.applications.application', { name: this.appName, namespace: this.namespace, endpointId: this.endpointId }, { inherit: false });
       } catch (err) {
-        this.Notifications.error('Failure', err, 'Failed redeploying application');
+        this.Notifications.error('失败', err, '应用重新部署失败');
       } finally {
         this.state.redeployInProgress = false;
       }
@@ -156,9 +156,9 @@ class KubernetesRedeployAppGitFormController {
           this.formValues.RepositoryUsername = '';
           this.formValues.RepositoryPassword = '';
         }
-        this.Notifications.success('Success', 'Save stack settings successfully');
+        this.Notifications.success('成功', '已成功保存堆栈设置');
       } catch (err) {
-        this.Notifications.error('Failure', err, 'Unable to save application settings');
+        this.Notifications.error('失败', err, '无法保存应用设置');
       } finally {
         this.state.saveGitSettingsInProgress = false;
       }

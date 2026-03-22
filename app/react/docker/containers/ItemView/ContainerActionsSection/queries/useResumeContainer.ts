@@ -31,6 +31,6 @@ export function useResumeContainer() {
         ),
       });
     },
-    ...withGlobalError('Unable to resume container'),
+    ...withGlobalError('容器恢复失败'),
   });
 }

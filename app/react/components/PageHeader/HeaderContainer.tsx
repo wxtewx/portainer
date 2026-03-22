@@ -10,7 +10,7 @@ export function useHeaderContext() {
   const context = useContext(Context);
 
   if (context == null) {
-    throw new Error('Should be nested inside a HeaderContainer component');
+    throw new Error('必须嵌套在 HeaderContainer 组件内部');
   }
 }
 interface Props {

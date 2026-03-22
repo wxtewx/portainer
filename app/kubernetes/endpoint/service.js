@@ -20,7 +20,7 @@ class KubernetesEndpointService {
       const data = await this.KubernetesEndpoints(namespace).get().$promise;
       return _.map(data.items, (item) => KubernetesEndpointConverter.apiToEndpoint(item));
     } catch (err) {
-      throw new PortainerError('Unable to retrieve environments', err);
+      throw new PortainerError('无法获取环境信息', err);
     }
   }
 

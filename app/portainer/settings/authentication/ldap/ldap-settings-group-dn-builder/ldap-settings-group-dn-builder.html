@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label for="group-name-input" class="col-sm-4 control-label text-left"> Group Name </label>
+  <label for="group-name-input" class="col-sm-4 control-label text-left"> 组名称 </label>
   <div class="col-sm-7" style="padding-left: 0">
     <input
       type="text"
@@ -28,7 +28,7 @@
 
 <ldap-settings-dn-builder
   ng-model="$ctrl.entries"
-  label="Path to group"
+  label="组路径"
   suffix="{{ $ctrl.suffix }}"
   on-change="($ctrl.onEntriesChange)"
   on-remove-click="($ctrl.removeGroup)"

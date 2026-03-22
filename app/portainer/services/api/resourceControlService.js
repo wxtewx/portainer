@@ -85,7 +85,7 @@ angular.module('portainer.app').factory('ResourceControlService', [
           deferred.resolve({ authorizedUsers: authorizedUsers, authorizedTeams: authorizedTeams });
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to retrieve user and team information', err: err });
+          deferred.reject({ msg: '无法获取用户和团队信息', err: err });
         });
 
       return deferred.promise;

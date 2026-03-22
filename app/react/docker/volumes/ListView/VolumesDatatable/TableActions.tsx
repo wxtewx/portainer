@@ -18,12 +18,12 @@ export function TableActions({
         <DeleteButton
           disabled={selectedItems.length === 0}
           onConfirmed={() => onRemove(selectedItems)}
-          confirmMessage="Do you want to remove the selected volume(s)?"
+          confirmMessage="您确定吗？是否要删除选中的数据卷？"
           data-cy="volume-removeVolumeButton"
         />
       </Authorized>
       <Authorized authorizations="DockerVolumeCreate">
-        <AddButton data-cy="volume-addVolumeButton">Add volume</AddButton>
+        <AddButton data-cy="volume-addVolumeButton">添加数据卷</AddButton>
       </Authorized>
     </div>
   );

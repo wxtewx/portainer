@@ -1,11 +1,14 @@
+import { Pencil } from 'lucide-react';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { Pod } from 'kubernetes-types/core/v1';
 
-import { Authorized } from '@/react/hooks/useUser';
+import { Authorized, useIsEdgeAdmin } from '@/react/hooks/useUser';
 import { useNamespaceQuery } from '@/react/kubernetes/namespaces/queries/useNamespaceQuery';
 
 import { Widget, WidgetBody } from '@@/Widget';
-import { AddButton } from '@@/buttons';
+import { AddButton, Button } from '@@/buttons';
+import { Link } from '@@/Link';
+import { Icon } from '@@/Icon';
 
 import { applicationIsKind, isExternalApplication } from '../../utils';
 import { appStackIdLabel, appStackKindLabel } from '../../constants';
@@ -14,8 +17,6 @@ import { useApplicationServices } from '../../queries/useApplicationServices';
 import { useAppStackFile } from '../../queries/useAppStackFile';
 import { Application } from '../../types';
 
-import { EdgeEditButton } from './EdgeEditButton';
-import { EditButton } from './EditButton';
 import { RestartApplicationButton } from './RestartApplicationButton';
 import { RedeployApplicationButton } from './RedeployApplicationButton';
 import { RollbackApplicationButton } from './RollbackApplicationButton';
@@ -40,6 +41,9 @@ export function ApplicationDetailsWidget() {
 
   const namespaceData = useNamespaceQuery(environmentId, namespace);
   const isSystemNamespace = namespaceData.data?.IsSystem;
+
+  // check if user is edge admin
+  const edgeAdminQuery = useIsEdgeAdmin();
 
   // get app info
   const { data: app } = useApplication(
@@ -77,15 +81,35 @@ export function ApplicationDetailsWidget() {
             {!isSystemNamespace && (
               <div className="mb-4 flex flex-wrap gap-2">
                 <Authorized authorizations="K8sApplicationDetailsW">
-                  {appStackKind === 'edge' ? (
-                    <EdgeEditButton stackId={appStackId} />
-                  ) : (
-                    <EditButton to=".edit">
+                  <Link
+                    to={
+                      appStackKind === 'edge'
+                        ? 'edge.stacks.edit'
+                        : 'kubernetes.applications.application.edit'
+                    }
+                    params={
+                      appStackKind === 'edge'
+                        ? { stackId: appStackId }
+                        : undefined
+                    }
+                    data-cy="k8sAppDetail-editAppLink"
+                  >
+                    <Button
+                      type="button"
+                      color="light"
+                      size="small"
+                      className="hover:decoration-none !ml-0"
+                      data-cy="k8sAppDetail-editAppButton"
+                      disabled={
+                        edgeAdminQuery.isLoading || !edgeAdminQuery.isAdmin
+                      }
+                    >
+                      <Icon icon={Pencil} className="mr-1" />
                       {externalApp
                         ? 'Edit external application'
                         : 'Edit this application'}
-                    </EditButton>
-                  )}
+                    </Button>
+                  </Link>
                 </Authorized>
                 {!applicationIsKind<Pod>('Pod', app) && (
                   <>

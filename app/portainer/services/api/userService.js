@@ -54,7 +54,7 @@ export function UserService($q, Users, TeamService) {
         deferred.resolve(memberships);
       })
       .catch(function error(err) {
-        deferred.reject({ msg: 'Unable to retrieve user memberships', err: err });
+        deferred.reject({ msg: '无法获取用户成员关系', err: err });
       });
 
     return deferred.promise;
@@ -78,7 +78,7 @@ export function UserService($q, Users, TeamService) {
         deferred.resolve(teams);
       })
       .catch(function error(err) {
-        deferred.reject({ msg: 'Unable to retrieve user teams', err: err });
+        deferred.reject({ msg: '无法获取用户管理的团队', err: err });
       });
 
     return deferred.promise;
@@ -99,7 +99,7 @@ export function UserService($q, Users, TeamService) {
         if (err.status === 404) {
           deferred.resolve(false);
         }
-        deferred.reject({ msg: 'Unable to verify administrator account existence', err: err });
+        deferred.reject({ msg: '无法验证管理员账户是否存在', err: err });
       });
 
     return deferred.promise;

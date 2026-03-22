@@ -80,7 +80,7 @@ export function EnvironmentItem({
                 {snapshotTime && (
                   <span
                     className="small text-muted vertical-center gap-1"
-                    title="Last snapshot time"
+                    title="最后快照时间"
                   >
                     <Activity className="icon icon-sm" aria-hidden="true" />
                     {snapshotTime}
@@ -98,7 +98,7 @@ export function EnvironmentItem({
           <div className="small text-muted flex flex-wrap items-center gap-x-4 gap-y-2">
             {groupName && (
               <span className="font-semibold">
-                <span>Group: </span>
+                <span>分组: </span>
                 <span>{groupName}</span>
               </span>
             )}
@@ -112,7 +112,7 @@ export function EnvironmentItem({
           <EnvironmentStats environment={environment} />
         </div>
       </BlocklistItem>
-      {/* 
+      {/*
       Buttons are extracted out of the main button because it causes errors with react and accessibility issues
       see https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
       */}
@@ -153,10 +153,10 @@ function useEnvironmentTagNames(tagIds?: TagId[]) {
   }
 
   if (isLoading) {
-    return 'Loading tags...';
+    return '正在加载标签...';
   }
 
-  return 'No tags';
+  return '无标签';
 }
 
 function getSnapshotTime(environment: Environment) {

@@ -42,14 +42,14 @@ export function LoggerConfig({
   const isDisabled = !value.type || value.type === 'none';
 
   const pluginOptions = [
-    { label: 'Default logging driver', value: '' },
+    { label: '默认日志驱动', value: '' },
     ...pluginsQuery.data.map((p) => ({ label: p, value: p })),
     { label: 'none', value: 'none' },
   ];
 
   return (
-    <FormSection title="Logging">
-      <FormControl label="Driver">
+    <FormSection title="日志">
+      <FormControl label="驱动">
         <PortainerSelect
           value={value.type}
           onChange={(type) => onChange({ ...value, type: type || '' })}
@@ -59,15 +59,15 @@ export function LoggerConfig({
       </FormControl>
 
       <TextTip color="blue">
-        Logging driver that will override the default docker daemon driver.
-        Select Default logging driver if you don&apos;t want to override it.
-        Supported logging drivers can be found{' '}
+        该日志驱动将覆盖默认的 Docker 守护进程驱动。
+        如果你不想覆盖，请选择默认日志驱动。
+        支持的日志驱动可查阅{' '}
         <a
           href="https://docs.docker.com/engine/admin/logging/overview/#supported-logging-drivers"
           target="_blank"
           rel="noreferrer"
         >
-          in the Docker documentation
+          Docker 官方文档
         </a>
         .
       </TextTip>
@@ -75,10 +75,10 @@ export function LoggerConfig({
       <InputList
         tooltip={
           isDisabled
-            ? 'Add button is disabled unless a driver other than none or default is selected. Options are specific to the selected driver, refer to the driver documentation.'
+            ? '除非选择非 none 或默认的驱动，否则添加按钮将被禁用。选项与所选驱动相关，请参考驱动文档。'
             : ''
         }
-        label="Options"
+        label="选项"
         onChange={(options) => handleChange({ options })}
         value={value.options}
         item={Item}
@@ -105,20 +105,20 @@ function Item({
     <div>
       <div className="flex w-full gap-4">
         <InputGroup className="w-1/2">
-          <InputGroup.Addon>option</InputGroup.Addon>
+          <InputGroup.Addon>选项</InputGroup.Addon>
           <InputGroup.Input
             value={option}
             onChange={(e) => handleChange({ option: e.target.value })}
-            placeholder="e.g. FOO"
+            placeholder="例如： FOO"
             data-cy={`docker-logging-option_${index}`}
           />
         </InputGroup>
         <InputGroup className="w-1/2">
-          <InputGroup.Addon>value</InputGroup.Addon>
+          <InputGroup.Addon>值</InputGroup.Addon>
           <InputGroup.Input
             value={value}
             onChange={(e) => handleChange({ value: e.target.value })}
-            placeholder="e.g bar"
+            placeholder="例如： bar"
             data-cy={`docker-logging-value_${index}`}
           />
         </InputGroup>
@@ -136,8 +136,8 @@ export function validation(): SchemaOf<LogConfig> {
   return object({
     options: array().of(
       object({
-        option: string().required('Option is required'),
-        value: string().required('Value is required'),
+        option: string().required('选项为必填项'),
+        value: string().required('值为必填项'),
       })
     ),
     type: string().default(''),

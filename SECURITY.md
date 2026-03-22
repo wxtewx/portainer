@@ -10,7 +10,7 @@ Portainer maintains both Short-Term Support (STS) and Long-Term Support (LTS) ve
 | STS (Short-Term Support) | Supported until the next STS or LTS release |
 | Legacy / EOL | Not supported |
 
-For a detailed breakdown of current versions and their specific End of Life (EOL) dates, 
+For a detailed breakdown of current versions and their specific End of Life (EOL) dates,
 please refer to the [Portainer Lifecycle Policy](https://docs.portainer.io/start/lifecycle).
 
 ## Reporting a Vulnerability
@@ -27,7 +27,7 @@ The Portainer team takes the security of our products seriously. If you believe 
 
     - A description of the vulnerability and its potential impact.
 
-    - Step-by-step instructions to reproduce the issue (e.g. proof-of-concept code, scripts, or screenshots).
+    - Step-by-step instructions to reproduce the issue (例如： proof-of-concept code, scripts, or screenshots).
 
     - The version of the software and the environment in which it was found.
 

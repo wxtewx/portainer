@@ -9,7 +9,7 @@ export function useInputContext() {
   const value = useContext(InputContext);
 
   if (value === null) {
-    throw new Error('useContext must be used within a Context.Provider');
+    throw new Error('useContext 必须在 Context.Provider 内部使用');
   }
 
   return value;

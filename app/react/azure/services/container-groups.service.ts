@@ -37,7 +37,7 @@ export async function deleteContainerGroup(
       params: { 'api-version': '2018-04-01' },
     });
   } catch (e) {
-    throw parseAxiosError(e as Error, 'Unable to remove container group');
+    throw parseAxiosError(e as Error, '无法删除容器组');
   }
 }
 

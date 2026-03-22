@@ -15,6 +15,7 @@ import { PortConfigurationRow } from './PortConfigurationRow';
 import { EnvironmentVariablesRow } from './EnvironmentVariablesRow';
 import { LabelsRow } from './LabelsRow';
 import { SysctlsRow } from './SysctlsRow';
+import { SecurityOptRow } from './SecurityOptRow';
 import { GpuRow } from './GpuRow';
 
 interface Props {
@@ -43,7 +44,7 @@ export function ContainerDetailsSection({
 
   return (
     <Widget>
-      <Widget.Title icon={List} title="Container details" />
+      <Widget.Title icon={List} title="容器详情" />
       <Widget.Body>
         <DetailsTable dataCy="container-details-table">
           <ImageRow
@@ -54,11 +55,11 @@ export function ContainerDetailsSection({
 
           <PortConfigurationRow ports={container.NetworkSettings?.Ports} />
 
-          <DetailsTable.Row label="CMD">
+          <DetailsTable.Row label="启动命令">
             <code>{joinCommand(config.Cmd)}</code>
           </DetailsTable.Row>
 
-          <DetailsTable.Row label="ENTRYPOINT">
+          <DetailsTable.Row label="入口点">
             <code>
               {config.Entrypoint ? joinCommand(config.Entrypoint) : 'null'}
             </code>
@@ -68,7 +69,7 @@ export function ContainerDetailsSection({
 
           <LabelsRow labels={config.Labels} />
 
-          <DetailsTable.Row label="Restart policies">
+          <DetailsTable.Row label="重启策略">
             <RestartPolicySection
               environmentId={environmentId}
               containerId={container.Id}
@@ -80,6 +81,8 @@ export function ContainerDetailsSection({
           </DetailsTable.Row>
 
           <SysctlsRow sysctls={hostConfig.Sysctls} />
+
+          <SecurityOptRow securityOpts={hostConfig.SecurityOpt} />
 
           <GpuRow deviceRequests={hostConfig.DeviceRequests} />
         </DetailsTable>

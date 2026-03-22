@@ -18,7 +18,7 @@ export function toRequest(portBindings: Values): Array<EndpointPortConfig> {
           containerPort.end - containerPort.start
         ) {
           throw new Error(
-            `Invalid port specification: host port range must be equal to container port range`
+            `无效的端口配置：主机端口范围必须与容器端口范围大小一致`
           );
         }
 
@@ -55,7 +55,7 @@ export function toRequest(portBindings: Values): Array<EndpointPortConfig> {
       }
 
       throw new Error(
-        `Invalid port specification: host port must be a range when container port is a range`
+        `无效的端口配置：当容器端口为范围时，主机端口也必须是范围`
       );
     })
   );

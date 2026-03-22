@@ -16,6 +16,6 @@ export async function getSecret(
     );
     return data;
   } catch (err) {
-    throw parseAxiosError(err, 'Unable to retrieve secret');
+    throw parseAxiosError(err, '无法获取密钥信息');
   }
 }

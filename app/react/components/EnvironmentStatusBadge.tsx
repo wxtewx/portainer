@@ -11,11 +11,11 @@ interface Props {
 export function EnvironmentStatusBadge({ status }: Props) {
   return status === EnvironmentStatus.Up ? (
     <EnvironmentStatusBadgeItem color="success" icon={CheckCircle}>
-      Up
+      运行中
     </EnvironmentStatusBadgeItem>
   ) : (
     <EnvironmentStatusBadgeItem color="danger" icon={XCircle}>
-      Down
+      已停止
     </EnvironmentStatusBadgeItem>
   );
 }

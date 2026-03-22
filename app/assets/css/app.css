@@ -287,11 +287,6 @@ input[type='checkbox'] {
   margin: 0 !important;
 }
 
-.terminal-container {
-  width: 100%;
-  padding: 10px 0;
-}
-
 .interactive {
   cursor: pointer;
 }
@@ -720,7 +715,7 @@ input:-webkit-autofill {
 rules for styling the progress bar on both chrome and firefox
 first rule is for firefox and the second rule is for chrome
 
-use the `.progress-filled` tailwind variant util to style the filled value of the progress bar, 
+use the `.progress-filled` tailwind variant util to style the filled value of the progress bar,
 and the usual styles to style the unfilled value.
 
 see app/react/edge/edge-stacks/ListView/EdgeStacksDatatable/DeploymentCounter.tsx for an example

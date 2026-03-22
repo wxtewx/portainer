@@ -22,7 +22,7 @@ test('when user is using more nodes then allowed he should see message', async (
 
   await expect(
     findByText(
-      /The number of nodes for your license has been exceeded. Please contact your administrator./
+      /已超出许可证允许的节点数量，请联系管理员。/
     )
   ).resolves.toBeVisible();
 });
@@ -41,7 +41,7 @@ test("when user is using less nodes then allowed he shouldn't see message", asyn
 
   await expect(
     findByText(
-      /The number of nodes for your license has been exceeded. Please contact your administrator./
+      /已超出许可证允许的节点数量，请联系管理员。/
     )
   ).rejects.toBeTruthy();
 });

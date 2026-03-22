@@ -82,7 +82,7 @@ func withCli(
 	// 3. auths       – inline credentials defined in config.json
 	//
 	// Many Docker Desktop users (Windows/macOS) have a global credsStore configured
-	// by default (e.g. "desktop.exe" on Windows or "osxkeychain" on macOS). These
+	// by default (例如： "desktop.exe" on Windows or "osxkeychain" on macOS). These
 	// global stores often do not include credentials for the custom registries
 	// defined in Portainer stacks, leading to authentication failures.
 	//

@@ -5,7 +5,7 @@
 	 Use the Parse function to enable feature flags and also the pass a list of
 	 available flags
 
-	   e.g.
+	   例如：
 	    var SupportedFeatureFlags = []featureflags.Feature{
 			"my-feature",
 		}
@@ -71,7 +71,7 @@ func initSupportedFeatures(supportedFeatures []Feature) {
 // It accepts a list of feature flags as strings and a list of supported features.
 // It will also check for feature flags in the PORTAINER_FEATURE_FLAGS environment variable.
 // Multiple feature flags can be specified with the PORTAINER_FEATURE_FLAGS environment.
-// variable using a comma separated list. e.g. "PORTAINER_FEATURE_FLAGS=feature1,feature2".
+// variable using a comma separated list. 例如： "PORTAINER_FEATURE_FLAGS=feature1,feature2".
 // If a feature flag is not supported, it will be logged and ignored.
 // If a feature flag is supported, it will be logged and enabled.
 func Parse(features []string, supportedFeatures []Feature) {

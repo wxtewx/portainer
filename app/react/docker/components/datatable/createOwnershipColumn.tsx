@@ -17,7 +17,7 @@ export function createOwnershipColumn<D extends IResource>(
   return {
     accessorFn: (row) =>
       row.ResourceControl?.Ownership || ResourceControlOwnership.ADMINISTRATORS,
-    header: 'Ownership',
+    header: '所有权',
     id: 'ownership',
     cell: OwnershipCell,
     enableHiding,
@@ -26,7 +26,22 @@ export function createOwnershipColumn<D extends IResource>(
   function OwnershipCell({
     getValue,
   }: CellContext<D, ResourceControlOwnership>) {
-    const value = getValue();
+    let value = getValue();
+
+    switch (value) {
+      case ResourceControlOwnership.PUBLIC:
+        value = '公共';
+        break;
+      case ResourceControlOwnership.PRIVATE:
+        value = '私有';
+        break;
+      case ResourceControlOwnership.RESTRICTED:
+        value = '受限';
+        break;
+      case ResourceControlOwnership.ADMINISTRATORS:
+        value = '管理员';
+        break;
+    }
 
     return (
       <span className="flex items-center gap-2">

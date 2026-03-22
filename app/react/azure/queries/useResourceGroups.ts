@@ -30,7 +30,7 @@ export function useResourceGroups(
         return [subscription.subscriptionId, groups] as const;
       },
 
-      ...withError('Unable to retrieve Azure resource groups'),
+      ...withError('无法获取 Azure 资源组'),
     })),
   });
 
@@ -67,7 +67,7 @@ async function getResourceGroups(
   } catch (err) {
     throw parseAxiosError(
       err as Error,
-      'Unable to retrieve resource groups',
+      '无法获取资源组',
       azureErrorParser
     );
   }

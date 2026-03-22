@@ -16,8 +16,8 @@ function Template({ title, content }: Args) {
   return <FormSection title={title}>{content}</FormSection>;
 }
 
-const exampleContent = `Content
-  
+const exampleContent = `内容
+
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas turpis magna,
    vel pretium dui rhoncus nec. Maecenas felis purus, consectetur non porta sit amet,
     auctor sed sapien. Aliquam eu nunc felis. Pellentesque pulvinar velit id quam pellentesque,
@@ -27,12 +27,12 @@ const exampleContent = `Content
 
 export const Example: StoryFn<Args> = Template.bind({});
 Example.args = {
-  title: 'title',
+  title: '标题',
   content: exampleContent,
 };
 
 export function FoldableSection({
-  title = 'title',
+  title = '标题',
   content = exampleContent,
 }: Args) {
   return (

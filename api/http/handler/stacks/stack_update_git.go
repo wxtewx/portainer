@@ -36,7 +36,7 @@ func (payload *stackGitUpdatePayload) Validate(r *http.Request) error {
 
 // @id StackUpdateGit
 // @summary Update a stack's Git configs
-// @description Update the Git settings in a stack, e.g., RepositoryReferenceName and AutoUpdate
+// @description Update the Git settings in a stack, 例如：, RepositoryReferenceName and AutoUpdate
 // @description **Access policy**: authenticated
 // @tags stacks
 // @security ApiKeyAuth

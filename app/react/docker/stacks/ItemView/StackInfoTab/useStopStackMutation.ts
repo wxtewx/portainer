@@ -25,6 +25,6 @@ async function stopStack({
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Unable to stop stack');
+    throw parseAxiosError(e, '无法停止堆栈');
   }
 }

@@ -33,6 +33,6 @@ export async function inspectContainer(
     );
     return data;
   } catch (e) {
-    throw parseAxiosError(e, 'Failed inspecting container');
+    throw parseAxiosError(e, '容器检查失败');
   }
 }

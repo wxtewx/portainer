@@ -13,7 +13,7 @@ import { EnvironmentList } from './EnvironmentList';
 test('when no environments for query should show empty list message', async () => {
   const { findByText } = await renderComponent(false, []);
 
-  await expect(findByText('No environments available.')).resolves.toBeVisible();
+  await expect(findByText('暂无可用环境。')).resolves.toBeVisible();
 });
 
 test('when user is not admin and no environments at all should show empty list info message', async () => {
@@ -21,7 +21,7 @@ test('when user is not admin and no environments at all should show empty list i
 
   await expect(
     findByText(
-      'You do not have access to any environment. Please contact your administrator.'
+      '您暂无任何环境的访问权限，请联系管理员。'
     )
   ).resolves.toBeVisible();
 });
@@ -30,7 +30,7 @@ test('when user is an admin and no environments at all should show empty list in
   const { findByText } = await renderComponent(true);
 
   await expect(
-    findByText(/No environment available for management. Please head over the/)
+    findByText(/暂无可管理的环境。请前往/)
   ).resolves.toBeVisible();
 });
 
@@ -59,7 +59,7 @@ async function renderComponent(
     <Wrapped onClickBrowse={vi.fn()} onRefresh={vi.fn()} />
   );
 
-  await expect(queries.findByText('Environments')).resolves.toBeVisible();
+  await expect(queries.findByText('环境')).resolves.toBeVisible();
 
   return queries;
 }

@@ -44,7 +44,7 @@ angular.module('portainer.app').factory('EndpointService', [
         })
         .catch(function error(err) {
           deferred.notify({ upload: false });
-          deferred.reject({ msg: 'Unable to update environment', err: err });
+          deferred.reject({ msg: '无法创建环境', err: err });
         });
       return deferred.promise;
     };
@@ -71,7 +71,7 @@ angular.module('portainer.app').factory('EndpointService', [
           deferred.resolve(response.data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create environment', err: err });
+          deferred.reject({ msg: '无法创建环境', err: err });
         });
 
       return deferred.promise;
@@ -118,7 +118,7 @@ angular.module('portainer.app').factory('EndpointService', [
           deferred.resolve(response.data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create environment', err: err });
+          deferred.reject({ msg: '无法创建环境', err: err });
         });
 
       return deferred.promise;
@@ -132,7 +132,7 @@ angular.module('portainer.app').factory('EndpointService', [
           deferred.resolve(response.data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to create environment', err: err });
+          deferred.reject({ msg: '无法创建环境', err: err });
         });
 
       return deferred.promise;
@@ -146,7 +146,7 @@ angular.module('portainer.app').factory('EndpointService', [
           deferred.resolve(response.data);
         })
         .catch(function error(err) {
-          deferred.reject({ msg: 'Unable to connect to Azure', err: err });
+          deferred.reject({ msg: '无法连接到 Azure', err: err });
         });
 
       return deferred.promise;

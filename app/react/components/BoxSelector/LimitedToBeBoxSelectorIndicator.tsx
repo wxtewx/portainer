@@ -27,7 +27,7 @@ export function LimitedToBeBoxSelectorIndicator({
         {showTooltip && (
           <Tooltip
             size="sm"
-            message="Select this option to preview this business feature."
+            message="选择此选项以预览该企业版功能。"
           />
         )}
       </div>

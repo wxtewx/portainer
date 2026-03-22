@@ -20,15 +20,15 @@ export function OptionsSection({ stack, apiVersion }: Props) {
   }
 
   return (
-    <FormSection title="Options">
+    <FormSection title="选项">
       <div className="form-group">
         <div className="col-sm-12">
           <SwitchField
             name="prune"
             checked={values.prune}
-            tooltip="Prune services that are no longer referenced."
+            tooltip="清理不再被引用的服务。"
             labelClass="col-sm-3 col-lg-2"
-            label="Prune services"
+            label="清理服务"
             onChange={(value) => setFieldValue('prune', value)}
             data-cy="stack-prune-services-switch"
           />

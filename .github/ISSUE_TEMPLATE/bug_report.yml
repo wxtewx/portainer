@@ -37,7 +37,7 @@ body:
         - Respect the issue template as much as possible.
         - Summarize the issue so that we understand what is going wrong.
         - Describe what you would have expected to have happened, and what actually happened instead.
-        - Provide easy to follow steps to reproduce the issue. 
+        - Provide easy to follow steps to reproduce the issue.
         - Remain clear and concise.
         - Format your messages to help the reader focus on what matters and understand the structure of your message, use [Markdown syntax](https://help.github.com/articles/github-flavored-markdown).
 
@@ -94,6 +94,7 @@ body:
       description: We only provide support for current versions of Portainer as per the lifecycle policy linked above. If you are on an older version of Portainer we recommend [updating first](https://docs.portainer.io/start/upgrade) in case your bug has already been fixed.
       multiple: false
       options:
+        - '2.39.0'
         - '2.38.1'
         - '2.38.0'
         - '2.37.0'
@@ -142,8 +143,6 @@ body:
         - '2.21.4'
         - '2.21.3'
         - '2.21.2'
-        - '2.21.1'
-        - '2.21.0'
     validations:
       required: true
 
@@ -164,7 +163,7 @@ body:
     attributes:
       label: Platform and Version
       description: |
-        Enter your container management platform (Docker | Swarm | Kubernetes) along with the version. 
+        Enter your container management platform (Docker | Swarm | Kubernetes) along with the version.
         Example: Docker 24.0.3 | Docker Swarm 24.0.3 | Kubernetes 1.26
         You can find our supported platforms [in our documentation](https://docs.portainer.io/start/requirements-and-prerequisites).
     validations:

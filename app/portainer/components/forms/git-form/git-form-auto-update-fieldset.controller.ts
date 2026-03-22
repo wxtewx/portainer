@@ -35,7 +35,7 @@ export default class GitFormAutoUpdateFieldsetController {
   async handleChange(newValues: Partial<AutoUpdateModel>) {
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
 
     const value = {
@@ -72,7 +72,7 @@ export default class GitFormAutoUpdateFieldsetController {
   async $onInit() {
     // this should never happen, but just in case
     if (!this.value) {
-      throw new Error('GitFormController: value is required');
+      throw new Error('GitFormController: 缺少 value 值');
     }
 
     await this.runGitValidation(this.value);

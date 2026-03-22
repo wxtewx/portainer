@@ -29,7 +29,7 @@ import (
 	"github.com/portainer/portainer/api/dataservices/version"
 	"github.com/portainer/portainer/api/internal/authorization"
 
-	"github.com/Masterminds/semver"
+	"github.com/Masterminds/semver/v3"
 	"github.com/rs/zerolog/log"
 )
 
@@ -177,7 +177,7 @@ func (m *Migrator) GetMigratorCountOfCurrentAPIVersion() int {
 // !      In practice this really just means an extra check or two to ensure we're not destroying valid data.
 // !      This is not a hard rule though.  Understand the limitations.  A migration function may only run over
 // !      the data more than once if a new migration function is added and the version of your database schema is
-// !      the same.  e.g. two developers working on the same version add two different functions for different things.
+// !      the same.  例如： two developers working on the same version add two different functions for different things.
 // !      This increases the migration funcs count and so they all run again.
 
 type Migrations struct {

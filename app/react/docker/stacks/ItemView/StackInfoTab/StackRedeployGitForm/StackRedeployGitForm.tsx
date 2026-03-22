@@ -97,10 +97,10 @@ export function StackRedeployGitForm({ stack }: { stack: Stack }) {
       },
       {
         onError(err) {
-          notifyError('Failure', err as Error, 'Unable to save stack settings');
+          notifyError('失败', err as Error, '无法保存堆栈设置');
         },
         onSuccess() {
-          notifySuccess('Success', 'Save stack settings successfully');
+          notifySuccess('成功', '堆栈设置保存成功');
           resetForm({ values });
         },
       }
@@ -110,7 +110,7 @@ export function StackRedeployGitForm({ stack }: { stack: Stack }) {
   async function handleDeploy(values: FormValues) {
     const isSwarmStack = stack.Type === StackType.DockerSwarm;
     const result = await confirmStackUpdate(
-      'Any changes to this stack or application made locally in Portainer will be overridden, which may cause service interruption. Do you wish to continue?',
+      '在 Portainer 中对此堆栈或应用所做的任何本地更改都将被覆盖，这可能会导致服务中断。您确定要继续吗？',
       isSwarmStack
     );
 
@@ -133,10 +133,10 @@ export function StackRedeployGitForm({ stack }: { stack: Stack }) {
 
     deployMutation.mutate(payload, {
       onError(err) {
-        notifyError('Failure', err as Error, 'Failed redeploying stack');
+        notifyError('失败', err as Error, '重新部署堆栈失败');
       },
       onSuccess() {
-        notifySuccess('Success', 'Pulled and redeployed stack successfully');
+        notifySuccess('成功', '已成功拉取并重新部署堆栈');
         router.stateService.reload();
       },
     });

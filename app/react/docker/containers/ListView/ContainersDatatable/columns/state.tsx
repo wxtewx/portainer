@@ -12,13 +12,13 @@ import { multiple } from '@@/datatables/filter-types';
 import { columnHelper } from './helper';
 
 export const state = columnHelper.accessor('Status', {
-  header: 'State',
+  header: '状态',
   id: 'state',
   cell: StatusCell,
   enableColumnFilter: true,
   filterFn: multiple,
   meta: {
-    filter: filterHOC('Filter by state'),
+    filter: filterHOC('按状态筛选'),
   },
 });
 
@@ -27,6 +27,18 @@ function StatusCell({
   row: { original: container },
 }: CellContext<ContainerListViewModel, ContainerStatus>) {
   const status = getValue();
+
+  const statusMap: Record<ContainerStatus, string> = {
+    [ContainerStatus.Paused]: '已暂停',
+    [ContainerStatus.Stopped]: '已停止',
+    [ContainerStatus.Created]: '已创建',
+    [ContainerStatus.Healthy]: '健康',
+    [ContainerStatus.Unhealthy]: '不健康',
+    [ContainerStatus.Starting]: '启动中',
+    [ContainerStatus.Running]: '运行中',
+    [ContainerStatus.Dead]: '已失效',
+    [ContainerStatus.Exited]: '已退出',
+  };
 
   const hasHealthCheck = [
     ContainerStatus.Starting,
@@ -38,7 +50,7 @@ function StatusCell({
 
   let transformedStatus: ContainerStatus | string = status;
   if (transformedStatus === ContainerStatus.Exited) {
-    transformedStatus = `${transformedStatus} - code ${extractExitCode(
+    transformedStatus = `${transformedStatus} - 代码 ${extractExitCode(
       container.StatusText
     )}`;
   }
@@ -48,9 +60,9 @@ function StatusCell({
       className={clsx('label', `label-${statusClassName}`, {
         interactive: hasHealthCheck,
       })}
-      title={hasHealthCheck ? 'This container has a health check' : ''}
+      title={hasHealthCheck ? '该容器包含健康检查' : ''}
     >
-      {transformedStatus}
+      {transformedStatus.toString().replace(status, statusMap[status] || status)}
     </span>
   );
 

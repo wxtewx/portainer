@@ -11,7 +11,7 @@ Context.displayName = 'ModalContext';
 export function useModalContext() {
   const context = useContext(Context);
   if (!context) {
-    throw new Error('should be nested under Modal');
+    throw new Error('必须嵌套在 Modal 组件内');
   }
 
   return context;
